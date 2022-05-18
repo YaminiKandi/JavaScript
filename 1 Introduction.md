@@ -383,6 +383,110 @@ Finished Execution
 * In 2004, NETSCAPE Communications stopped its services and gave their LIVESCRIPT to "SUN Microsystems", and later they published LIVESCRIPT with another name called "JAVASCRIPT"
 * Brendan-Eich started his own organisation and he developed a browser called "MOzilla Firefox"
 
+### What is the purpose of using Javascript with HTML in WebDevelopment?
+* Javascript reduces burden on server by managing Interactions client-side.
+* It works as a Client-Side Script.
+* Client-Side Script is the Script that run on client browser and it is used to manipulate HTML DOM.
+    1. Adding Elements into Page
+    2. Removing Elements from Page
+    3. Modifying Data in Elements
+    4. Managing the Validations for data in Elements etc,..
+* Client-side Script can handle browser level operations
+
+### What are the Issues with Javascript?
+1. Browser Compatibility
+2. Security - Memory Leak
+3. It is Complex in References
+4. Lot of DOM Manipulations
+5. Navigational Issues 
+6. It is Tedious[slow,long]
+7. It will not support all OOP Features
+8. Extensibility Issues 
+9. It is not strongly type language
+10. Data Binding
+
+### How Javascript is used for HTML Page?
+HTML page can use Javascript - Inline, Embedded, External File
+
+#### Inline Technique:
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inline Technique</title>
+    </head>
+    <body>
+        <h1>Welcome to Javascript Inline Technique</h1>
+        <button type="button" onclick="window.print()">Print</button>
+        <button type="button" onclick="window.alert('welcome to Javascript Inline Technique')">Alert</button>
+        <button type="button">Print</button>
+    </body>
+</html>
+```
+#### Embedded Technique:
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Embedded Technique</title>
+        <script>
+            function btnClick(){
+                window.print();
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Welcome to Javascript Embedded Technique</h1>
+        <button type="button" onclick="btnClick()">Print</button>
+        <button type="button" onclick="btnClick()">Print</button>
+    </body>
+</html>
+```
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Embedded Technique</title>
+    </head>
+    <body>
+        <h1>Welcome to Javascript Embedded Technique</h1>
+        <button type="button" onclick="btnClick()">Print</button>
+        <button type="button" onclick="btnClick()">Print</button>
+        <script>
+            function btnClick(){
+                window.print();
+            }
+        </script>
+    </body>
+</html>
+```
+##### Where to Embed Script, head or body?
+* You can Embed script in head, body and outside HTML Document Scope.
+* Script in Head Section is defined when developer wants the functionality to load into Memory but perform only when requested.
+* script in Body Section is defined when developer wants the functionality Immediately on page load.
+* Script outside HTML Document Scope is Not Recommended
+
+#### Javascript from External File:
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>External Technique</title>
+        <script src="external.js"></script>
+    </head>
+    <body>
+        <h1>Welcome to Javascript External File</h1>
+        <button type="button" onclick="btnClick()">Print</button>
+    </body>
+</html>
+```
+external.js:
+```js
+function btnClick(){
+    window.print()
+}
+```
+
 ### Javascript can change the content of the HTML element:
 * One of many JavaScript HTML methods is getElementById().
 * The example below "finds" an HTML element (with id="demo"), and changes the element content (innerHTML) to "Hello JavaScript":
