@@ -1,4 +1,4 @@
-# DON'T IMITATE, UNDERSTAND
+# <span style="color:cyan">DON'T IMITATE, UNDERSTAND</span>
 
 ### Syntax Parser:
 * A Program that reads your code and determines what it does and if its grammar is valid.
