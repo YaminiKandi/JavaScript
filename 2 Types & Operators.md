@@ -52,3 +52,23 @@ isNew 1;
 |/=	| x /= y  |	x = x / y |
 |%=	| x %= y  | x = x % y |
 |**= |	x **= y	| x = x ** y|
+
+```js
+var a = 3 + 4;
+console.log(a);
+```
+Output: 7
+
+```js
+var a = 3 > 4;
+console.log(a);
+```
+Output: false 
+
+### Operator precedence and Associativity:
+#### Operator precedence:
+* Which operator function gets called first. 
+* Functions are called in order of precedence (HIGHER precedence wins).
+#### Operator Associativity:
+* What order operator functions gets called in. (left to right or right to left)
+* when functions have the same precedence.

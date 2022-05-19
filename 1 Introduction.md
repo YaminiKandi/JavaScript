@@ -399,7 +399,7 @@ Finished Execution
 3. It is Complex in References
 4. Lot of DOM Manipulations
 5. Navigational Issues 
-6. It is Tedious[slow,long]
+6. It is Tedious (slow, long)
 7. It will not support all OOP Features
 8. Extensibility Issues 
 9. It is not strongly type language
