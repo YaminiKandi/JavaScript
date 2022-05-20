@@ -303,3 +303,84 @@ else{
 Output: Something is there!
 * (a || a === 0), checking for precedence Strict equality have a higher precedence value than logical OR and it will execute first. 
 * (a || a === 0) : (a || true) : (false || true) : (true)
+
+### Default Values:
+```js
+function greet(name) {
+    console.log('Hello ' + name);
+}
+greet('yamini');
+```
+Output:
+Hello yamini
+```js
+function greet(name) {
+    console.log('Hello ' + name);
+}
+greet();
+```
+Output:
+Hello undefined
+* Here JavaScript engine coerced, the undefined primitive type to the string undefined.
+* This is not ideal behaviour.
+
+What if we want a default value for this parameter?
+```js
+//Operators are functions that return value
+true || false // true 
+undefined || "Hello" // "Hello" 
+null || "Hello" // "Hello"
+"" || "Hello" // "Hello"
+Boolean("Hello") // true
+"hi" || "hello" // "hi" (1st one)
+0 || 1 // 1
+```
+```js
+function greet(name) {
+    name = name || 'Yamini'; // precedence of // is more than =
+    console.log('Hello ' + name);
+}
+greet();
+```
+Output: 
+Hello Yamini
+```js
+function greet(name) {
+    name = name || 'Yamini'; // Here Yamini is the default value
+    console.log('Hello ' + name);
+}
+greet("World");
+greet();
+```
+Output:
+Hello World
+Hello Yamini
+
+### Framework aside: Default Values
+```html
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script src="lib1.js"></script>
+        <script src="lib2.js"></script>
+        <script src="sun.js"></script>
+    </body>
+</html>
+```
+```js
+// lib1.js
+var libraryName = "Lib1";
+```
+```js
+// lib2.js
+var libraryName = "Lib2";
+```
+```js
+// sun.js
+console.log(libraryName);
+```
+Output:
+Lib2
