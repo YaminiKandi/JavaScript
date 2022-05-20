@@ -139,3 +139,167 @@ Output: false
 | |yield  |	right-to-left	| yield … |
 | |yield* |  right-to-left |	yield* … |
 |1|	Comma / Sequence	| left-to-right |	… , … |
+
+Assignment:
+```js
+var a = 2, b = 3, c = 4;
+a = b = c;
+console.log(a);
+console.log(b);
+console.log(c);
+```
+```
+Output:
+4
+4
+4
+```
+```js
+var a = 3 + 4 * 5; 
+var b = (3 + 4) * 5; // (..) indicates Grouping (comes 1st)
+console.log(a);
+console.log(b);
+```
+```
+Output:
+23
+35
+```
+
+### Coercion:
+* Converting a value from one type to another.
+* This happens quite often in JavaScript because it's dynamically typed.
+```js
+var a = 1 + 2; //3
+var b = 'Hello' + ' World'; //concatenate the strings - Hello World
+var c = '1' + '2'; //12
+var d = 1 + '2'; //12 
+```
+* In d, the 1st parameter was coerced by the javascript engine into a string.
+* But in computer memory number 1 and string 1 don't look anything alike.
+* when we call a + operator, and we gave a number and a string then the javascript engine going to make a choice to try to coerce that number into a string.
+
+```js
+var a = 1, b = '2';
+console.log(a + b); // results 12
+```
+
+### Comparision Operators:
+```js
+var a = (1 < 2 < 3); //true
+var b = (3 < 2 < 1); //true
+```
+Variable b:
+* In var b, '<' operator associativity is from left to right. 
+* (3 < 2) implies false 
+* (false < 1) implies (0 < 1) == true
+* we can check them in console
+```
+Number(false) == 0
+Number(true) == 1
+Number(undefined) == NaN (Not a Number)
+Number(null) == 0
+```
+Variable a:
+* (1 < 2 < 3) == (true < 3) == (1 < 3) == true
+
+##### Using equality(==) operator causes strange actions
+```js
+3 == 3 // true
+3 == '3' // true
+false == 0 // true
+
+var a = false; //undefined
+a == 0; // true
+
+null == 0 //true
+null < 1; // true
+"" == 0; //true
+"" == false; //true
+```
+##### Strict Equality(===) doesn't allow coercion:
+* Using this operator we can prevent some odd potential errors in our code.
+```js
+3 === 3; //true
+3 === "3"; //false
+```
+```js
+var a = 0;
+var b = false;
+if (a == b) {
+    console.log('They are equal!');
+}
+else {
+    console.log('Nope, Not equal.');
+}
+```
+Output:
+They are equal!
+```js
+var a = 0;
+var b = false;
+if (a == b) {
+    console.log('They are equal!');
+}
+else {
+    console.log('Nope, Not equal.');
+}
+```
+Output:
+Nope, Not equal.
+#### Note: Better to use Strict Equality
+
+### Existence and Booleans:
+```js
+Boolean(undefined); //false
+Boolean(null); //false
+Boolean(""); //false
+Boolean(0); //false
+```
+* These things that imply the lack of existence, they convert to false.
+* we can use this for our advantage.
+```js
+var a;
+if (a) {
+    console.log('Something is there!');
+}
+else{
+    console.log('false');
+}
+```
+Output: false
+```js
+var a;
+a = 'hi';
+if (a) {
+    console.log('Something is there!');
+}
+else{
+    console.log('false');
+}
+```
+Output: Something is there!
+```js
+var a;
+a = 0;
+if (a) {
+    console.log('Something is there!');
+}
+else{
+    console.log('false');
+}
+```
+Output: false
+```js
+var a;
+a = 0;
+if (a || a === 0) {
+    console.log('Something is there!');
+}
+else{
+    console.log('false');
+}
+```
+Output: Something is there!
+* (a || a === 0), checking for precedence Strict equality have a higher precedence value than logical OR and it will execute first. 
+* (a || a === 0) : (a || true) : (false || true) : (true)

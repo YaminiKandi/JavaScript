@@ -1,5 +1,8 @@
-var a = 2, b = 3, c = 4;
-a = b = c;
-console.log(a);
-console.log(b);
-console.log(c);
+var a;
+a = 0;
+if (a) {
+    console.log('Something is there!');
+}
+else{
+    console.log('false');
+}
