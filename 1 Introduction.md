@@ -501,6 +501,51 @@ function btnClick(){
     </body>
 </html>
 ```
+get and set content in Textfields - readable element:
+```html
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>What Can JavaScript Do?</h2>
+        <p id="demo">JavaScript can change HTML content.</p>
+        <script>
+            function getContent() {
+               var name = document.getElementById("demo").innerHTML;
+               document.getElementById("demo2").innerHTML = "Hello JavaScript";
+            }
+            function setContent() {
+                document.getElementById("demo").innerHTML = "Hello JavaScript";
+            }
+        </script>
+        <h3 id="demo2"></h3>
+        <button type="button" onclick='getContent()'>Get Content</button>
+        <button type="button" onclick='setContent()'>Set Content</button>
+    </body>
+</html>
+```
+get and set content in textbox - writable elements:
+```html
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>What Can JavaScript Do?</h2>
+        <p id="demo">JavaScript can change HTML content.</p>
+        <script>
+            function getContent() {
+               var name = document.getElementById("demo").value;
+               document.getElementById("demo2").innerHTML = "Hello JavaScript";
+            }
+            function setContent() {
+                document.getElementById("txtbox").value = "Hello JavaScript";
+            }
+        </script>
+        <h3 id="demo2"></h3>
+        <input type="text" id="txtbox"><br><br>
+        <button type="button" onclick='getContent()'>Get Content</button>
+        <button type="button" onclick='setContent()'>Set Content</button>
+    </body>
+</html>
+```
 
 ### Javascript can change HTML attribute values:
 ```html
