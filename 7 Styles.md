@@ -1,8 +1,6 @@
-
 ### Javascript can change the content of the HTML element:
 * One of many JavaScript HTML methods is getElementById().
-* The example below "finds" an HTML element (with id="demo"), and changes the element content (innerHTML) to "Hello JavaScript":
-
+* The example below "finds" an HTML element (with id="demo"), and changes the element content (innerHTML) to "Hello JavaScript"
 ```html
 <!DOCTYPE html>
 <html>
@@ -13,7 +11,7 @@
     </body>
 </html>
 ```
-get and set content in Textfields - readable element:
+##### get and set content in Textfields - readable element:
 ```html
 <!DOCTYPE html>
 <html>
@@ -35,7 +33,7 @@ get and set content in Textfields - readable element:
     </body>
 </html>
 ```
-get and set content in textbox - writable elements:
+##### get and set content in textbox - writable elements:
 ```html
 <!DOCTYPE html>
 <html>
@@ -174,7 +172,7 @@ onmouseover, onmouseout
     </body>
 </html>
 ```
-onload:
+#### onload:
 ```html
 <!DOCTYPE html>
 <html>
@@ -192,8 +190,7 @@ onload:
 </html>
 ```
 
-
-ondblclick:
+#### ondblclick:
 ```html
 <!DOCTYPE html>
 <html>

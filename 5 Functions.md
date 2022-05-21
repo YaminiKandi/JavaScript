@@ -1,11 +1,7 @@
-## Functions in JavaScript:
-* A JavaScript function is a block of code designed to perform a particular task and is executed when "something" invokes it (calls it).
-* It is defined with the function keyword, followed by a name, followed by parentheses ().
-* Function names can contain letters, digits, underscores, and dollar signs (same rules as variables).
-
 ### Function Expressions:
-A JavaScript function can also be defined using an expression.
-A function expression can be stored in a variable and after storing, the variable can be used as a function.
+* A unit of code that results in a value. It doesn't have to save to a variable.
+* A JavaScript function can also be defined using an expression.
+* A function expression can be stored in a variable and after storing, the variable can be used as a function.
 ```html
 <!DOCTYPE html>
 <html>
