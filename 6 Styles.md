@@ -1,3 +1,118 @@
+
+### Javascript can change the content of the HTML element:
+* One of many JavaScript HTML methods is getElementById().
+* The example below "finds" an HTML element (with id="demo"), and changes the element content (innerHTML) to "Hello JavaScript":
+
+```html
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>What Can JavaScript Do?</h2>
+        <p id="demo">JavaScript can change HTML content.</p>
+        <button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!"'>Click Me!</button>
+    </body>
+</html>
+```
+get and set content in Textfields - readable element:
+```html
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>What Can JavaScript Do?</h2>
+        <p id="demo">JavaScript can change HTML content.</p>
+        <script>
+            function getContent() {
+               var name = document.getElementById("demo").innerHTML;
+               document.getElementById("demo2").innerHTML = "Hello JavaScript";
+            }
+            function setContent() {
+                document.getElementById("demo").innerHTML = "Hello JavaScript";
+            }
+        </script>
+        <h3 id="demo2"></h3>
+        <button type="button" onclick='getContent()'>Get Content</button>
+        <button type="button" onclick='setContent()'>Set Content</button>
+    </body>
+</html>
+```
+get and set content in textbox - writable elements:
+```html
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>What Can JavaScript Do?</h2>
+        <p id="demo">JavaScript can change HTML content.</p>
+        <script>
+            function getContent() {
+               var name = document.getElementById("demo").value;
+               document.getElementById("demo2").innerHTML = "Hello JavaScript";
+            }
+            function setContent() {
+                document.getElementById("txtbox").value = "Hello JavaScript";
+            }
+        </script>
+        <h3 id="demo2"></h3>
+        <input type="text" id="txtbox"><br><br>
+        <button type="button" onclick='getContent()'>Get Content</button>
+        <button type="button" onclick='setContent()'>Set Content</button>
+    </body>
+</html>
+```
+
+### Javascript can change HTML attribute values:
+```html
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>What Can JavaScript Do?</h2>
+        <p>JavaScript can change HTML attribute values.</p>
+        <p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+        <button onclick="document.getElementById('myImage').src='./assets/pic_bulbon.gif'">Turn on the light</button>
+        <img id="myImage" src="./assets/pic_bulboff.gif" style="width:100px">
+        <button onclick="document.getElementById('myImage').src='./assets/pic_bulboff.gif'">Turn off the light</button>
+    </body>
+</html>
+```
+
+### Javascript can change HTML styles (CSS):
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <h2>What Can JavaScript Do?</h2>
+        <p id="demo">JavaScript can change the style of an HTML element.</p>
+        <button type="button" onclick="document.getElementById('demo').style.fontSize = '35px'";>Click Me!</button>
+    </body>
+</html>
+```
+
+### Javascript can hide HTML elements:
+```html
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>What Can JavaScript Do?</h2>
+        <p id="demo">JavaScript can hide HTML elements.</p>
+        <button type="button" onclick="document.getElementById('demo').style.display='none'">Click Me!</button>
+    </body>
+</html> 
+```
+
+### Javascript can show HTML elements:
+```html
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>What Can JavaScript Do?</h2>
+        <p>JavaScript can show hidden HTML elements.</p>
+        <p id="demo" style="display:none">Hello JavaScript!</p>
+        <button type="button" onclick="document.getElementById('demo').style.display='block'">Click Me!</button>
+    </body>
+</html>
+```
+
 ### Styles in Javascript
 ```html
 <!DOCTYPE html>
