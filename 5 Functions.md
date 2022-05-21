@@ -1,25 +1,71 @@
+### JavaScript Functions:
+* A JavaScript function is a block of code designed to perform a particular task and is executed when "something" invokes it (calls it).
+
+### Function Statement:
+```js
+function greet(){
+    console.log('hi!');
+}
+```
+The above function is placed into memory but its just a statement. It doen't return a value until the function is executed.
+* We can call the greet before we declare it, before we make that function's statement.
+```js
+greet();
+function greet() {
+    console.log('hi!');
+}
+// Output: hi!
+```
+
 ### Function Expressions:
-* A unit of code that results in a value. It doesn't have to save to a variable.
 * A JavaScript function can also be defined using an expression.
 * A function expression can be stored in a variable and after storing, the variable can be used as a function.
+* This function doesn't want any name.
+```js
+var anonymousGreet = function() {
+    console.log('hi!');
+}
+anonymousGreet();
+```
+Here we cannot call the anonymousGreet() before assigning function to it. As it puts function statements and variables into memory first.
+```js
+anonymousGreet();
+var anonymousGreet = function() {
+    console.log('hi!');
+}
+// Output: uncaught type error: anonymousGreet is not a function
+```
+```js
+var anonymousGreet = function(){
+    console.log('hi');
+}
+anonymousGreet();   
+function log(a){
+    console.log(a);
+}
+log(function (){
+    console.log('hi');
+});
+```
+```js
+Output:
+hi
+function (){
+    console.log('hi');
+}
+```
 ```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>JavaScript Functions</title>
-    </head>
-    <body>   
-        <h2>JavaScript Functions</h2>
-        <p>A function can be stored in a variable:</p>
-        <h4 id="demo"></h4>
-        <h4 id="d1"></h4>
-        <script>
-            const x = function (a, b) {return a * b};
-            document.getElementById("demo").innerHTML = x;
-            document.getElementById("d1").innerHTML = x(30, 20);
-        </script>
-    </body>
-</html>
+<body>   
+    <h2>JavaScript Functions</h2>
+    <p>A function can be stored in a variable:</p>
+    <h4 id="demo"></h4>
+    <h4 id="d1"></h4>
+    <script>
+        const x = function (a, b) {return a * b};
+        document.getElementById("demo").innerHTML = x;
+        document.getElementById("d1").innerHTML = x(30, 20);
+    </script>
+</body>
 ```
 ##### Note:
 * The function above is actually an anonymous function (a function without a name).
@@ -39,7 +85,7 @@
     </script>
 </body>
 ```
-Note: We actually don't have to use the function constructor. The example above is the same as writing:
+##### Note: We actually don't have to use the function constructor. The example above is the same as writing
 ```js
 const myFunction = function (a, b) {return a * b}
 document.getElementById("demo").innerHTML = myFunction(4, 3);
@@ -48,7 +94,7 @@ document.getElementById("demo").innerHTML = myFunction(4, 3);
 ### Types of Functions:
 1.Function without parametres 
 2.Function with parametres
-3.Function with returntype
+3.Function with returntype   
 
 #### 1. Function without parametres:
 ##### document.write():
