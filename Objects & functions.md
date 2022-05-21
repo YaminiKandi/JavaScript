@@ -153,3 +153,19 @@ console.log(english.greetings.greet); // Hello!
 
 ### JSON:
 JSON - JavaScript Object Notation
+* JSON is technically a subset of the object literal syntax.(Meaning - anything that is JSON valid is also valid JavaScript object literal syntax)
+* So JSON has stricter rules about what it can be.
+* JSON, isn't really a part of JavaScript but its so easy for JavaScript what JSON is, JavaScript come with some built-in functionality to transfer between the two. 
+* So, for any object we can do JSON.
+* JSON.stringify convert the object to a JSON string.
+
+```js
+var objectLiteral={
+    firstname:'Mary',
+    isAProgrammer:true
+}
+console.log(JSON.stringify(objectLiteral));
+var jsonValue = JSON.parse('{ "firstname" : "Mary", "isAProgrammer" : true }');
+console.log(jsonValue);
+```
+Here, we are converting an object into an JSON string and then converting that JSON string again to an object.
