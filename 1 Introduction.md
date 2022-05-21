@@ -601,21 +601,6 @@ get and set content in textbox - writable elements:
 </html>
 ```
 
-### Javascript Whereto:
-* In HTML, JavaScript code is inserted between `<script>` and `</script>` tags.
-```html
-<!DOCTYPE html>
-<html>
-    <body>
-        <h2>JavaScript in Body</h2>
-        <p id="demo"></p>
-        <script>
-            document.getElementById("demo").innerHTML = "My First JavaScript";
-        </script>
-    </body>
-</html>
-```
-
 ### JavaScript Functions and Events:
 * A JavaScript function is a block of JavaScript code, that can be executed when "called" for.
 * For example, a function can be called when an event occurs, like when the user clicks a button.

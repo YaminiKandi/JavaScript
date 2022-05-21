@@ -373,14 +373,18 @@ Hello Yamini
 ```js
 // lib1.js
 var libraryName = "Lib1";
-```
-```js
 // lib2.js
 var libraryName = "Lib2";
-```
-```js
 // sun.js
 console.log(libraryName);
 ```
-Output:
-Lib2
+Output: Lib2
+```js
+// lib1.js
+var libraryName = "Lib1";
+// lib2.js
+var libraryName = window.libraryName || "Lib2";
+// sun.js
+console.log(libraryName);
+```
+Output: Lib1
