@@ -324,7 +324,7 @@ Hello undefined
 * Here JavaScript engine coerced, the undefined primitive type to the string undefined.
 * This is not ideal behaviour.
 
-What if we want a default value for this parameter?
+### What if we want a default value for this parameter?
 ```js
 //Operators are functions that return value
 true || false // true 
