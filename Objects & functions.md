@@ -168,4 +168,33 @@ console.log(JSON.stringify(objectLiteral));
 var jsonValue = JSON.parse('{ "firstname" : "Mary", "isAProgrammer" : true }');
 console.log(jsonValue);
 ```
+```
+Output:
+{"firstname":"Mary","isAProgrammer":true}
+Object{firstname: 'Mary', isAProgrammer: true}
+```
 Here, we are converting an object into an JSON string and then converting that JSON string again to an object.
+
+### Functions are Objects:
+#### First Class Functions:
+Everything you can do with other types, you can do with Functions
+Assign them to variables,pass them around, create them on the fly.
+function is a special type of object because it has all the features of a normal object and has some other special properties
+We can attach methods and properties to a function because it's an object.
+A function can be attached to 
+* primitive (name-value)
+* Object
+* other functions
+* name of the function (optional, can be anonymous)
+* Code (the function is an object with other properties and the code we write is just one of those properties that we're adding onto it. The special with this property is "INVOCABLE". This is where exceution and running code happens.)
+```js
+function greet(){
+    console.log('hi');
+}
+greet.language='english';
+console.log(greet.language); //english
+```
+The above function:
+* It has a name called greet
+* It has a code property `console.log()` and Invocable
+#### In JavaScript, Functions are Objects.
