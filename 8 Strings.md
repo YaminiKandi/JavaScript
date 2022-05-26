@@ -8,23 +8,13 @@
 ### Property:
 #### 1. Length:
 It returns the total number of chars in a string.
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>String Length Property</title>
-        <script>
-            function demo(){
-              var  str = "Hello World";  
-              var len = str.length;
-              document.write("Length is "+len)
-            }
-            demo();
-        </script>
-    </head>
-    <body>
-    </body>
-</html>
+```js
+function demo(){
+    var  str = "Hello World";  
+    var len = str.length;
+    document.write("Length is "+len)
+}
+demo();
 ```
 ```html
 <!DOCTYPE html>
@@ -37,9 +27,9 @@ It returns the total number of chars in a string.
             var len = password.length;
             //simple Decision
             if(len>=8){
-                alert("Your Password is"+password)
+                alert("Your Password is strong")
             }else{
-               document.write("Password You Entered contain less than 8 chars")
+               document.write("Password You Entered contains less than 8 characters")
             }
            }
         </script>
@@ -53,63 +43,32 @@ It returns the total number of chars in a string.
     </body>
 </html>
 ```
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>String Length Property</title>
-        <script>
-           function submitClick(){
-            var password =   document.getElementById("txtPassword").value;
-            var len = password.length;
-            //simple Decision
-            if(len>=8){
-                document.write(`You Entered Password is ${password}`)
-            }else{
-               document.write(`You enetered password contains ${len} chars plzz enter password with min 8 chars`)
-            }
-           }
-        </script>
-    </head>
-    <body>
-       <fieldset>
-           <legend>Enter Your Password </legend>
-           <input type="password" id="txtPassword"/><br><br>
-           <button type="button" onclick="submitClick()">Submit</button>
-       </fieldset> 
-    </body>
-</html>
+```js
+function submitClick(){
+    var password =   document.getElementById("txtPassword").value;
+    var len = password.length;
+    //simple Decision
+    if(len>=8){
+        document.write(`Your Password is ${password}`)
+    }else{
+        document.write(`Password you entered contains ${len} characters please enter password with min 8 characters`)
+    }
+}
 ```
-
-### String Formatting Methods:
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>String Length Property</title>
-        <script>
-           function submitClick(){
-            var password =   document.getElementById("txtPassword").value;
-            var len = password.length;
-            //simple Decision
-            if(len>=8){
-                document.write(`You Entered Password is ${password}`.fontcolor("green").bold())
-            }else{
-               document.write(`You enetered password contains ${len} chars plzz enter password with min 8 chars`.fontcolor("red").italics())
-            }
-           }
-        </script>
-    </head>
-    <body>
-       <fieldset>
-           <legend>Enter Your Password </legend>
-           <input type="password" id="txtPassword"/><br><br>
-           <button type="button" onclick="submitClick()">Submit</button>
-       </fieldset> 
-    </body>
-</html>
+##### String formatting
+```js
+function submitClick(){
+    var password =   document.getElementById("txtPassword").value;
+    var len = password.length;
+    //simple Decision
+    if(len>=8){
+        document.write(`Your Password is ${password}`.fontcolor("green").bold())
+    }else{
+        document.write(`Password you enteres contains ${len} characters please enter password with min 8 characters`.fontcolor("red").italics())
+    }
+}
 ```
-Formatting string with style attributes and classes:
+##### Formatting string with style attributes and classes:
 ```html
 <!DOCTYPE html>
 <html>
@@ -387,7 +346,6 @@ f1()
 ```
 
 indexOf(),lastIndexOf():
-------------------------
 search of any specific char in a string  and return its index number.
 if char not found then it returns "-1".
 lastIndexOf() will search for last occurrence of char in a string.
