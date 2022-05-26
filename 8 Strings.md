@@ -271,24 +271,15 @@ endsWith():
 </html>
 ```
 
-charAt() & charCodeAt():
-------------------------
-charAt() returns the char present at specific Index Number.
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>charAt()</title>
-        <script>
-            function f1(){
-            var str = "Faber Info Tech";
-            var char = str.charAt(8);
-            document.write(char);
-            }
-            f1()
-        </script>
-    </head>
-</html>
+#### charAt():
+* charAt() returns the char present at specific Index Number.
+```js
+function f1(){
+var str = "Hello World";
+var char = str.charAt(8);
+document.write(char);
+}
+f1()
 ```
 ```html
 <!DOCTYPE html>
@@ -301,23 +292,20 @@ charAt() returns the char present at specific Index Number.
                 var len = mobile.length;
                 var pos = mobile.charAt(0);
                 var msg = document.getElementById("msg");
-
                 if(mobile==""){
-                    msg.innerHTML = "Plzz Enter Your Mobile No".fontcolor("red");
+                    msg.innerHTML = "Please Enter Your Mobile No".fontcolor("red");
                 }
                 else{
                      if(len==10){
-                        
                         if(pos==9 || pos==8 || pos==7 || pos==6){
                             msg.innerHTML = mobile;  
                         }
                         else{
-                            msg.innerHTML = "Plzz Provide a Valid Mobile Number";
+                            msg.innerHTML = "Please Provide a Valid Mobile Number";
                         }
-
                      } 
                      else{
-                       msg.innerHTML = "Plzz Enter Mobile No With 10 Digits Only";
+                       msg.innerHTML = "Please Enter Mobile No With 10 Digits Only";
                      }
                 }
             }
@@ -332,12 +320,10 @@ charAt() returns the char present at specific Index Number.
 </html>
 ```
 
-charCodeAt():
--------------
-It returns the ASCII Code of char at specific Index.
-
-Uppercase alphabets ASCII values starts from 65 to 90.
-Lowercase alphabets ASCII values starts from 97 to 122.
+### charCodeAt():
+* It returns the ASCII Code of char at specific Index.
+* Uppercase alphabets ASCII values starts from 65 to 90.
+* Lowercase alphabets ASCII values starts from 97 to 122.
 ```html
 <!DOCTYPE html>
 <html>
@@ -345,7 +331,7 @@ Lowercase alphabets ASCII values starts from 97 to 122.
         <title>charCodeAt()</title>
         <script>
             function f1(){
-               var str = "FABER INFO TECH";
+               var str = "HELLO WORLD";
                var char = str.charCodeAt(2);  
                document.write(`ASCII Value is ${char}`)
             }
