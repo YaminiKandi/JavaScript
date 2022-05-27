@@ -243,17 +243,16 @@ function f1() {
 }
 f1()
 ```
-#### 4. startsWith():
-<h5>Parameters</h5>
+### 4. startsWith():
+<h4>Parameters</h4>
 
-* search String:
+* search String: The characters to be searched for at the start of this string
+* position (optional): The position in this string at which to begin searching for searchString. Defaults to 0.
 
-<h5>Return</h5>
+<h4>Return</h4>
 
-*  A new string containing the combined text of the strings provided
-
-They returns true when the string starts with ends with given set of chars.
-
+* true if the given characters are found at the beginning of the string; Otherwise, false
+###### Checking for type of card using starting values
 ```html
 <!DOCTYPE html>
 <html>
@@ -266,14 +265,14 @@ They returns true when the string starts with ends with given set of chars.
                 var img = document.getElementById("pic");
 
                 if(cardNumber.startsWith("4444")){
-                     img.src="../assets/rupay.jpg";
+                     img.src="assets/Rupay.jpg";
                 }
                 else{
                      if(cardNumber.startsWith("1122")){
-                        img.src="../assets/mastercard.png";
+                        img.src="assets/MasterCard.png";
                      }
                      else{
-                        img.src="../assets/visa.png";
+                        img.src="assets/VisaCard.png";
                      }
                 }
             }
@@ -292,9 +291,16 @@ They returns true when the string starts with ends with given set of chars.
 </html>
 ```
 
+### 5. endsWith():
+<h4>Parameters</h4>
 
-endsWith():
------------
+* search String: The characters to be searched for at the end of the string
+* length (optional): If provided, it is used as the length of the string. Defaults to str.length.
+
+<h4>Return</h4>
+
+* true if the given characters are found at the end of the string; Otherwise, false
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -326,9 +332,7 @@ endsWith():
 </html>
 ```
 
-
-
-indexOf(),lastIndexOf():
+### 6. indexOf(),lastIndexOf():
 search of any specific char in a string  and return its index number.
 if char not found then it returns "-1".
 lastIndexOf() will search for last occurrence of char in a string.
@@ -550,6 +554,7 @@ It can read the values towards Ending.It uses start and End Index.
 
 Not Valid because towards beginning:
 ------------------------------------
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -694,7 +699,6 @@ it is used to remove trailing spaces.
             function submitClick(){
                 var name = document.getElementById("txtName").value;
                 var msg = document.getElementById("msg");
-
                 if(name.trim()=="John"){
                     msg.innerHTML = "Valid Data";
                 }
