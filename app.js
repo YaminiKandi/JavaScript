@@ -1,5 +1,7 @@
-function txt() {
-    let text = "HELLO WORLD";
-    let letter = text.charAt(text.length-1);
-    console.log(letter)
+function f1() {
+    var str1 = "Welcome";
+    var str2 = "to";
+    var str3 = "My World";
+    document.write(str1.concat(" ",str2," ",str3))
 }
+f1()

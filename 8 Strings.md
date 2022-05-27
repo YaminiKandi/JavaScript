@@ -6,7 +6,7 @@
 * But with JavaScript, methods and properties are also available to strings, because JavaScript treats strings as objects when executing methods and properties.
 
 ### Property:
-#### 1. Length:
+#### Length:
 It returns the total number of chars in a string.
 ```js
 function demo(){
@@ -114,7 +114,13 @@ function submitClick(){
 
 ### string manipulating methods:
 #### 1. charAt():
-* charAt() returns the char present at specified Index (position).
+<h5>Parameters</h5>
+
+* index: An integer between 0 and str.length-1. If the index cannot be converted to the integer or no index is provided, the default is 0, so the first character of string is returned.
+
+<h5>Return</h5>
+
+* A string representing the character (exactly one UTF-16 code unit) at the specified index. If index is out of range (invalid), charAt() returns an empty string.
 ```js
 function f1(){
 var str = "Hello World";
@@ -123,6 +129,7 @@ document.write(char);
 }
 f1()
 ```
+###### Checking for a valid Mobile number
 ```html
 <!DOCTYPE html>
 <html>
@@ -163,41 +170,24 @@ f1()
 ```
 
 #### 2. charCodeAt():
-* It returns the ASCII Code of char at specific Index.
+<h5>Parameters</h5>
+
+* index: The index of a character i.e., an integer between o and str.length-1. This index value is optional ( default value = 0 )
+
+<h5>Return</h5>
+
+* The unicode (ASCII) of the charcter at the specified index. If index is invalid, charCodeAt() returns NaN
 * Uppercase alphabets ASCII values starts from 65 to 90.
 * Lowercase alphabets ASCII values starts from 97 to 122.
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>charCodeAt()</title>
-        <script>
-            function f1(){
-               var str = "HELLO WORLD";
-               var char = str.charCodeAt(2);  
-               document.write(`ASCII Value is ${char}`)
-            }
-            f1()
-        </script>
-    </head>
-</html>
+```js
+function f1(){
+    var str = "HELLO WORLD";
+    var char = str.charCodeAt(2);  
+    document.write(`ASCII Value is ${char}`)
+}
+f1()
 ```
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>charCodeAt()</title>
-        <script>
-            function f1(){
-               var str = "faber info tech";
-               var char = str.charCodeAt(1);  
-               document.write(`ASCII Value is ${char}`)
-            }
-            f1()
-        </script>
-    </head>
-</html>
-```
+###### Checking for a valid name (starting with Uppercase letter)
 ```html
 <!DOCTYPE html>
 <html>
@@ -219,7 +209,7 @@ f1()
         </script>
     </head>
     <body>
-        <h1>Plzz Start Your Name with Uppercase Letter</h1>
+        <h1>Please Start Your Name with Uppercase Letter</h1>
         <label>Enter Your Name</label>
         <input type="text" id="txtName"/><br><br>
         <button type="button" onclick="submitClick()">Submit</button>
@@ -227,45 +217,33 @@ f1()
     </body>
 </html>
 ```
-match():
-It is used to verify the string and compare with the regular expression.
-It returns true if matching with regular expression else it return false
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>match()</title>
-        <script>
-            function submitClick(){
-               var name = document.getElementById("txtName").value;
-               var msg = document.getElementById("msg");
-               var Regexp = /^[A-Za-z]+$/;
+#### 3. concat():
+<h5>Parameters</h5>
 
-               if(name==""){
-                  msg.innerHTML = "Plzz Enter Your Name";
-               }
-               else{
-                   if(name.match(Regexp)){
-                       msg.innerHTML = name;
-                   }
-                   else{
-                       msg.innerHTML = "Plzz Enter a Valid Name";
-                   }
-               }
-            }
-        </script>
-    </head>
-    <body>
-        <fieldset>
-            <legend>Enter Your Name</legend>
-            <input type="text" id="txtName"/><br><br>
-            <button type="submit" onclick="submitClick()">Submit</button>
-        </fieldset>
-        <h1 id="msg"></h1>
-    </body>
-</html>
+* One or more strings to concatenate
+
+<h5>Return</h5>
+
+*  A new string containing the combined text of the strings provided
+
+```js
+function f1(){
+    var str1 = "Hello ";
+    var str2 = "World!";
+    document.write(str1.concat(str2))
+}
+f1()
 ```
-
+```js
+function f1() {
+    var str1 = "Welcome";
+    var str2 = "to";
+    var str3 = "MyWorld";
+    document.write(str1.concat(" ",str2," ",str3))
+}
+f1()
+```
+#### 4. startsWith():
 startsWith() & endsWith():
 --------------------------
 They returns true when the string starts with ends with given set of chars.
@@ -433,6 +411,46 @@ return -1:
 </html>
 ```
 
+match():
+It is used to verify the string and compare with the regular expression.
+It returns true if matching with regular expression else it return false
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>match()</title>
+        <script>
+            function submitClick(){
+               var name = document.getElementById("txtName").value;
+               var msg = document.getElementById("msg");
+               var Regexp = /^[A-Za-z]+$/;
+
+               if(name==""){
+                  msg.innerHTML = "Plzz Enter Your Name";
+               }
+               else{
+                   if(name.match(Regexp)){
+                       msg.innerHTML = name;
+                   }
+                   else{
+                       msg.innerHTML = "Plzz Enter a Valid Name";
+                   }
+               }
+            }
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Enter Your Name</legend>
+            <input type="text" id="txtName"/><br><br>
+            <button type="submit" onclick="submitClick()">Submit</button>
+        </fieldset>
+        <h1 id="msg"></h1>
+    </body>
+</html>
+```
+
+
 search():
 search of any specific char in a string  and return its index number.
 if char not found then it returns "-1".
@@ -505,3 +523,188 @@ toLowerCase():
     </head>
 </html>
 ```
+slice():
+--------
+It can read the values towards Ending.It uses start and End Index.
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>slice()</title>
+        <script>
+             function f1(){
+                var str = "Faber Info Tech";
+                var res = str.slice(6,10);
+                document.write(res)
+             }
+             f1()
+        </script>
+    </head>
+</html>
+
+Not Valid because towards beginning:
+------------------------------------
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>slice()</title>
+        <script>
+             function f1(){
+                var str = "Faber Info Tech";
+                var res = str.slice(6,0);
+                document.write(res)
+             }
+             f1()
+        </script>
+    </head>
+</html>
+
+
+substring():
+------------
+It can read the values towards end or beginning of string.
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>substring()</title>
+        <script>
+             function f1(){
+                var str = "Faber Info Tech";
+                var res = str.substring(6,10);
+                document.write(res)
+             }
+             f1()
+        </script>
+    </head>
+</html>
+
+
+towards beginning:
+------------------
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>substring()</title>
+        <script>
+             function f1(){
+                var str = "Faber Info Tech";
+                var res = str.substring(6,0);
+                document.write(res)
+             }
+             f1()
+        </script>
+    </head>
+</html>
+
+
+substr():
+---------
+It can read the value from specified Index to the Length of chars.
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>substr()</title>
+        <script>
+             function f1(){
+                var str = "Faber Info Tech";
+                var res = str.substr(6);
+                document.write(res)
+             }
+             f1()
+        </script>
+    </head>
+</html>
+
+
+Read 6 chars from end
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>substr()</title>
+        <script>
+             function f1(){
+                var str = "Faber Info Tech";
+                var res = str.substr(-6);
+                document.write(res)
+             }
+             f1()
+        </script>
+    </head>
+</html>
+
+
+
+
+
+
+replace():
+----------
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>replace()</title>
+        <script>
+             function f1(){
+               var str = "FABER INFO TECH";
+               var res = str.replace("TECH","TECHNOLOGIES");
+               document.write(res)
+             }
+             f1()
+        </script>
+    </head>
+</html>
+
+case-insensitive:
+-----------------
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>replace()</title>
+        <script>
+             function f1(){
+               var str = "FABER INFO TECH";
+               var res = str.replace(/tech/i,"TECHNOLOGIES");
+               document.write(res)
+             }
+             f1()
+        </script>
+    </head>
+</html>
+
+
+
+trim():
+-------
+it is used to remove trailing spaces.
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>trim()</title>
+        <script>
+            function submitClick(){
+                var name = document.getElementById("txtName").value;
+                var msg = document.getElementById("msg");
+
+                if(name.trim()=="John"){
+                    msg.innerHTML = "Valid Data";
+                }
+                else{
+                   msg.innerHTML = "Invalid Data";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <p>Plzzz Enter Name With John</p>
+        <fieldset>
+            <legend>Enter Your Name</legend>
+            <input type="text" id="txtName"/><br><br>
+            <button type="button" onclick="submitClick()">Submit</button>
+            <h1 id="msg"></h1>
+        </fieldset>
+    </body>
+</html>
