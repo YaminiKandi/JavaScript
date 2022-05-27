@@ -112,13 +112,13 @@ function submitClick(){
 </html>
 ```
 
-### string manipulating methods:
-#### 1. charAt():
-<h5>Parameters</h5>
+## string manipulating methods:
+### 1. charAt():
+<h4>Parameters</h4>
 
 * index: An integer between 0 and str.length-1. If the index cannot be converted to the integer or no index is provided, the default is 0, so the first character of string is returned.
 
-<h5>Return</h5>
+<h4>Return</h4>
 
 * A string representing the character (exactly one UTF-16 code unit) at the specified index. If index is out of range (invalid), charAt() returns an empty string.
 ```js
@@ -169,12 +169,12 @@ f1()
 </html>
 ```
 
-#### 2. charCodeAt():
-<h5>Parameters</h5>
+### 2. charCodeAt():
+<h4>Parameters</h4>
 
 * <b>index</b>: The index of a character i.e., an integer between o and str.length-1. This index value is optional ( default value = 0 )
 
-<h5>Return</h5>
+<h4>Return</h4>
 
 * The unicode (ASCII) of the charcter at the specified index. If index is invalid, charCodeAt() returns NaN
 * Uppercase alphabets ASCII values starts from 65 to 90.
@@ -217,12 +217,12 @@ f1()
     </body>
 </html>
 ```
-#### 3. concat():
-<h5>Parameters</h5>
+### 3. concat():
+<h4>Parameters</h4>
 
 * One or more strings to concatenate
 
-<h5>Return</h5>
+<h4>Return</h4>
 
 *  A new string containing the combined text of the strings provided
 
