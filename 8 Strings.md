@@ -332,98 +332,80 @@ f1()
 </html>
 ```
 
-### 6. indexOf(),lastIndexOf():
-search of any specific char in a string  and return its index number.
-if char not found then it returns "-1".
-lastIndexOf() will search for last occurrence of char in a string.
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>indexOf()</title>
-        <script>
-            function f1(){
-                 var str = "faber info tech";
-                 var pos = str.indexOf("a");
-                 document.write(pos);
-            }
-            f1()
-        </script>
-    </head>
-</html>
+### 6. indexOf():
+<h4>Parameters</h4>
+
+* search String: Substring to search for. If this is not passed, it will be coerced to 'undefined'.
+* positional (optional): If position > length of given string, method wont search. If position < 0, then position = 0
+
+<h4>Return</h4>
+
+* The index of the first occurence of searchString found, or -1 if not found
+
+```js
+function f1(){
+    var str = "Welcome to Myworld";
+    var pos = str.indexOf("t");
+    document.write(pos);
+}
+f1()
 ```
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>indexOf()</title>
-        <script>
-            function f1(){
-                 var str = "faber info tech";
-                 var pos = str.indexOf("e");
-                 document.write(pos);
-            }
-            f1()
-        </script>
-    </head>
-</html>
+```js
+function f1(){
+    var str = "Welcome to Myworld";
+    var pos = str.indexOf("e");
+    document.write(pos);
+}
+f1()
 ```
 return -1:
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>indexOf()</title>
-        <script>
-            function f1(){
-                 var str = "faber info tech";
-                 var pos = str.indexOf("x");
-                 document.write(pos);
-            }
-            f1()
-        </script>
-    </head>
-</html>
+```js
+function f1(){
+    var str = "Welcome to Myworld";
+    var pos = str.indexOf("x");
+    document.write(pos);
+}
+f1()
 ```
 
-lastIndexOf():
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>lastIndexOf()</title>
-        <script>
-            function f1(){
-                 var str = "faber info tech";
-                 var pos = str.lastIndexOf("e");
-                 document.write(pos);
-            }
-            f1()
-        </script>
-    </head>
-</html>
+### 7. lastIndexOf():
+<h4>Parameters</h4>
+
+* search String: Substring to search for. If this is not passed, it will be coerced to 'undefined'.
+* positional (optional): If position < 0, then position = 0
+
+<h4>Return</h4>
+
+* The index of the last occurence of searchString found, or -1 if not found
+
+```js
+function f1(){
+    var str = "Welcome to Myworld";
+    var pos = str.lastIndexOf("l");
+    document.write(pos);
+}
+f1()
 ```
 return -1:
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>lastIndexOf()</title>
-        <script>
-            function f1(){
-                 var str = "faber info tech";
-                 var pos = str.lastIndexOf("x");
-                 document.write(pos);
-            }
-            f1()
-        </script>
-    </head>
-</html>
+```js
+function f1(){
+    var str = "Welcome to Myworld";
+    var pos = str.lastIndexOf("x");
+    document.write(pos);
+}
+f1()
 ```
 
-match():
-It is used to verify the string and compare with the regular expression.
-It returns true if matching with regular expression else it return false
+### 8. match():
+<h4>Parameters</h4>
+
+* match: The search value. A regular expression (or a string that will be converted to a regular expression). 
+
+<h4>Return</h4>
+
+* An array containing the matches. null if no match is found.
+* It returns true if matching with regular expression else it return false
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -460,8 +442,17 @@ It returns true if matching with regular expression else it return false
 </html>
 ```
 
+### 9. repeat():
+<h4>Parameters</h4>
 
-search():
+* count: A non negative integer representing the specified number of copies of the given string.
+
+<h4>Return</h4>
+
+* A new string containing the specified number of copies of the given string
+
+
+### 11. search():
 search of any specific char in a string  and return its index number.
 if char not found then it returns "-1".
 ```html
