@@ -172,7 +172,7 @@ f1()
 #### 2. charCodeAt():
 <h5>Parameters</h5>
 
-* index: The index of a character i.e., an integer between o and str.length-1. This index value is optional ( default value = 0 )
+* <b>index</b>: The index of a character i.e., an integer between o and str.length-1. This index value is optional ( default value = 0 )
 
 <h5>Return</h5>
 
@@ -244,8 +244,14 @@ function f1() {
 f1()
 ```
 #### 4. startsWith():
-startsWith() & endsWith():
---------------------------
+<h5>Parameters</h5>
+
+* search String:
+
+<h5>Return</h5>
+
+*  A new string containing the combined text of the strings provided
+
 They returns true when the string starts with ends with given set of chars.
 
 ```html
