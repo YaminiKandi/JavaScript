@@ -112,10 +112,122 @@ function submitClick(){
 </html>
 ```
 
-string manipulating methods:
-----------------------------
+### string manipulating methods:
+#### 1. charAt():
+* charAt() returns the char present at specified Index (position).
+```js
+function f1(){
+var str = "Hello World";
+var char = str.charAt(8);
+document.write(char);
+}
+f1()
+```
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>charAt()</title>
+        <script>
+            function submitClick(){
+                var mobile = document.getElementById("txtNumber").value;
+                var len = mobile.length;
+                var pos = mobile.charAt(0);
+                var msg = document.getElementById("msg");
+                if(mobile==""){
+                    msg.innerHTML = "Please Enter Your Mobile No".fontcolor("red");
+                }
+                else{
+                     if(len==10){
+                        if(pos==9 || pos==8 || pos==7 || pos==6){
+                            msg.innerHTML = mobile;  
+                        }
+                        else{
+                            msg.innerHTML = "Please Provide a Valid Mobile Number";
+                        }
+                     } 
+                     else{
+                       msg.innerHTML = "Please Enter Mobile No With 10 Digits Only";
+                     }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <label>Enter Your MobileNo :</label>
+        <input type="text" id="txtNumber"/><br><br>
+        <button type="button" onclick="submitClick()">Submit</button>
+        <h1 id="msg"></h1>
+    </body>
+</html>
+```
+
+#### 2. charCodeAt():
+* It returns the ASCII Code of char at specific Index.
+* Uppercase alphabets ASCII values starts from 65 to 90.
+* Lowercase alphabets ASCII values starts from 97 to 122.
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>charCodeAt()</title>
+        <script>
+            function f1(){
+               var str = "HELLO WORLD";
+               var char = str.charCodeAt(2);  
+               document.write(`ASCII Value is ${char}`)
+            }
+            f1()
+        </script>
+    </head>
+</html>
+```
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>charCodeAt()</title>
+        <script>
+            function f1(){
+               var str = "faber info tech";
+               var char = str.charCodeAt(1);  
+               document.write(`ASCII Value is ${char}`)
+            }
+            f1()
+        </script>
+    </head>
+</html>
+```
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>charCodeAt()</title>
+        <script>
+            function submitClick(){
+               var name =  document.getElementById("txtName").value;
+               var char = name.charCodeAt(0);
+               var msg = document.getElementById("msg");
+
+               if(char>=65 && char<=90){
+                  msg.innerHTML = name;
+               }
+               else{
+                 msg.innerHTML = "Invalid Name";
+               }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Plzz Start Your Name with Uppercase Letter</h1>
+        <label>Enter Your Name</label>
+        <input type="text" id="txtName"/><br><br>
+        <button type="button" onclick="submitClick()">Submit</button>
+        <h1 id="msg"></h1>
+    </body>
+</html>
+```
 match():
---------
 It is used to verify the string and compare with the regular expression.
 It returns true if matching with regular expression else it return false
 ```html
@@ -230,120 +342,7 @@ endsWith():
 </html>
 ```
 
-#### charAt():
-* charAt() returns the char present at specific Index Number.
-```js
-function f1(){
-var str = "Hello World";
-var char = str.charAt(8);
-document.write(char);
-}
-f1()
-```
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>charAt()</title>
-        <script>
-            function submitClick(){
-                var mobile = document.getElementById("txtNumber").value;
-                var len = mobile.length;
-                var pos = mobile.charAt(0);
-                var msg = document.getElementById("msg");
-                if(mobile==""){
-                    msg.innerHTML = "Please Enter Your Mobile No".fontcolor("red");
-                }
-                else{
-                     if(len==10){
-                        if(pos==9 || pos==8 || pos==7 || pos==6){
-                            msg.innerHTML = mobile;  
-                        }
-                        else{
-                            msg.innerHTML = "Please Provide a Valid Mobile Number";
-                        }
-                     } 
-                     else{
-                       msg.innerHTML = "Please Enter Mobile No With 10 Digits Only";
-                     }
-                }
-            }
-        </script>
-    </head>
-    <body>
-        <label>Enter Your MobileNo :</label>
-        <input type="text" id="txtNumber"/><br><br>
-        <button type="button" onclick="submitClick()">Submit</button>
-        <h1 id="msg"></h1>
-    </body>
-</html>
-```
 
-### charCodeAt():
-* It returns the ASCII Code of char at specific Index.
-* Uppercase alphabets ASCII values starts from 65 to 90.
-* Lowercase alphabets ASCII values starts from 97 to 122.
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>charCodeAt()</title>
-        <script>
-            function f1(){
-               var str = "HELLO WORLD";
-               var char = str.charCodeAt(2);  
-               document.write(`ASCII Value is ${char}`)
-            }
-            f1()
-        </script>
-    </head>
-</html>
-```
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>charCodeAt()</title>
-        <script>
-            function f1(){
-               var str = "faber info tech";
-               var char = str.charCodeAt(1);  
-               document.write(`ASCII Value is ${char}`)
-            }
-            f1()
-        </script>
-    </head>
-</html>
-```
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>charCodeAt()</title>
-        <script>
-            function submitClick(){
-               var name =  document.getElementById("txtName").value;
-               var char = name.charCodeAt(0);
-               var msg = document.getElementById("msg");
-
-               if(char>=65 && char<=90){
-                  msg.innerHTML = name;
-               }
-               else{
-                 msg.innerHTML = "Invalid Name";
-               }
-            }
-        </script>
-    </head>
-    <body>
-        <h1>Plzz Start Your Name with Uppercase Letter</h1>
-        <label>Enter Your Name</label>
-        <input type="text" id="txtName"/><br><br>
-        <button type="button" onclick="submitClick()">Submit</button>
-        <h1 id="msg"></h1>
-    </body>
-</html>
-```
 
 indexOf(),lastIndexOf():
 search of any specific char in a string  and return its index number.
