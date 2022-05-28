@@ -210,22 +210,28 @@ document.getElementById("demo").innerHTML = myFunction(4, 3);
 ```
 ```js
 var a = 4 + 7 * 5;
-console.log(a);
+console.log(a);     //39
 ```
-Output: 39
 
 ### 'this':
 * Every time when we invoke a function, new execution context will be created.
-* When We just invoke a function, 'this' points to the global level.
+
+##### 1. 'this' Alone:
+* When used alone, this refers to the global object. Because 'this' is running in the global scope.
+* In a browser window, the global object is `[object Window]`
 ```js
 console.log(this); // Window (object)
 ```
+##### 2. 'this' inside a function:
+* In a function, the global object is the default binding for this.
 ```js
 function a() {
     console.log(this);  // Window (object)
 }
 a();
 ```
+##### 3. 'this' inside a method:
+* When used in an object method, this refers to the object.
 ```js
 function a() {
     console.log(this);
@@ -234,7 +240,7 @@ function a() {
 a();  // Window (object)
 console.log(newvariable);   // hello
 ```
-
+##### 4. 'this' inside an object:
 ```js
 var c = {
     name: 'The c object',
@@ -267,4 +273,12 @@ Output:
 log: ƒ ()
 name: "Updated c object"
 [[Prototype]]: Object
+```
+##### 5. 'this' in a function (strict mode):
+* when used in a function, in strict mode, this is undefined.
+```js
+"use strict";
+function myFunction() {
+  return this;      // undefined
+}
 ```
