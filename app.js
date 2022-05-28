@@ -1,7 +1,12 @@
-function f1(){
-    var str = "         HELLO WORLD          ";
-    var res = str.trim();
-    document.write(str);
-    document.write(res);
+var c = { greeting: 'hi' };
+var d;
+d = c;
+
+function changeGreeting(obj) {
+    obj.greeting = 'Hola!'; //mutate
 }
-f1()
+changeGreeting(d);
+
+c = {greeting:'howdy'};
+console.log(c);
+console.log(d);

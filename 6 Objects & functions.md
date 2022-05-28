@@ -198,3 +198,5 @@ The above function:
 * It has a name called greet
 * It has a code property `console.log()` and Invocable
 #### In JavaScript, Functions are Objects.
+
+
