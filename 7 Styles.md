@@ -62,8 +62,6 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <h2>What Can JavaScript Do?</h2>
-        <p>JavaScript can change HTML attribute values.</p>
         <p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
         <button onclick="document.getElementById('myImage').src='./assets/pic_bulbon.gif'">Turn on the light</button>
         <img id="myImage" src="./assets/pic_bulboff.gif" style="width:100px">
@@ -76,10 +74,7 @@
 ```html
 <!DOCTYPE html>
 <html>
-    <head>
-    </head>
     <body>
-        <h2>What Can JavaScript Do?</h2>
         <p id="demo">JavaScript can change the style of an HTML element.</p>
         <button type="button" onclick="document.getElementById('demo').style.fontSize = '35px'";>Click Me!</button>
     </body>
@@ -91,7 +86,6 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <h2>What Can JavaScript Do?</h2>
         <p id="demo">JavaScript can hide HTML elements.</p>
         <button type="button" onclick="document.getElementById('demo').style.display='none'">Click Me!</button>
     </body>
@@ -103,7 +97,6 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <h2>What Can JavaScript Do?</h2>
         <p>JavaScript can show hidden HTML elements.</p>
         <p id="demo" style="display:none">Hello JavaScript!</p>
         <button type="button" onclick="document.getElementById('demo').style.display='block'">Click Me!</button>
