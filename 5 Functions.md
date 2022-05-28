@@ -215,6 +215,7 @@ console.log(a);
 Output: 39
 
 ### 'this':
+* Every time when we invoke a function, new execution context will be created.
 * When We just invoke a function, 'this' points to the global level.
 ```js
 console.log(this); // Window (object)
@@ -234,10 +235,36 @@ a();  // Window (object)
 console.log(newvariable);   // hello
 ```
 
-
-
-
-
-
-
-
+```js
+var c = {
+    name: 'The c object',
+    log: function() {
+        console.log(this);
+    }
+}
+c.log();
+```
+```js
+Output:
+{name: 'The c object', log: ƒ}
+log: ƒ ()
+name: "The c object"
+[[Prototype]]: Object
+```
+```js
+var c = {
+    name: 'The c object',
+    log: function() {
+        this.name = 'Updated c object'
+        console.log(this);
+    }
+}
+c.log();
+```
+```js
+Output:
+{name: 'Updated c object', log: ƒ}
+log: ƒ ()
+name: "Updated c object"
+[[Prototype]]: Object
+```
