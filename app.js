@@ -1,7 +1,7 @@
-function f1() {
-    var str1 = "Welcome";
-    var str2 = "to";
-    var str3 = "My World";
-    document.write(str1.concat(" ",str2," ",str3))
+function f1(){
+    var str = "         HELLO WORLD          ";
+    var res = str.trim();
+    document.write(str);
+    document.write(res);
 }
 f1()

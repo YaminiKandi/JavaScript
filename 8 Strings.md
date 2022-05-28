@@ -451,237 +451,242 @@ f1()
 
 * A new string containing the specified number of copies of the given string
 
+```js
+function f1() {
+    var text = "Hello World";
+    var result = text.repeat(2);
+    document.write(result)
+}
+f1()
+```
+
+### 10. replace():
+<h4>Parameters</h4>
+
+* search String: The value, or regular expression, to search for.
+* new Value: The new value to replace with.
+
+<h4>Return</h4>
+
+* A new string where specified value has been replaced.
+
+```js
+function f1(){
+    var str = "Mr Blue has a blue house and a blue car";
+    var res = str.replace("blue","red");
+    document.write(res)         // Mr Blue has a red house and a blue car
+}
+f1()
+```
+###### Global replacement
+```js
+function f1(){
+    var str = "Mr Blue has a blue house and a blue car";
+    var res = str.replace(/blue/g,"red");
+    document.write(res)        // Mr Blue has a red house and a red car
+}
+f1()
+```
+###### case-insensitive:
+```js
+function f1(){
+    var str = "Mr Blue has a blue house and a blue car";
+    var res = str.replace(/blue/i,"red");
+    document.write(res)       // Mr red has a blue house and a blue car
+}
+f1()
+```
+###### Global case-insensitive:
+```js
+function f1(){
+    var str = "Mr Blue has a blue house and a blue car";
+    var res = str.replace(/blue/gi,"red");
+    document.write(res)     // Mr red has a red house and a red car
+}
+f1()
+```
 
 ### 11. search():
-search of any specific char in a string  and return its index number.
-if char not found then it returns "-1".
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>search()</title>
-        <script>
-            function f1(){
-                 var str = "faber info tech";
-                 var pos = str.search("e");
-                 document.write(pos);
-            }
-            f1()
-        </script>
-    </head>
-</html>
+<h4>Parameters</h4>
+
+* search Value: The search value or search character or regular expression (or a string that will be converted to a regular expression), to search for.
+
+<h4>Return</h4>
+
+* The position of the 1st match. -1, if no match.
+
+```js
+function f1(){
+    var str = "Hello World";
+    var res = str.search("l");
+    document.write(res)     // 2
+}
+f1()
 ```
-returns -1:
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>search()</title>
-        <script>
-            function f1(){
-                 var str = "faber info tech";
-                 var pos = str.search("w");
-                 document.write(pos);
-            }
-            f1()
-        </script>
-    </head>
-</html>
+###### no match
+```js
+function f1(){
+    var str = "Hello World";
+    var res = str.search("z");
+    document.write(res)    // -1
+}
+f1()
 ```
 
-toUpperCase():
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>toUpperCase()</title>
-        <script>
-            function f1(){
-               var str = "faber info tech";
-               var res = str.toUpperCase();
-               document.write(res);  
-            }
-            f1()
-        </script>
-    </head>
-</html>
+### 12. split():
+<h4>Parameters</h4>
+
+* separator (optional): 
+    1. If separator contains multiple characters, that entire character sequence must be found in order to split.
+    2. If separator is omitted or doesnot occur in string, the returned array contains one element consisting of the entire string.
+    3. If separator appears at the beginning (or end) of the string, it still has the effect of splitting. The result is an empty (i.e., zero length) string, which appears at the first (or last) position of the returned array.
+    4. If separator is an empty string(""), string is converted to an array of each of its UTF-16 characters.
+
+* limit (optional): 
+    1. A non-negative integer specifying a limit on the number of substrings to be included in the array. 
+    2. If provided, splits the string at each occurence of the specified separator., but stops when limit entries have been placed in the array. 
+    3. Any leftover text is not included in the array at all. 
+    4. The array may contain fewer entries than limit if the end of the string is reached before the limit is reached, If limit is 0, [ ] is returned.
+
+<h4>Return</h4>
+
+* Divides a string into an ordered list of substrings, put these substrings into an array, and returns the array.
+
+### 13. slice():
+<h4>Parameters</h4>
+
+* index start: The index of the first character to include in the returned string. The start position.
+* index end (optional): The end position (upto, but not including). Default is string length
+
+<h4>Return</h4>
+
+* A new string containing extracted part of the string.
+
+###### It can read the values towards Ending
+```js
+function f1(){
+    var str = "Hello World";
+    var res = str.slice(6,11);
+    document.write(res)     // World
+}
+f1()
 ```
 
-toLowerCase():
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>toKLowerCase()</title>
-        <script>
-            function f1(){
-               var str = "FABER INFO TECH";
-               var res = str.toLowerCase();
-               document.write(res);  
-            }
-            f1()
-        </script>
-    </head>
-</html>
+###### Not Valid towards beginning
+```js
+function f1(){
+    var str = "Hello World";
+    var res = str.slice(6,0);
+    document.write(res)
+}
+f1()
 ```
-slice():
---------
-It can read the values towards Ending.It uses start and End Index.
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>slice()</title>
-        <script>
-             function f1(){
-                var str = "Faber Info Tech";
-                var res = str.slice(6,10);
-                document.write(res)
-             }
-             f1()
-        </script>
-    </head>
-</html>
+### 14. substring():
+<h4>Parameters</h4>
 
-Not Valid because towards beginning:
-------------------------------------
+* index start: The index of the first character to include in the returned substring.
+* index end (optional): The index of the first character to exclude from the returned string
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>slice()</title>
-        <script>
-             function f1(){
-                var str = "Faber Info Tech";
-                var res = str.slice(6,0);
-                document.write(res)
-             }
-             f1()
-        </script>
-    </head>
-</html>
+<h4>Return</h4>
 
+* A new string containing specified part of the given string.
 
-substring():
-------------
-It can read the values towards end or beginning of string.
+###### Towards ending
+```js
+function f1(){
+    var str = "Hello World";
+    var res = str.substring(6,11);
+    document.write(res)
+}
+f1()
+```
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>substring()</title>
-        <script>
-             function f1(){
-                var str = "Faber Info Tech";
-                var res = str.substring(6,10);
-                document.write(res)
-             }
-             f1()
-        </script>
-    </head>
-</html>
+###### Towards beginning
+```js
+function f1(){
+    var str = "Hello World";
+    var res = str.substring(6,0);
+    document.write(res)
+}
+f1()
+```
 
+### 15. substr(): 
+(deprecated)
+<h4>Parameters</h4>
 
-towards beginning:
-------------------
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>substring()</title>
-        <script>
-             function f1(){
-                var str = "Faber Info Tech";
-                var res = str.substring(6,0);
-                document.write(res)
-             }
-             f1()
-        </script>
-    </head>
-</html>
+* index start: The index of the first character to include in the returned substring.
+* length (optional): Number of characters to be included in the returned string
+
+<h4>Return</h4>
+
+* A new string containing specified part of the given string.
+
+```js
+function f1(){
+    var str = "Hello World";
+    var res = str.substr(6,2);
+    document.write(res)
+}
+f1()
+```
+###### Read 6 characters from end
+```js
+function f1(){
+    var str = "Hello World";
+    var res = str.substr(-6);
+    document.write(res)
+}
+f1()
+```
+-----------
+
+#### Difference between substring() and slice():
+
+1. If second parameter is lessthan first parameter, substring() will swap both and return resulting substring. But slice() will just return empty substring.
+2. If parameters are zero. substring() will treat them as zero, slice() will count backwards from end of the string ti find the right indices.
+
+-----------
 
 
-substr():
----------
-It can read the value from specified Index to the Length of chars.
+### 16. toLowerCase():
+<h4>Return</h4>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>substr()</title>
-        <script>
-             function f1(){
-                var str = "Faber Info Tech";
-                var res = str.substr(6);
-                document.write(res)
-             }
-             f1()
-        </script>
-    </head>
-</html>
+* A new string representing the calling string converted to lowercase.
 
+```js
+function f1(){
+    var str = "HELLO WORLD";
+    var res = str.toLowerCase();
+    document.write(res)
+}
+f1()
+```
 
-Read 6 chars from end
+### 17. toUpperCase():
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>substr()</title>
-        <script>
-             function f1(){
-                var str = "Faber Info Tech";
-                var res = str.substr(-6);
-                document.write(res)
-             }
-             f1()
-        </script>
-    </head>
-</html>
+<h4>Return</h4>
+
+* A new string representing the calling string converted to uppercase.
+
+```js
+function f1(){
+    var str = "Hello World";
+    var res = str.toUpperCase();
+    document.write(res)
+}
+f1()
+```
+
+### 18. trim():
+
+<h4>Return</h4>
+
+* A new string representing the given stripped of whitespace from both its beginning and end
 
 
-
-
-
-
-replace():
-----------
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>replace()</title>
-        <script>
-             function f1(){
-               var str = "FABER INFO TECH";
-               var res = str.replace("TECH","TECHNOLOGIES");
-               document.write(res)
-             }
-             f1()
-        </script>
-    </head>
-</html>
-
-case-insensitive:
------------------
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>replace()</title>
-        <script>
-             function f1(){
-               var str = "FABER INFO TECH";
-               var res = str.replace(/tech/i,"TECHNOLOGIES");
-               document.write(res)
-             }
-             f1()
-        </script>
-    </head>
-</html>
-
-
-
-trim():
--------
-it is used to remove trailing spaces.
-
+```html
 <!DOCTYPE html>
 <html>
     <head>
@@ -700,7 +705,7 @@ it is used to remove trailing spaces.
         </script>
     </head>
     <body>
-        <p>Plzzz Enter Name With John</p>
+        <p>Please Enter Name With John</p>
         <fieldset>
             <legend>Enter Your Name</legend>
             <input type="text" id="txtName"/><br><br>
@@ -709,3 +714,10 @@ it is used to remove trailing spaces.
         </fieldset>
     </body>
 </html>
+```
+
+### 19. valueOf():
+
+<h4>Return</h4>
+
+* A string representing the primitive value of given string object
