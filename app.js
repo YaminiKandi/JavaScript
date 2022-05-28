@@ -1,12 +1,6 @@
-var c = { greeting: 'hi' };
-var d;
-d = c;
-
-function changeGreeting(obj) {
-    obj.greeting = 'Hola!'; //mutate
+function a() {
+    console.log(this);
+    this.newvariable = 'hello';
 }
-changeGreeting(d);
-
-c = {greeting:'howdy'};
-console.log(c);
-console.log(d);
+a();
+console.log(newvariable);

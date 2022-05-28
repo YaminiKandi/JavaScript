@@ -214,57 +214,30 @@ console.log(a);
 ```
 Output: 39
 
-### By Value and By Reference:
-#### By value:
-* consider a variable "a"(primitive value) with some address, when we pass it to another variable or any function (b = a) its stores in some new address (copy of primitive value).
+### 'this':
+* When We just invoke a function, 'this' points to the global level.
 ```js
-var a = 3;
-var b;
-b = a;
-a = 2;
-console.log(a);     // 2
-console.log(b);     // 3
+console.log(this); // Window (object)
 ```
-
-#### By reference:
-* consider a new object, assigning it with a variable "a", when we pass b = a, instead of storing in another memory "b" also points to same location or address.
-* mutate: To change something.
-* Immutable: It can't be changed.
-
-###### All Objects (including functions)
 ```js
-var c = { greeting: 'hi' };
-var d;
-d = c;
-c.greeting = 'hello';   // mutate
-console.log(c);     // {greeting:'hello'}
-console.log(d);     // {greeting:'hello'}
-```
-###### Even as parameters
-```js
-var c = { greeting: 'hi' };
-var d;
-d = c;
-
-function changeGreeting(obj) {
-    obj.greeting = 'Hola!'; //mutate
+function a() {
+    console.log(this);  // Window (object)
 }
-changeGreeting(d);
-console.log(c);     // {greeting:'Hola'}
-console.log(d);     // {greeting:'Hola'}
+a();
 ```
-###### equals operator sets up new memory space (new address)
 ```js
-var c = { greeting: 'hi' };
-var d;
-d = c;
-
-function changeGreeting(obj) {
-    obj.greeting = 'Hola!'; //mutate
+function a() {
+    console.log(this);
+    this.newvariable = 'hello';
 }
-changeGreeting(d);
-
-c = {greeting:'howdy'};
-console.log(c);     // {greeting:'howdy'}
-console.log(d);     // {greeting:'Hola'}
+a();  // Window (object)
+console.log(newvariable);   // hello
 ```
+
+
+
+
+
+
+
+

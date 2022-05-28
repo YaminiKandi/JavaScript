@@ -199,4 +199,57 @@ The above function:
 * It has a code property `console.log()` and Invocable
 #### In JavaScript, Functions are Objects.
 
+### By Value and By Reference:
+#### By value:
+* consider a variable "a"(primitive value) with some address, when we pass it to another variable or any function (b = a) its stores in some new address (copy of primitive value).
+```js
+var a = 3;
+var b;
+b = a;
+a = 2;
+console.log(a);     // 2
+console.log(b);     // 3
+```
 
+#### By reference:
+* consider a new object, assigning it with a variable "a", when we pass b = a, instead of storing in another memory "b" also points to same location or address.
+* mutate: To change something.
+* Immutable: It can't be changed.
+
+###### All Objects (including functions)
+```js
+var c = { greeting: 'hi' };
+var d;
+d = c;
+c.greeting = 'hello';   // mutate
+console.log(c);     // {greeting:'hello'}
+console.log(d);     // {greeting:'hello'}
+```
+###### Even as parameters
+```js
+var c = { greeting: 'hi' };
+var d;
+d = c;
+
+function changeGreeting(obj) {
+    obj.greeting = 'Hola!'; //mutate
+}
+changeGreeting(d);
+console.log(c);     // {greeting:'Hola'}
+console.log(d);     // {greeting:'Hola'}
+```
+###### equals operator sets up new memory space (new address)
+```js
+var c = { greeting: 'hi' };
+var d;
+d = c;
+
+function changeGreeting(obj) {
+    obj.greeting = 'Hola!'; //mutate
+}
+changeGreeting(d);
+
+c = {greeting:'howdy'};
+console.log(c);     // {greeting:'howdy'}
+console.log(d);     // {greeting:'Hola'}
+```
