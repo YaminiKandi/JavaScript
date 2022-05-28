@@ -1,8 +1,3 @@
-var c = {
-    name: 'The c object',
-    log: function() {
-        this.name = 'Updated c object'
-        console.log(this);
-    }
-}
-c.log();
+const myFunction = new Function("a", "b", "return a * b");
+    var res = myFunction(4, 3);
+    document.write(res);

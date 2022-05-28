@@ -74,16 +74,10 @@ function (){
 
 ### Function Constructor:
 * Functions can also be defined with a built-in JavaScript function constructor called Function().
-```html
-<body>
-    <h2>JavaScript Functions</h2>
-    <p>JavaScript has an built-in function constructor.</p>
-    <p id="demo"></p>
-    <script>
-        const myFunction = new Function("a", "b", "return a * b");
-        document.getElementById("demo").innerHTML = myFunction(4, 3);
-    </script>
-</body>
+```js
+const myFunction = new Function("a", "b", "return a * b");
+    var res = myFunction(4, 3);
+    document.write(res);
 ```
 ##### Note: We actually don't have to use the function constructor. The example above is the same as writing
 ```js
@@ -110,84 +104,57 @@ document.getElementById("demo").innerHTML = myFunction(4, 3);
 </script>
 ```
 ##### innerHTML:
-```html
-<body>
-    <h1 id="txt"></h1>
-    <script>
-        function demo(){
-            var  x = 200;
-            var  y = 200;
-            var  z = x+y;
-            document.getElementById("txt").innerHTML = z;
-        }
-        demo();
-    </script>    
-</body>
-
+```js
+function demo(){
+    var  x = 200;
+    var  y = 200;
+    var  z = x+y;
+    document.write(z);
+}
+demo();
 ```
 ##### console.log():
 ```js
-<script>
-    function demo(){
-        var  x = 200;
-        var  y = 300;
-        var  z = x+y;
-        console.log(z)
-    }
-    demo();
-</script>
+function demo(){
+    var  x = 200;
+    var  y = 300;
+    var  z = x+y;
+    console.log(z)
+}
+demo();
 ```
 ##### window.alert():
 ```js
-<script>
-    function demo(){
-        var  x = 200;
-        var  y = 300;
-        var  z = x+y;
-        window.alert(z)
-    }
-    demo();
-</script>
+function demo(){
+    var  x = 200;
+    var  y = 300;
+    var  z = x+y;
+    window.alert(z)
+}
+demo();
 ```
 
 #### 2. Function with parametres:
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>function with parametres</title>
-    </head>
-    <body>
-        <h1 id="res"></h1>
-        <script>
-            function demo(a,b){
-                var c = a+b;
-                document.getElementById("res").innerHTML = c;
-            }
-            demo(10,20);
-        </script>
-    </body>
-</html>
+```js
+function demo(a,b){
+    var c = a+b;
+    document.write(c);
+}
+demo(10,20);
 ```
 
 #### 3. Function with Return type:
 ```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>function with return type</title>
-    </head>
-    <body>
-        <h1 id="res"></h1>
-        <script>
-            function demo(a,b){
-                var c = a+b;
-                return c;
-            }
-            document.getElementById("res").innerHTML = demo(100,200);
-        </script>
-    </body>
-</html>
+<body>
+    <h1 id="res"></h1>
+    <script>
+        function demo(a,b){
+            var c = a+b;
+            return c;
+        }
+        document.getElementById("res").innerHTML = demo(100,200);
+    </script>
+</body>
 ```
 
 ### Self-Invoking Functions
