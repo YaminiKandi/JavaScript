@@ -71,8 +71,46 @@ function addCss() {     // Using iterator
 }
 ```
 ## Radio Button Validation:
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <input type="radio" name="gender" class="gender" value="Male"/>Male
+        <input type="radio" name="gender" class="gender" value="Female"/>Female
+        <input type="radio" name="gender" class="gender" value="Others"/>Others <br><br>
+        <button type="button" onclick="submitClick()">Submit</button>
+        <h1 id="res"></h1>
+    </body>
+</html>
+```
+```js
+function submitClick() {
+    var gender = document.getElementsByClassName("gender");
+    var len = gender.length;
+    var msg = document.getElementById("res")
+    for(var i=0; i<len; i++){
+        if(gender[i].checked){
+            res.innerHTML = gender[i].value;
+        }
+    }
+}
+```
 
 ## Checkbox Validation:
+```html
+<body>
+    <input type="checkbox" value="Html" class="skills"/>Html
+    <input type="checkbox" value="Css" class="skills"/>Css
+    <input type="checkbox" value="Bootstrap" class="skills"/>Bootstrap
+    <input type="checkbox" value="Javascript" class="skills"/>Javascript
+    <input type="checkbox" value="jQuery" class="skills"/>jQuery<br><br>
+    <button type="button" onclick="submitClick()">Submit</button>
+    <h1 id="msg"></h1>
+</body>
+```
 ```js
 function submitClick(){
     var skills = document.getElementsByClassName("skills");
@@ -84,15 +122,4 @@ function submitClick(){
         }
     }
 }
-```
-```html
-<body>
-    <input type="checkbox" value="Html" class="skills"/>Html
-    <input type="checkbox" value="Css" class="skills"/>Css
-    <input type="checkbox" value="Bootstrap" class="skills"/>Bootstrap
-    <input type="checkbox" value="Javascript" class="skills"/>Javascript
-    <input type="checkbox" value="jQuery" class="skills"/>jQuery<br><br>
-    <button type="button" onclick="submitClick()">Submit</button>
-    <h1 id="msg"></h1>
-</body>
 ```
