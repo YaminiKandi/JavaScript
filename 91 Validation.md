@@ -116,9 +116,9 @@ function submitClick(){
     var skills = document.getElementsByClassName("skills");
     var len = skills.length;
     var msg = document.getElementById("msg");
-    for(var i=0;i<len;i++){
+    for(var i=0; i<len; i++){
         if(skills[i].checked){
-            msg.innerHTML += skills[i].value+" ";
+            msg.innerHTML += skills[i].value + " ";
         }
     }
 }
