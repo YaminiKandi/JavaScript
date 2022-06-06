@@ -10,21 +10,13 @@ Syntax:
 -------
 var date = new Date();
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Date()</title>
-        <script>
-            function f1(){
-               var date = new Date();  
-               document.write(date);   
-            }
-            f1()
-        </script>
-    </head>
-</html>
-
-
+```js
+function f1(){
+    var date = new Date();  
+    document.write(date);   
+}
+f1()
+```
 
 Date provides following methods for accessing date and time.
 
@@ -40,7 +32,7 @@ toLocaleDateString()
 toLocaleTimeString()
 
 
-
+```html
 <!DOCTYPE html>
 <html>
     <head>
@@ -51,19 +43,15 @@ toLocaleTimeString()
             function bodyLoad(){
                 var now = new Date();
                 var date = document.getElementById("date");
-                
                 var month = now.getMonth();
                 var day = now.getDay();
                 var dt = now.getDate();
                 var year = now.getFullYear(); 
-
                 var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
                 var days = ["Sun","Mon","Tues","Wed","Thu","Fri","Sat"];
-
                 date.innerHTML = `${days[day]} ${dt} ${months[month]} ${year}`;
                 setInterval(getTime,1000);
                 getSalutation();
-
             }
             function getTime(){
                 var now = new Date();
@@ -71,12 +59,9 @@ toLocaleTimeString()
             }
             function getSalutation(){
                 var now = new Date();
-
                 var hrs = now.getHours();
-
                 var salute = document.getElementById("salute");
                 var icon = document.getElementById("icon");
-
                 if(hrs>=0 && hrs<=11){
                     salute.innerHTML = "Good-Morning";
                     icon.className= "bi bi-brightness-alt-high";
@@ -110,3 +95,4 @@ toLocaleTimeString()
        </div>
     </body>
 </html>
+```
