@@ -1,5 +1,4 @@
-
-JSON -- Javascript Object Notation:
+## JSON -- Javascript Object Notation:
 * In Computer Programming Object is used to handle data and Functionality.
 * "Alan Kay" introduced the concept of object into Computer Programming in early 1960's.
 * The purpose of object is to keep all related data and Functionality together.
