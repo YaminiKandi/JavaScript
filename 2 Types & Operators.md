@@ -104,7 +104,7 @@ console.log(a); // false
 | ! | Logical Not Equal |
 
 ##### Syntax:
-Exp1 && Exp2 = true when both expressions evaluates true.
+Exp1 && Exp2 = true when both expressions evaluates true. <br>
 Exp1 || Exp2 = true when only one expression evaluate TRUE.
 
 
