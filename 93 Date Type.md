@@ -20,8 +20,8 @@ f1()
 3. getSeconds() [0-59]
 4. getMilliSeconds() [0-99]
 5. getDate() [28]
-6. getDay() [weekday number 0=sunday,6=saturday]
-7. getMonth() [0=january,11=december]
+6. getDay() [weekday number 0 = sunday, 6 = saturday]
+7. getMonth() [0 = january, 11 = december]
 8. getFullYear() [CurrentYear]
 9. toLocaleDateString()
 10. toLocaleTimeString()
