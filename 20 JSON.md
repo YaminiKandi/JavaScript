@@ -60,7 +60,6 @@ function bodyLoad(){
         lstCategories.appendChild(li);
 
         var ul = document.createElement("ul");
-
         for(var product of item.Products){
             var innerLi = document.createElement("li");
             innerLi.innerHTML = product;
