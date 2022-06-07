@@ -29,21 +29,30 @@ isNew 1;
 ### Operators:
 * A special function that is syntactically (written) differently. 
 * Generally, operators take two parameters and return one result.
+    1. Arithematic Operators
+    2. Assignment Operators
+    3. Comparision Operators
+    4. Logical Operators
+    5. Conditional Operators (Ternary Operators)
 
+#### 1. Arithematic Operators:
 |Operator |	Description |
 |:------: | :---------: |
 |+  |	Addition  |
 |-  |	Subtraction | 
 |*  |	Multiplication  |
-|** |	Exponentiation (ES2016)  |
+|** |	Exponentiation (ES2016) or Math.pow(2,3) = 8 |
 |/  |	Division  |
-|%  |	Modulus (Division Remainder)
+|%  |	Modulus (Division Remainder) |
 |++ |	Increment |
 |-- |	Decrement |
-
-#### Assignment Operators:
-
-|Operator	| Example	| Same As |
+##### Example:
+```js
+var a = 3 + 4;
+console.log(a); // 7
+```
+#### 2. Assignment Operators:
+|Operator	| Example	| Same As | 
 |:------:   | :-----:   | :-----: |
 |= | x = y	| x = y |
 |+=	| x += y  |	x = x + y |
@@ -52,18 +61,52 @@ isNew 1;
 |/=	| x /= y  |	x = x / y |
 |%=	| x %= y  | x = x % y |
 |**= |	x **= y	| x = x ** y|
+##### Example:
+```js
+var a = 3;
+var b = 4;
+document.write(a+=b); // 7
+```
+#### 3. Comparision Operators:
+|Operator | Description |
+|:------: | :---------: |
+|== | Equal |
+|!= | Not Equal |
+|=== | Strict Equal |
+|!=== | Strict Not Equal |
+| > | Greaterthan |
+| < | Lessthan |
+| >= | Greaterthan or equal |
+| <= | Lessthan or equal |
 
 ```js
-var a = 3 + 4;
-console.log(a);
+function f1() {
+    var a = 20;
+    var b = '20';
+    if(a===b){
+        document.write(true);
+    }else{
+        document.write(false);
+    }
+}
+f1()
 ```
-Output: 7
-
 ```js
 var a = 3 > 4;
-console.log(a);
+console.log(a); // false
 ```
-Output: false 
+
+#### 4. Logical Operators:
+|Operator | Description |
+|:------: | :---------: |
+| && | Logical And |
+| `||` | Logical Or |
+| ! | Logical Not Equal |
+
+##### Syntax:
+Exp1 && Exp2 = true when both expressions evaluates true.
+Exp1 || Exp2 = true when only one expression evaluate TRUE.
+
 
 ### Operator precedence and Associativity:
 #### Operator precedence:
