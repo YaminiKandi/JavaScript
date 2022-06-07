@@ -276,9 +276,9 @@ f1()
 | | Strict Inequality (!==)	 |	left-to-right |	… !== … |
 |8|	Bitwise AND (&)	| left-to-right	| … & … | 
 |7|	Bitwise XOR (^)	|left-to-right	 | … ^ … |
-|6|	Bitwise OR (`|`)	|left-to-right |	… `|` … |
+|6|	Bitwise OR ( &#124; )	|left-to-right |	… &#124; … |
 |5|	Logical AND (&&)	|left-to-right |	… && … |
-|4|	Logical OR (`||`)	|left-to-right	 | … `||`… |
+|4|	Logical OR ( &#124; &#124; )	|left-to-right	 | … &#124; &#124; … |
 | | Nullish coalescing operator (??)	|left-to-right|	… ?? … |
 |3|	Conditional (ternary) operator	|right-to-left	| … ? … : … |
 |2|	Assignment	| right-to-left |	… = … |
@@ -293,9 +293,9 @@ f1()
 | | |  right-to-left | … >>>= … |
 | | |  right-to-left  |… &= … |
 | | |  right-to-left  | … ^= … |
-| | |  right-to-left  |… |= … |
+| | |  right-to-left  |… &#124;= … |
 | | |  right-to-left  |… &&= … |
-| | |  right-to-left  |… ||= …|
+| | |  right-to-left  |… &#124; &#124;= …|
 | | |  right-to-left  |… ??= …|
 | |yield  |	right-to-left	| yield … |
 | |yield* |  right-to-left |	yield* … |
