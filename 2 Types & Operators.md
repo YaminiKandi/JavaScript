@@ -51,180 +51,6 @@ isNew 1;
 var a = 3 + 4;
 console.log(a); // 7
 ```
-#### 2. Assignment Operators:
-|Operator	| Example	| Same As | 
-|:------:   | :-----:   | :-----: |
-|= | x = y	| x = y |
-|+=	| x += y  |	x = x + y |
-|-=	| x -= y  | x = x - y |
-|*=	| x *= y  |	x = x * y |
-|/=	| x /= y  |	x = x / y |
-|%=	| x %= y  | x = x % y |
-|**= |	x **= y	| x = x ** y|
-##### Example:
-```js
-var a = 3;
-var b = 4;
-document.write(a+=b); // 7
-```
-#### 3. Comparision Operators:
-|Operator | Description |
-|:------: | :---------: |
-|== | Equal |
-|!= | Not Equal |
-|=== | Strict Equal |
-|!=== | Strict Not Equal |
-| > | Greaterthan |
-| < | Lessthan |
-| >= | Greaterthan or equal |
-| <= | Lessthan or equal |
-
-```js
-function f1() {
-    var a = 20;
-    var b = '20';
-    if(a===b){
-        document.write(true);
-    }else{
-        document.write(false);
-    }
-}
-f1()
-```
-```js
-var a = 3 > 4;
-console.log(a); // false
-```
-
-#### 4. Logical Operators:
-|Operator | Description |
-|:------: | :---------: |
-| && | Logical And |
-| &#124; &#124; | Logical Or |
-| ! | Logical Not Equal |
-
-##### Syntax:
-Exp1 && Exp2 = true when both expressions evaluates true. <br>
-Exp1 || Exp2 = true when only one expression evaluate TRUE.
-
-```js
-var Users = [
-    {
-        UserName : "john",
-        UserPassword : "john123"
-    },
-    {
-        UserName : "david",
-        UserPassword : "david123"
-    }
-]
-function loginClick(){
-    var name = document.getElementById("txtName").value;
-    var password = document.getElementById("txtPassword").value;
-    var msg = document.getElementById("msg");
-
-    var searchedUser = Users.find(function(user){
-            return user.UserName==name && user.UserPassword==password
-    })
-    if(name = searchedUser.UserName && password== searchedUser.UserPassword){
-            document.write("Login Success")
-    }
-}
-```
-```html
-<body>
-    <fieldset>
-        <legend>Enter Log-In Details</legend>
-        <dl>
-            <dt>Enter Your Name</dt>
-            <dd>
-                <input type="text" id="txtName"/>
-            </dd>
-            <dt>Enter Your Password</dt>
-            <dd>
-                <input type="text" id="txtPassword"/>
-            </dd>
-        </dl>
-        <button type="button" onclick="loginClick()">Log-In</button>
-    </fieldset>
-    <h1 id="msg"></h1>
-</body>
-```
-
-### 5. Ternary (?) (Conditional) Operator:
-* It defines statements to execute on Condition true and false 
-* It is Decision Making Operator.
-
-Syntax: `(condition)?"statement_if_true":"statement_if_false";`
-
-```js
-function f1(){
-    var product = {
-        Name : "LG Tv",
-        Price : 55000.55,
-        Stock : false
-    }
-    document.write(`
-    Name : ${product.Name} <br>
-    Price : ${product.Price} <br>
-    Stock : ${(product.Stock==true)?"In Stock":"Out Of Stock"}
-    `)
-}
-f1()
-```
-
-## Delete:
-* It is used to delete any property of an Object.
-* You can delete only the properties of custom Object[user defined]
-* You can't delete the properties of built-in object,as they are marked as read-only.
-Ex: Date, Array, Map, Math, etc...
-
-Syntax: `delete object.property`
-
-```js
-function f1(){
-    var product = {
-        Name : "LG Tv",
-        Price : 55000.55,
-        Stock : false
-    }
-    delete product.price;
-
-    if(product.price==undefined){
-        document.write(`
-    Name : ${product.Name} <br>
-    Stock : ${(product.Stock==true)?"In Stock":"Out Of Stock"}
-    `)
-    }
-    else{
-        document.write(`
-    Name : ${product.Name} <br>
-    Price : ${product.Price} <br>
-    Stock : ${(product.Stock==true)?"In Stock":"Out Of Stock"}
-    `)
-    }
-}
-f1()
-```
-
-## type of:
-* It returns the data type of property of an object.
-
-```js
-function f1(){
-    var product = {
-        Name : "LG Tv",
-        Price : 55000.55,
-        Stock : false
-    }
-    document.write(`
-    Name is ${typeof product.Name}<br>
-    Price is ${typeof product.Price} <br>
-    Stock is ${typeof product.Stock}
-    `)
-}
-f1()
-```
 
 ### Operator precedence and Associativity:
 #### Operator precedence:
@@ -301,7 +127,23 @@ f1()
 | |yield* |  right-to-left |	yield* … |
 |1|	Comma / Sequence	| left-to-right |	… , … |
 
-Assignment:
+#### 2. Assignment Operators:
+
+|Operator	| Example	| Same As | 
+|:------:   | :-----:   | :-----: |
+|= | x = y	| x = y |
+|+=	| x += y  |	x = x + y |
+|-=	| x -= y  | x = x - y |
+|*=	| x *= y  |	x = x * y |
+|/=	| x /= y  |	x = x / y |
+|%=	| x %= y  | x = x % y |
+|**= |	x **= y	| x = x ** y|
+##### Example:
+```js
+var a = 3;
+var b = 4;
+document.write(a+=b); // 7
+```
 ```js
 var a = 2, b = 3, c = 4;
 a = b = c;
@@ -345,7 +187,34 @@ var a = 1, b = '2';
 console.log(a + b); // results 12
 ```
 
-### Comparision Operators:
+### 3. Comparision Operators:
+|Operator | Description |
+|:------: | :---------: |
+|== | Equal |
+|!= | Not Equal |
+|=== | Strict Equal |
+|!=== | Strict Not Equal |
+| > | Greaterthan |
+| < | Lessthan |
+| >= | Greaterthan or equal |
+| <= | Lessthan or equal |
+
+```js
+function f1() {
+    var a = 20;
+    var b = '20';
+    if(a===b){
+        document.write(true);
+    }else{
+        document.write(false);
+    }
+}
+f1()
+```
+```js
+var a = 3 > 4;
+console.log(a); // false
+```
 ```js
 var a = (1 < 2 < 3); //true
 var b = (3 < 2 < 1); //true
@@ -549,3 +418,133 @@ var libraryName = window.libraryName || "Lib2";
 console.log(libraryName);
 ```
 Output: Lib1
+
+#### 4. Logical Operators:
+|Operator | Description |
+|:------: | :---------: |
+| && | Logical And |
+| &#124; &#124; | Logical Or |
+| ! | Logical Not Equal |
+
+##### Syntax:
+Exp1 && Exp2 = true when both expressions evaluates true. <br>
+Exp1 || Exp2 = true when only one expression evaluate TRUE.
+
+```js
+var Users = [
+    {
+        UserName : "john",
+        UserPassword : "john123"
+    },
+    {
+        UserName : "david",
+        UserPassword : "david123"
+    }
+]
+function loginClick(){
+    var name = document.getElementById("txtName").value;
+    var password = document.getElementById("txtPassword").value;
+    var msg = document.getElementById("msg");
+
+    var searchedUser = Users.find(function(user){
+            return user.UserName==name && user.UserPassword==password
+    })
+    if(name = searchedUser.UserName && password== searchedUser.UserPassword){
+            document.write("Login Success")
+    }
+}
+```
+```html
+<body>
+    <fieldset>
+        <legend>Enter Log-In Details</legend>
+        <dl>
+            <dt>Enter Your Name</dt>
+            <dd>
+                <input type="text" id="txtName"/>
+            </dd>
+            <dt>Enter Your Password</dt>
+            <dd>
+                <input type="text" id="txtPassword"/>
+            </dd>
+        </dl>
+        <button type="button" onclick="loginClick()">Log-In</button>
+    </fieldset>
+    <h1 id="msg"></h1>
+</body>
+```
+
+### 5. Ternary (?) (Conditional) Operator:
+* It defines statements to execute on Condition true and false 
+* It is Decision Making Operator.
+
+Syntax: `(condition)?"statement_if_true":"statement_if_false";`
+
+```js
+function f1(){
+    var product = {
+        Name : "LG Tv",
+        Price : 55000.55,
+        Stock : false
+    }
+    document.write(`
+    Name : ${product.Name} <br>
+    Price : ${product.Price} <br>
+    Stock : ${(product.Stock==true)?"In Stock":"Out Of Stock"}
+    `)
+}
+f1()
+```
+
+## Delete:
+* It is used to delete any property of an Object.
+* You can delete only the properties of custom Object[user defined]
+* You can't delete the properties of built-in object,as they are marked as read-only.
+Ex: Date, Array, Map, Math, etc...
+
+Syntax: `delete object.property`
+
+```js
+function f1(){
+    var product = {
+        Name : "LG Tv",
+        Price : 55000.55,
+        Stock : false
+    }
+    delete product.price;
+
+    if(product.price==undefined){
+        document.write(`
+    Name : ${product.Name} <br>
+    Stock : ${(product.Stock==true)?"In Stock":"Out Of Stock"}
+    `)
+    }
+    else{
+        document.write(`
+    Name : ${product.Name} <br>
+    Price : ${product.Price} <br>
+    Stock : ${(product.Stock==true)?"In Stock":"Out Of Stock"}
+    `)
+    }
+}
+f1()
+```
+
+## type of:
+* It returns the data type of property of an object.
+
+```js
+function f1(){
+    var product = {
+        Name : "LG Tv",
+        Price : 55000.55,
+        Stock : false
+    }
+    document.write(`
+    Name is ${typeof product.Name}<br>
+    Price is ${typeof product.Price} <br>
+    Stock is ${typeof product.Stock}
+    `)
+}
+f1()
+```
