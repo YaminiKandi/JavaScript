@@ -80,14 +80,14 @@ function getSalutation(){
         salute.innerHTML = "Good-Morning";
         icon.className= "bi bi-brightness-alt-high";
     }else if(hrs>=12 && hrs<=16){
-            salute.innerHTML ="Good-Afternoon";
-            icon.className="bi bi-brightness-high";
+        salute.innerHTML ="Good-Afternoon";
+        icon.className="bi bi-brightness-high";
     }else if(hrs>=17 && hrs<=19){
         salute.innerHTML ="Good-Evening";
-            icon.className="bi bi-brightness-alt-high-fill";
+        icon.className="bi bi-brightness-alt-high-fill";
     }else if(hrs>=20 && hrs<=23){
         salute.innerHTML ="Good-Night";
-            icon.className="bi bi-brightness-high";
+        icon.className="bi bi-brightness-high";
     }
 }
 ``` 

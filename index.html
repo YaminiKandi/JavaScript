@@ -1,7 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Date()</title>
+        <link rel="stylesheet" href="../BOOTSTRAP/node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../BOOTSTRAP/node_modules/bootstrap-icons/font/bootstrap-icons.css">
         <script src="app.js"></script>
     </head>
-    <body></body>  
+    <body class="container-fluid" onload="bodyLoad()">
+       <div class="btn-toolbar justify-content-between bg-danger mt-4 text-white p-3">
+           <div class="btn-group">
+               <span class="bi bi-cart4">Amazon Shopping</span>
+           </div>
+           <div class="btn-group">
+              <span id="icon" style="font-size:20px;font-weight:bold"></span>
+              <span id="salute"></span>
+           </div>
+           <div class="btn-group">
+               <span id="date"></span>&nbsp;|&nbsp;
+               <span class="bi bi-alarm"></span>
+               <span id="time"></span>   
+           </div>
+       </div>
+    </body>
 </html>
