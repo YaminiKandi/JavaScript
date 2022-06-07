@@ -241,6 +241,37 @@ log: ƒ ()
 name: "Updated c object"
 [[Prototype]]: Object
 ```
+```js
+var c = {
+    name: 'The c object',
+    log: function() {
+        this.name = 'Updated c object';
+        console.log(this);  //{name: 'Updated c object', log: ƒ}
+        var setname = function(newname) {
+            this.name = newname;
+        }
+        setname('Updated again! The c object')
+        console.log(this); //{name: 'Updated c object', log: ƒ}
+    }
+}
+c.log();
+```
+```js
+var c = {
+    name: 'The c object',
+    log: function() {
+        var self = this;
+        self.name = 'Updated c object';
+        console.log(self); //{name: 'Updated c object', log: ƒ}
+        var setname = function(newname) {
+            self.name = newname;
+        }
+        setname('Updated again! The c object')
+        console.log(self); //{name: 'Updated again! The c object', log: ƒ}
+    }
+}
+c.log(); 
+```
 ##### 5. 'this' in a function (strict mode):
 * when used in a function, in strict mode, this is undefined.
 ```js

@@ -1,10 +1,14 @@
-function f1() {
-    var a = 20;
-    var b = '20';
-    if(a==b){
-        document.write(true);
-    }else{
-        document.write(false);
+var c = {
+    name: 'The c object',
+    log: function() {
+        var self = this;
+        self.name = 'Updated c object';
+        console.log(this);
+        var setname = function(newname) {
+            self.name = newname;
+        }
+        setname('Updated again! The c object')
+        console.log(self);
     }
 }
-f1()
+c.log();
