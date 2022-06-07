@@ -100,7 +100,7 @@ console.log(a); // false
 |Operator | Description |
 |:------: | :---------: |
 | && | Logical And |
-| `||` | Logical Or |
+| ``||`` | Logical Or |
 | ! | Logical Not Equal |
 
 ##### Syntax:
