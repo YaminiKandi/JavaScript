@@ -107,6 +107,124 @@ console.log(a); // false
 Exp1 && Exp2 = true when both expressions evaluates true. <br>
 Exp1 || Exp2 = true when only one expression evaluate TRUE.
 
+```js
+var Users = [
+    {
+        UserName : "john",
+        UserPassword : "john123"
+    },
+    {
+        UserName : "david",
+        UserPassword : "david123"
+    }
+]
+function loginClick(){
+    var name = document.getElementById("txtName").value;
+    var password = document.getElementById("txtPassword").value;
+    var msg = document.getElementById("msg");
+
+    var searchedUser = Users.find(function(user){
+            return user.UserName==name && user.UserPassword==password
+    })
+    if(name = searchedUser.UserName && password== searchedUser.UserPassword){
+            document.write("Login Success")
+    }
+}
+```
+```html
+<body>
+    <fieldset>
+        <legend>Enter Log-In Details</legend>
+        <dl>
+            <dt>Enter Your Name</dt>
+            <dd>
+                <input type="text" id="txtName"/>
+            </dd>
+            <dt>Enter Your Password</dt>
+            <dd>
+                <input type="text" id="txtPassword"/>
+            </dd>
+        </dl>
+        <button type="button" onclick="loginClick()">Log-In</button>
+    </fieldset>
+    <h1 id="msg"></h1>
+</body>
+```
+
+### 5. Ternary (?) (Conditional) Operator:
+* It defines statements to execute on Condition true and false 
+* It is Decision Making Operator.
+
+Syntax: `(condition)?"statement_if_true":"statement_if_false";`
+
+```js
+function f1(){
+    var product = {
+        Name : "LG Tv",
+        Price : 55000.55,
+        Stock : false
+    }
+    document.write(`
+    Name : ${product.Name} <br>
+    Price : ${product.Price} <br>
+    Stock : ${(product.Stock==true)?"In Stock":"Out Of Stock"}
+    `)
+}
+f1()
+```
+
+## Delete:
+* It is used to delete any property of an Object.
+* You can delete only the properties of custom Object[user defined]
+* You can't delete the properties of built-in object,as they are marked as read-only.
+Ex: Date, Array, Map, Math, etc...
+
+Syntax: `delete object.property`
+
+```js
+function f1(){
+    var product = {
+        Name : "LG Tv",
+        Price : 55000.55,
+        Stock : false
+    }
+    delete product.price;
+
+    if(product.price==undefined){
+        document.write(`
+    Name : ${product.Name} <br>
+    Stock : ${(product.Stock==true)?"In Stock":"Out Of Stock"}
+    `)
+    }
+    else{
+        document.write(`
+    Name : ${product.Name} <br>
+    Price : ${product.Price} <br>
+    Stock : ${(product.Stock==true)?"In Stock":"Out Of Stock"}
+    `)
+    }
+}
+f1()
+```
+
+## type of:
+* It returns the data type of property of an object.
+
+```js
+function f1(){
+    var product = {
+        Name : "LG Tv",
+        Price : 55000.55,
+        Stock : false
+    }
+    document.write(`
+    Name is ${typeof product.Name}<br>
+    Price is ${typeof product.Price} <br>
+    Stock is ${typeof product.Stock}
+    `)
+}
+f1()
+```
 
 ### Operator precedence and Associativity:
 #### Operator precedence:
