@@ -288,7 +288,7 @@ f1()
 ```
 #### 3. splice():
 * It adds the new Elements at specific location
-Syntax: `arrayName.splice(startIndex,deleteCount,"newElement1","newElement2");`
+Syntax: `arrayName.splice(startIndex,deleteCount,"newElement1","newElement2");`.
 ```js
 function f1(){
     var  categories = ["All","Electronics","Footwear","Fashion"];

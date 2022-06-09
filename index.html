@@ -2,8 +2,21 @@
 <html>
     <head>
         <title>JavaScript</title>
+        <link rel="stylesheet" href="../BOOTSTRAP/node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../BOOTSTRAP/node_modules/bootstrap-icons/font/bootstrap-icons.css">
         <script src="app.js"></script>
     </head>
-    <body>
+    <body class="container-fluid" onload="bodyLoad()">
+        <div class="justify-content-between bg-success mt-4 text-white p-3">
+            <div>
+                <h2>JavaScript Stopwatch</h2>
+            </div>
+            <div>
+                <p><span class="bi bi-alarm"></span> <span id="seconds">00</span>:<span id="tens">00</span></p>
+            </div><br>
+        <button type="button" id="button-start">Start</button>
+        <button type="button" id="button-stop">Stop</button>
+        <button type="button" id="button-reset">Reset</button>
+        </div>
     </body>
 </html>
