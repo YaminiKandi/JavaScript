@@ -14,7 +14,6 @@ function f1(){
         Stock : false
     }
     delete product.Price;
-
     document.write(`
     is price a property of product? ${"Price" in product}
     `)
@@ -28,8 +27,6 @@ function f1(){
         Price : 55000.55,
         Stock : false
     }
-    
-
     document.write(`
     is price a property of product? ${"Price" in product}
     `)
@@ -40,15 +37,8 @@ f1()
 ### Void operator:
 * void is used to discard the function or expression return value.
 * It specifies no return value.
-
-```html
-<body>
-    <a href="javascript:void()">Home</a>
-</body>
-```
-```html
-<a href="javascript:void(window.location.href='https://www.google.com')">Google</a>
-```
+`<a href="javascript:void()">Home</a>`
+`<a href="javascript:void(window.location.href='https://www.google.com')">Google</a>`
 
 ## Javascript Statements:
 * Statements in computer programming are used to control the execution flow.
