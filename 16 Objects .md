@@ -8,7 +8,6 @@
 7. Function Borrowing
 8. Function Curring
 9. Functional Programming
-10. 
 
 ### Automatic Semicolon Insertion:
 ```js
