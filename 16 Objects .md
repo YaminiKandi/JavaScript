@@ -529,4 +529,4 @@ document.write(arr6 + '<br>')   // false,false,true
 
 ### Underscore.js:
 * <a> http://underscorejs.org </a>
-
+* Provides a open source education.
