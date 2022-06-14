@@ -57,6 +57,110 @@ function f1(){
 }
 f1()
 ```
+### Arguments:
+```js
+function greet(firstname, lastname) {
+    console.log(firstname)
+    console.log(lastname)
+    console.log('----------')
+}
+greet();
+greet('john');
+```
+```
+Output:
+undefined
+undefined
+----------
+john
+undefined
+----------
+```
+```js
+function greet(firstname, lastname, language) {
+    language = language || 'en';
+    console.log(firstname)
+    console.log(lastname)
+    console.log(language)
+    console.log('----------')
+}
+greet('yam','kandi');
+greet('yam','kandi','tel');
+```
+```
+Output:
+yam
+kandi
+en
+----------
+yam
+kandi
+tel
+----------
+```
+```js
+function greet(firstname, lastname, language) {
+    language = language || 'en';
+    console.log(firstname)
+    console.log(lastname)
+    console.log(language)
+    console.log(arguments)
+    console.log('----------')
+}
+greet();
+greet('yam','kandi');
+```
+```
+Output:
+undefined
+undefined
+en
+>Arguments[]
+----------
+yam
+kandi
+en
+>Arguments['yam','kandi']
+----------
+```
+```js
+function greet(firstname, lastname, language) {
+    language = language || 'en';
+    if(arguments.length === 0){
+        console.log('Missing Parameters!')
+        return;
+    }
+    console.log(firstname)
+    console.log(lastname);
+    console.log(language);
+    console.log(arguments);
+    console.log('----------')
+}
+greet();
+greet('yam','kandi');
+```
+```
+Missing Parameters!
+yam
+kandi
+en
+Arguments(2)
+----------
+```
+```js
+function greet(firstname, lastname) {
+    console.log(firstname)
+    console.log(lastname)
+    console.log('arg 0: ' + arguments[0]);
+}
+greet('yam','kandi');
+```
+```
+Output:
+yam
+kandi
+arg 0: yam
+```
 
 ### Array Elements:
 * Array can Handle any type of Element.
@@ -79,7 +183,7 @@ function f1(){
 f1()
 ```
 
-### ECMA2015[ES5] onwards it supports destructing array:
+### ECMA2015 [ES5] onwards it supports destructing array:
 * It is a Technique used to extract array Elements and store in Individual References.
 
 ```js
@@ -111,6 +215,42 @@ function f1(){
     document.write(`Length is ${len}`)
 }
 f1()
+```
+
+### Function Overloading:
+```js
+function greet(firstname, lastname, language) {
+    if(language === 'en'){
+        console.log('Hello ' + firstname + ' ' + lastname)
+    }
+    if(language === 'es') {
+        console.log('Hola ' + firstname + ' ' + lastname)
+    }
+}
+greet('yamini','kandi','en')
+greet('yamini','kandi','es')
+// OR
+function greet(firstname, lastname, language) {
+    if(language === 'en'){
+        console.log('Hello ' + firstname + ' ' + lastname)
+    }
+    if(language === 'es') {
+        console.log('Hola ' + firstname + ' ' + lastname)
+    }
+}
+function greetEnglish(firstname, lastname) {
+    greet(firstname, lastname, 'en')
+}
+function greetSpanish(firstname, lastname) {
+    greet(firstname, lastname,'es')
+}
+greetEnglish('yamini', 'kandi')
+greetSpanish('yamini', 'kandi')
+```
+```
+Output:
+Hello yamini kandi
+Hola yamini kandi
 ```
 
 ### Reading Array Elements:

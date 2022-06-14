@@ -1,3 +1,10 @@
+### Contents:
+1. Objects and the dot
+2. Object Literals
+3. Faking Namespaces
+4. Functions - Objects
+5. By value, By reference
+
 ### Objects and the dot:
 * Objects are collection of name-value pairs and those values can be other collection of name-value pairs.
 * object can have properties and methods.

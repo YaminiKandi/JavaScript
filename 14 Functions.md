@@ -1,3 +1,12 @@
+### Contents:
+1. JavaScript Functions
+2. Function Statements
+3. Function Expressions
+4. Function Constructor
+5. Types of Functions
+6. Self Invoking Functions
+7. 'this' Operator
+
 ### JavaScript Functions:
 * A JavaScript function is a block of code designed to perform a particular task and is executed when "something" invokes it (calls it).
 
