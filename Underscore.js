@@ -1,7 +1,5 @@
 //     Underscore.js 1.13.4
 //     https://underscorejs.org
-//     (c) 2009-2022 Jeremy Ashkenas, Julian Gonggrijp, and DocumentCloud and Investigative Reporters & Editors
-//     Underscore may be freely distributed under the MIT license.
 
 // Current version.
 var VERSION = '1.13.4';
@@ -28,8 +26,7 @@ var push = ArrayProto.push,
 var supportsArrayBuffer = typeof ArrayBuffer !== 'undefined',
     supportsDataView = typeof DataView !== 'undefined';
 
-// All **ECMAScript 5+** native function implementations that we hope to use
-// are declared here.
+// All **ECMAScript 5+** native function implementations that we hope to use are declared here.
 var nativeIsArray = Array.isArray,
     nativeKeys = Object.keys,
     nativeCreate = Object.create,
