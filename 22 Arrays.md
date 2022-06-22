@@ -1,3 +1,19 @@
+### Contents:
+1. Primitive and Non-Primitive Data Types
+2. Arrays
+    - Declaring and Initialization of Memory
+    - Storing values in an array
+    - Arguments
+    - Array Elements
+    - ECMA 2015 [ES5] onwards it supports destructing array
+    - Length property
+    - Function Overloading
+    - Reading Array elements
+    - Dynamically creating a DOM Element for Array Elements
+    - Adding Elements into an Array
+    - Removing Elements from an Array
+    - Other properties of an Array (sort, reverse)
+
 ## Primitive Data Types:
 * The predefined data types provided by JavaScript language are known as primitive data types. 
 * Primitive data types are also known as in-built data types.
@@ -8,7 +24,7 @@
     4. Boolean
     5. Null
 
-## Non-Primitive Types:
+## Non-Primitive Data Types:
 * The data types that are derived from primitive data types of the JavaScript language are known as non-primitive data types. It is also known as derived data types or reference data types.
 * They are Mutable. Their structure can change dynamically.
 * No fixed range for value. value range will change according to memory available.
@@ -285,6 +301,10 @@ f1()
 
 ##### a. for..in:
 * Reads all properties and values.
+* Recommended: In Arrays, better dont use `for...in` instead use the standard for loop
+* `for (var i=0; i<arr.length; i++){}`
+* As arrays are objects.
+
 ```js
 function f1(){
     var categories = ["All","Electronics","Fashion","Footwear"];
@@ -293,14 +313,45 @@ function f1(){
     }
 }
 f1()
+Output:
+[0] All
+[1] Electronics
+[2] Fashion
+[3] Footwear
 ```
+```js
+var arr = ['John', 'Jane', 'Jim'];
+for (var prop in arr){
+    document.write(prop + ': ' + arr[prop] + '<br>');
+}
+Output:
+0: John
+1: Jane
+2: Jim
+// Actually, (0,1,2) is actually the name i.e.,
+// the property name on the name value pair
+// this is why we use the brackets to grab it.
+```
+```js
+Array.prototype.myCustomFeature = 'cool!';
+var arr = ['John', 'Jane', 'Jim'];
+for (var prop in arr){
+    document.write(prop + ': ' + arr[prop] + '<br>');
+}
+Output:
+0: John
+1: Jane
+2: Jim
+myCustomFeature: cool!
+```
+
 ##### b. for..of():
 * Reading values only.
 ```js
 function f1(){
     var categories = ["All","Electronics","Fashion","Footwear"];
     for(var item of categories){
-        document.write(item+"<br>")
+        document.write(item + "<br>")
     }
 }
 f1()
