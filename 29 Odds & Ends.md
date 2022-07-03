@@ -69,3 +69,18 @@ console.log(typeof f)   // function
 * JavaScript is some what liberal in taking things, etc
 * It is also a flexible language, and with flexibility, comes a lack of rules, sometimes.
 * But strict mode can help us prevent errors under certain circumstances.
+
+```js
+var person;
+persom = {};
+console.log(persom);
+// {}
+```
+* When we set "use strict"; we must declare a variable in order to set it equal to anything.
+```js
+'use strict';
+var person;
+persom = {};
+console.log(persom);
+// persom is not defined
+```
