@@ -2,7 +2,6 @@
 
 ### Syntax Parser:
 * A Program that reads your code and determines what it does and if its grammar is valid.
-* Your code isn't magic. Someone else wrote a program to translate it for the computer.
 
 ### Lexical Environment:
 * Where something sits physically in the code you write.
@@ -11,28 +10,29 @@
 
 ### Execution Context:
 * A wrapper to help, manage the code that is running.
-* There are lots of lexical environments. Which one is currently running is managed via execution contexts. 
+* There are lots of lexical environments, Which one is currently running is managed via execution contexts. 
 * It can contain things beyond what you've written in your code.
 
 ### Name-Value pair:
 * A name which maps to a unique value
 * The name may be defined more than once, but only can have one value in any given context.
 * That value may be more name/value pairs.
-Example: Address '100 Main St.' II
+Example: `Address '100 Main St.' II`
 
 ### Object:
 * A collection of Name-Value pairs
 * The simplest definition when talking about Javascript.
+
 Example:
-```
+```js
 Address:
     {
         Street: 'Main'
         Number: 100
         Apartment:
         {
-             Floor: 3,
-             Number: 301
+            Floor: 3,
+            Number: 301
         }
     }
 ```
@@ -81,7 +81,7 @@ Output: Undefined
 ```js
 console.log(a);
 ```
-Output: Error: a is not deifned
+Output: Error: a is not defined
 * undefined and not defined are not same.
 
 ##### Example2:
@@ -133,7 +133,6 @@ Hello World
 a is not defined!
 ```
 ### Code Execution:
-
 ```js
 function b() {
     console.log('Called b!');

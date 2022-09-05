@@ -1,5 +1,5 @@
 ## JSON -- Javascript Object Notation:
-* In Computer Programming Object is used to handle data and Functionality.
+* In Computer Programming, Object is used to handle data and Functionality.
 * "Alan Kay" introduced the concept of object into Computer Programming in early 1960's.
 * The purpose of object is to keep all related data and Functionality together.
 * If object is configured for data only then it is referred as "JSON".
@@ -70,10 +70,10 @@ function bodyLoad(){
 }
 ```
 ```html
-    <body onload="bodyLoad()">
-       <ol id="lstCategories">
-       </ol>   
-    </body>
+<body onload="bodyLoad()">
+    <ol id="lstCategories">
+    </ol>   
+</body>
 ```
 
 ### JSON:

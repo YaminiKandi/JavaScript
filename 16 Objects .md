@@ -31,7 +31,7 @@ console.log(getPerson()) // Yamini
 ### Immediately Invoked Function Expressions (IIFE) :
 * We can invoke a function in the fly.
 ```js
-// functiom statement
+// function statement
 function greet(name) {
     document.write('Hello ' + name + '<br>')
 }
