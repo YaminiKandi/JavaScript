@@ -12,8 +12,15 @@ Building Objects:
 ---
 Function Constructor:
 
-A normal function that is used to construct objects.
-The 'this' variable points a new empty object, and that object is returned from the function automatically.
+Constructor functions technically are regular functions. There are two conventions though:
+
+They are named with capital letter first.
+They should be executed only with "new" operator.
+When a function is executed with new, it does the following steps:
+
+A new empty object is created and assigned to this.
+The function body executes. Usually it modifies this, adds new properties to it.
+The value of this is returned.
 
 ---
 
@@ -71,6 +78,23 @@ console.log(jackie)
 // This function is invoked!
 // Person {firstname:'Jackie', lastname:'Kandi'}
 ```
+* Inside a function, we can check whether it was called with new or without it, using a special new.target property.
+```js
+function Car(color) {
+  if (!new.target) {
+    // Called as function.
+    return `${color} car`;
+  }
+  // Called with new.
+  this.color = color;
+}
+const a = Car("red"); // a is "red car"
+const b = new Car("red"); // b is `Car { color: "red" }`
+```
+
+Usually, constructors do not have a return statement. Their task is to write all necessary stuff into this, and it automatically becomes the result. But if there is a return statement, then the rule is simple:
+    * If return is called with an object, then the object is returned instead of this.
+    * If return is called with a primitive, it’s ignored.
 
 ### Function Constructors and '.prototype':
 * Every function, a special type of object contains
