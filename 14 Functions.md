@@ -191,24 +191,72 @@ console.log(a);     //39
 ```
 
 ### 7. 'this':
+* The value of _this_ is defined at run-time (how a function is called). When a function is declared, it may use _this_, but that _this_ has no value until the function is called.
 * Every time when we invoke a function, new execution context will be created.
+* Arrow functions are special: they have no _this_. When _this_ is accessed inside an arrow function, it is taken from outside.
+* Value - In non–strict mode, this is always a reference to an object. In strict mode, it can be any value. For more information on how the value is determined, see the description below.
+* The value of this depends on in which context it appears: function, class, or global.
 
-##### 1. 'this' Alone:
+#### 1. Global Context:
 * When used alone, this refers to the global object. Because 'this' is running in the global scope.
 * In a browser window, the global object is `[object Window]`
 ```js
 console.log(this); // Window (object)
 ```
-##### 2. 'this' inside a function:
+#### 2. Function Context:
 * In a function, the global object is the default binding for this.
+* Inside a function, the value of _this_ depends on how the function is called. 
+* Think about _this_ as a hidden parameter of a function - similar to the parameters explicitly declared in the function definition (it means that the parameters are specifically listed and defined within the function's signature or definition)
+* When a function is defined, the language automatically creates the this binding for you when the function body is evaluated. This means that this is a reference or pointer to an object that is determined at runtime, depending on how the function is called or how a method is invoked.
+* The language binds this to the object that is responsible for the function call. In other words, this represents the context or the instance of an object that is associated with the function invocation.
+
+```
+regular function - refers to how function is called
+standalone function - refers to global object
+(A standalone function refers to a function that is not associated with any object or class,
+that exists independently and can be called directly without being invoked as a method of an object.)
+If function is called as a method of an object - refers to that object
+```
+
 ```js
 function a() {
-    console.log(this);  // Window (object)
+  console.log(this);  // Window (object)
 }
 a();
+
+function getThis() {
+  return this;
+}
+const obj1 = { name: "obj1" };
+const obj2 = { name: "obj2" };
+obj1.getThis = getThis;
+obj2.getThis = getThis;
+console.log(obj1.getThis()); // { name: 'obj1', getThis: [Function: getThis] }
+console.log(obj2.getThis()); // { name: 'obj2', getThis: [Function: getThis] }
+
+// As method of an object
+const obj3 = {
+  __proto__: obj1,
+  name: "obj3",
+};
+console.log(obj3.getThis()); // { name: 'obj3' }
+
+// The value of this always changes based on how a function is called
+// even when the function was defined on an object at creation
+const obj4 = {
+  name: "obj4",
+  getThis() {
+    return this;
+  },
+};
+
+const obj5 = { name: "obj5" };
+obj5.getThis = obj4.getThis;
+console.log(obj5.getThis()); // { name: 'obj5', getThis: [Function: getThis] }
+
 ```
-##### 3. 'this' inside a method:
-* When used in an object method, this refers to the object.
+
+* When used in an <b>object method</b>, this refers to the object.
 ```js
 function a() {
     console.log(this);
@@ -217,7 +265,28 @@ function a() {
 a();  // Window (object)
 console.log(newvariable);   // hello
 ```
-##### 4. 'this' inside an object:
+
+* If the value that the method is accessed on is a primitive, this will be a primitive value as well — but only if the function is in strict mode.
+```js
+function getThisStrict() {
+  "use strict"; 
+  return this;
+}
+Number.prototype.getThisStrict = getThisStrict;
+console.log(typeof(1).getThisStrict()); // "number"
+```
+
+* If the function is called without being accessed on anything, this will be undefined — but only if the function is in strict mode.
+```js
+console.log(typeof getThisStrict()); // "undefined"
+// OR
+"use strict";
+function myFunction() {
+  return this;      // undefined
+}
+```
+
+* <b> inside an object </b>
 ```js
 var c = {
     name: 'The c object',
@@ -282,13 +351,21 @@ var c = {
 }
 c.log(); 
 ```
-##### 5. 'this' in a function (strict mode):
-* when used in a function, in strict mode, this is undefined.
+
+<b> _this_ in Arrow Functions </b>
+* Unlike regular functions, arrow functions do not have their own this binding. Instead, they inherit the value of this from the surrounding or enclosing lexical context. The lexical context is determined by where the arrow function is defined, not where it is called.
+* The _this_ value in an arrow function refers to the same value as _this_ value in the surrounding code where the arrow function is defined. It doesn't matter how or where the arrow function is invoked; its _this_ value will remain the same as the enclosing context's this.
+* This behavior can be particularly useful when we want to maintain the value of this from an outer scope within the arrow function, especially in cases where this would typically change its value within regular functions.
 ```js
-"use strict";
-function myFunction() {
-  return this;      // undefined
-}
+const obj = {
+  name: "John",
+  sayHello: function() {
+    setTimeout(() => {
+      console.log("Hello, " + this.name);
+    }, 5000);
+  }
+};
+obj.sayHello(); // Output: Hello, John
 ```
 
 ### 8. Function Hoisting:
