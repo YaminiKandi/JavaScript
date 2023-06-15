@@ -6,11 +6,12 @@
 5. Types of Functions
 6. Self Invoking Functions
 7. 'this' Operator
+8. Function Hoisting
 
-### JavaScript Functions:
+### 1. JavaScript Functions:
 * A JavaScript function is a block of code designed to perform a particular task and is executed when "something" invokes it (calls it).
 
-### Function Statement:
+### 2. Function Statements:
 ```js
 function greet(){
     console.log('hi!');
@@ -26,7 +27,7 @@ function greet() {
 // Output: hi!
 ```
 
-### Function Expressions:
+### 3. Function Expressions:
 * A JavaScript function can also be defined using an expression.
 * A function expression can be stored in a variable and after storing, the variable can be used as a function.
 * This function doesn't want any name.
@@ -81,7 +82,7 @@ function (){
 * Functions stored in variables do not need function names. They are always invoked (called) using the variable name.
 * The function above ends with a semicolon because it is a part of an executable statement.
 
-### Function Constructor:
+### 4. Function Constructor:
 * Functions can also be defined with a built-in JavaScript function constructor called Function().
 ```js
 const myFunction = new Function("a", "b", "return a * b");
@@ -94,7 +95,7 @@ const myFunction = function (a, b) {return a * b}
 document.getElementById("demo").innerHTML = myFunction(4, 3);
 ```
 
-### Types of Functions:
+### 5. Types of Functions:
 1.Function without parametres 
 2.Function with parametres
 3.Function with returntype   
@@ -166,7 +167,7 @@ demo(10,20);
 </body>
 ```
 
-### Self-Invoking Functions
+### 6. Self-Invoking Functions
 * Function expressions can be made "self-invoking".
 * A self-invoking expression is invoked (started) automatically, without being called.
 * Function expressions will execute automatically if the expression is followed by ().
@@ -189,7 +190,7 @@ var a = 4 + 7 * 5;
 console.log(a);     //39
 ```
 
-### 'this':
+### 7. 'this':
 * Every time when we invoke a function, new execution context will be created.
 
 ##### 1. 'this' Alone:
@@ -289,3 +290,30 @@ function myFunction() {
   return this;      // undefined
 }
 ```
+
+### 8. Function Hoisting:
+* JavaScript Hoisting refers to the process whereby the interpreter appears to move the declaration of functions, variables or classes to the top of their scope, prior to execution of the code.
+* Hoisting allows functions to be safely used in code before they are declared.
+* Declarations are hoisted, but assignments are not. The declaration is processed at the start of function execution (hoisted), but the assignment always works at the place where it appears.
+* Variable and class declarations are also hoisted, so they too can be referenced before they are declared. Note that doing so can lead to unexpected errors, and is not generally recommended.
+
+```js
+console.log(a); // undefined
+a = 10;
+console.log(a); // 10
+var a;
+console.log(a); // 10
+
+greet("peter"); // Hello peter
+function greet(name) {
+  console.log("Hello " + name);
+}
+```
+
+Hoisting is different in case of let and const. In case of let and const, memory is assigned but we cannot access them till they are initialized with some value.
+
+* If you try to access let or const before assignment, you will get a REFERENCE ERROR.
+* Temporal Dead Zone – The time between memory allocation for let and const and assigning a value.
+* If we do not assign a value to const while declaring or if we do duplicate declaration for let or const, we get SYNTAX ERROR.
+* If we reassign a different value to const, we get TYPE ERROR.
+
