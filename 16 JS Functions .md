@@ -335,52 +335,23 @@ var person = {
 var logName = function(lang1, lang2) {
     document.write('Logged: ' + this.getFullName())
 }
-logName();
-// Uncaught TypeError: this.getFullName is not a function 
-
-var person = {
-    firstname: "Yamini",
-    lastname: "Kandi",
-    getFullName: function() {
-        var fullname = this.firstname + ' ' + this.lastname
-        return fullname;
-    }
-}
-var logName = function(lang1, lang2) {
-    document.write('Logged: ' + this.getFullName())
-}
+logName();              // Uncaught TypeError: this.getFullName is not a function 
 var logPersonName = logName.bind(person);
-logPersonName();
-// Logged: Yamini Kandi
+logPersonName();       // Logged: Yamini Kandi
 
-var person = {
-    firstname: "Yamini",
-    lastname: "Kandi",
-    getFullName: function() {
-        var fullname = this.firstname + ' ' + this.lastname
-        return fullname;
-    }
-}
+// OR
 var logName = function(lang1, lang2) {
     document.write('Logged: ' + this.getFullName())
 }.bind(person);
-logName();
-// Logged: Yamini Kandi
+logName();              // Logged: Yamini Kandi
 
-var person = {
-    firstname: "Yamini",
-    lastname: "Kandi",
-    getFullName: function() {
-        var fullname = this.firstname + ' ' + this.lastname
-        return fullname;
-    }
-}
+// OR
 var logName = function(lang1, lang2) {
     document.write('Logged: ' + person.getFullName())
 }
-logName(); 
-// Logged: Yamini Kandi
+logName();              // Logged: Yamini Kandi
 ```
+
 ```js
 var person = {
     firstname: "Yamini",
@@ -399,73 +370,26 @@ logPersonName('English', 'Telugu');
 // Logged: Yamini Kandi
 // Arguments: English, Telugu
 
-var person = {
-    firstname: "Yamini",
-    lastname: "Kandi",
-    getFullName: function() {
-        var fullname = this.firstname + ' ' + this.lastname
-        return fullname;
-    }
-}
-var logName = function(lang1, lang2) {
-    document.write('Logged: ' + this.getFullName() + '<br>')
-    document.write('Arguments: ' + lang1 + ', ' + lang2 + '<br>')
-}
-var logPersonName = logName.bind(person);
-logPersonName('English', 'Telugu');
 logName.call(person, 'English', 'Telugu')
 logName.apply(person, ['English', 'Telugu']) // apply wants arguments in an array
 
 // Function on the fly
-var person = {
-    firstname: "Yamini",
-    lastname: "Kandi",
-    getFullName: function() {
-        var fullname = this.firstname + ' ' + this.lastname
-        return fullname;
-    }
-}
-var logName = function(lang1, lang2) {
-    document.write('Logged: ' + this.getFullName() + '<br>')
-    document.write('Arguments: ' + lang1 + ', ' + lang2 + '<br>')
-}
-var logPersonName = logName.bind(person);
-logPersonName('English', 'Telugu');
 (function(lang1, lang2) {
     document.write('Logged: ' + this.getFullName() + '<br>')
     document.write('Arguments: ' + lang1 + ', ' + lang2 + '<br>')
 }).apply(person, ['Telugu', 'English'])
-```
-```js
-var person = {
-    firstname: "Yamini",
-    lastname: "Kandi",
-    getFullName: function() {
-        var fullname = this.firstname + ' ' + this.lastname
-        return fullname;
-    }
-}
+
 (function(lang1, lang2) {
     document.write('Logged: ' + this.getFullName() + '<br>')
     document.write('Arguments: ' + lang1 + ', ' + lang2 + '<br>')
 }).apply(person)
 //Uncaught TypeError: {(intermediate value)(intermediate value)(intermediate value)} is not a function
-var person = {
-    firstname: "Yamini",
-    lastname: "Kandi",
-    getFullName: function() {
-        var fullname = this.firstname + ' ' + this.lastname
-        return fullname;
-    }
-}
-var logName = function(lang1, lang2) {
-    document.write('Logged: ' + this.getFullName() + '<br>')
-    document.write('Arguments: ' + lang1 + ', ' + lang2 + '<br>')
-}
+
 logName.apply(person)
 //Logged: Yamini Kandi
 // Arguments: undefined, undefined
 ```
+
 ### Function Borrowing:
 * Function borrowing is borrowing a functionn from an object rather than redefining it.
 * Functions should have similar property names.
