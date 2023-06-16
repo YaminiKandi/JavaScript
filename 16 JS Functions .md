@@ -158,7 +158,7 @@ In the hood:
 * But at the moment the execution context finishes, that memory space is still there. The execution context may be gone but it's just sitting somewhere in memory.
 * Now we're inside the global execution context again and then we invoke the function `sayHi('Yamini');`(anonymous function). This creates a new execution context and passed a name variable 'Yamini' so that it will end up in its memory
 * When we hit the line `document.write(whattosay + ' ' + name);`. when its code is invoked, and Javascript engine sees the `whattosay` variable and it goes up the scope chain.<br><br>
-* There's an outer lexical environment reference. In other words it goes next point oustside where the function was created to llok for that variable, since it couldnot find it inside the function itself.
+* There's an outer lexical environment reference. In other words it goes next point oustside where the function was created to look for that variable, since it couldnot find it inside the function itself.
 * And even though the execution context of that function greet is gone, was popped out the stack. the sayHi execution context still has a reference to the variables, to the memory space of its outer environment.
 * In other words, even though greet function ended, it finished, any functions created inside of it. When they are called, will still have a reference to that greet function's memory. To what was in its memory, its execution contexts memory space.
 * And this way we say that the execution context has closed in its outer variables, the variables that it would normally have reference to anyway even though that execution contexts are gone.
