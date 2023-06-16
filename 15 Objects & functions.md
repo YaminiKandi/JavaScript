@@ -22,7 +22,7 @@ console.log(person[firstNameProperty]);
 ```
 ```
 Output:
->Object
+>Object { firstname: 'Yamini', lastname: 'Kandi' }
 Yamini
 ```
 * Using dot operator
@@ -54,6 +54,7 @@ console.log(person["address"]["state"]); //Andhra Pradesh
 
 ### Object literals:
 ```js
+// { } => object literal for "new Object" statement we use
 var person = new Object();
 var person = {};
 ```
@@ -161,7 +162,10 @@ console.log(english.greetings.greet); // Hello!
 ### Functions are Objects:
 #### First Class Functions:
 Everything you can do with other types, you can do with Functions
-Assign them to variables,pass them around, create them on the fly.
+    - Assign them to variables
+    - pass them around
+    - create them on the fly.
+    
 function is a special type of object because it has all the features of a normal object and has some other special properties
 We can attach methods and properties to a function because it's an object.
 A function can be attached to 
