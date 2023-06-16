@@ -430,53 +430,60 @@ multiplyByThree(5)  // 15
 ```
 
 ### Functional Programming
+* Functional Programming is a programming paradigm where you mostly construct and structure your code using functions.
+
 ```js
 var arr1 = [1, 2, 3];
-document.write(arr1 + '<br>')
+console.log(arr1 + '<br>')
 var arr2 = [];
 for (var i = 0; i < arr1.length; i++) {
     arr2.push(arr1[i] * 2);
 }
-document.write(arr2);
+console.log(arr2);
 // 1,2,3
 // 2,4,6
 ```
 ```js
-function mapForEach(arr, fn){
+function mapForEach(arr, func){
     var newArr = [];
     for (var i = 0; i < arr.length; i++) {
         newArr.push(
-            fn(arr[i])
+            func(arr[i])
         )
     }
     return newArr;
 }
 var arr1 = [1,2,3]
-document.write(arr1 + '<br>')   // 1,2,3
+console.log(arr1)   // [ 1, 2, 3 ]
 var arr2 = mapForEach(arr1, function(item){
     return item*2;
 })
-document.write(arr2 + '<br>');  //2,4,6
+console.log(arr2);  // [ 2, 4, 6 ]
 var arr3 = mapForEach(arr1, function(item){
     return item > 2;
 })
-document.write(arr3 + '<br>');  // false,false,true
+console.log(arr3);  // [ false, false, true ]
 var arr4 = mapForEach(arr2, function(item){
     return item > 2;
 })
-document.write(arr4 + '<br>');  // false,true,true
+console.log(arr4);  // [ false, true, true ]
+// this can be further modified
 
-var checkPastLimit = function(limiter, item){
-    return item > limiter;
+var logic = function(multiplier, item){
+    return item * multiplier;
 }
-var arr5 = mapForEach(arr1, checkPastLimit.bind(this, 1)) // making limiter as 1
-document.write(arr5)    // false,true,true
+var arr5 = mapForEach(arr1, logic.bind(this, 4))
+// bindis required because 'func' in mapMe takes only one input 
+// and our logic function takes 2 inputs
+console.log(arr5)    // [ 4, 8, 12 ]
 
-var checkPastLimitSimplified = function(limiter){
-    return function(limiter, item) {
-        return item > limiter
-    }.bind(this, limiter)
+var logicModified = function(multiplier){
+    return function(multiplierX, item){
+        return item * multiplierX;
+        // multiplierX is used just to differentiate
+    }.bind(this, multiplier);
 };
-var arr6 = mapForEach(arr1, checkPastLimitSimplified(2))
-document.write(arr6 + '<br>')   // false,false,true
+// logicModified(5)(item) is same as logic.bind(this, 4)(item) and that is same as logic(4, item)
+var arr5 = mapForEach(arr1, logicModified(5)); // Now this looks clean
+console.log(arr5);  // [ 5, 10, 15 ]
 ```
