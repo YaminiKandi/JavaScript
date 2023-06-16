@@ -90,7 +90,7 @@ var objectLiteral={
     isAProgrammer:true
 }
 console.log(JSON.stringify(objectLiteral));
-var jsonValue = JSON.parse('{ "firstname" : "Mary", "isAProgrammer" : true }');
+var jsonValue = JSON.parse('{ "firstname" : "Yamini", "isAProgrammer" : true }');
 console.log(jsonValue);
 ```
 ```
