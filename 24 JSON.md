@@ -86,7 +86,7 @@ JSON - JavaScript Object Notation
 
 ```js
 var objectLiteral={
-    firstname:'Mary',
+    firstname:'Yamini',
     isAProgrammer:true
 }
 console.log(JSON.stringify(objectLiteral));
@@ -95,7 +95,7 @@ console.log(jsonValue);
 ```
 ```
 Output:
-{"firstname":"Mary","isAProgrammer":true}
-Object{firstname: 'Mary', isAProgrammer: true}
+{"firstname":"Yamini","isAProgrammer":true}
+Object{firstname: 'Yamini', isAProgrammer: true}
 ```
 Here, we are converting an object into an JSON string and then converting that JSON string again to an object.
