@@ -29,7 +29,9 @@ console.log(getPerson()) // Yamini
 ```
 
 ### Immediately Invoked Function Expressions (IIFE) :
-* We can invoke a function in the fly.
+* We can invoke a function in the fly. 
+* That means they are invoked immediately after creation.
+
 ```js
 // function statement
 function greet(name) {
@@ -119,6 +121,11 @@ document.write(greeting);
 ```
 
 ### Closures:
+* A closure is a function that remembers its outer variables and can access them. 
+* Function along with its lexical scope bundled together forms a closure.
+* All functions remember the Lexical Environment in which they were made. 
+* Technically, there’s no magic here: all functions have the hidden property named `[[Environment]]`, that keeps the reference to the Lexical Environment where the function was created
+
 ```js
 function greet(whattosay) {
     return function(name) {
@@ -127,6 +134,7 @@ function greet(whattosay) {
 }
 greet('Hi')('Yamini');
 // Hi Yamini
+
 function greet(whattosay) {
     return function(name) {
         document.write(whattosay + ' ' + name);
@@ -136,6 +144,8 @@ var sayHi = greet('Hi');
 sayHi('Yamini');
 // Hi Yamini
 ```
+It doesn't matter when we invoke a function. We don't have to worry if its outer environments are still running. The JavaScript engine will always make sure that whatever function I'm running, that it will have access to the variables that it's supposed to have access to. That its scope is intact. 
+
 In the hood:
 * Global execution context will be created.
 * When it invokes `var sayHi = greet('Hi');` then creates a new execution context greet()
@@ -525,7 +535,3 @@ var checkPastLimitSimplified = function(limiter){
 var arr6 = mapForEach(arr1, checkPastLimitSimplified(2))
 document.write(arr6 + '<br>')   // false,false,true
 ```
-
-### Underscore.js:
-* <a> http://underscorejs.org </a>
-* Provides a open source education.
