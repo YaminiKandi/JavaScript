@@ -96,9 +96,9 @@ document.getElementById("demo").innerHTML = myFunction(4, 3);
 ```
 
 ### 5. Types of Functions:
-1.Function without parametres 
-2.Function with parametres
-3.Function with returntype   
+1. Function without parametres 
+2. Function with parametres
+3. Function with returntype   
 
 #### 1. Function without parametres:
 ##### document.write():
