@@ -168,7 +168,7 @@ In the hood:
 * The javascript engine will always make sure that whatever function im running, that it will have access to the variables that its supposed to have access to. That its scope is intact.
 * This is the feature of the language that's extraordinarily important and powerful.
 
-### Closure examples:
+#### Closure examples:
 ```js
 function buildFunctions() {
     var arr = [];
@@ -250,6 +250,19 @@ fs[1](); //1
 fs[2](); //2
 ```
 
+#### Uses of Closures
+1. Module Design Pattern
+2. Currying
+3. Functions like once
+4. Memoize
+5. Maintaining state in async world
+6. setTimeouts
+7. Data hiding and Encapsulation
+8. Iterators … and many more
+
+#### Disadvantages of closures
+- Memory issues if garbage collection is not done properly
+
 ### Function Factories:
 ```js
 function makeGreeting(language) {
@@ -305,6 +318,11 @@ tellMeWhenDone(function(){
 ```
 
 ### call(), apply() and bind():
+* `bind()` - creates a copy of the function with its this keyword set to provided value. It also accepts parameters.
+* `call()` - same as bind but the function is invoked immediately with its this keyword set to provided value. It also accepts parameters.
+* `apply()` - same as call but it parameters are passed in an array. 
+* All functions will have access to call(), apply(), bind().
+
 ```js
 var person = {
     firstname: "Yamini",
@@ -448,7 +466,8 @@ logName.apply(person)
 //Logged: Yamini Kandi
 // Arguments: undefined, undefined
 ```
-#### Function Borrowing:
+### Function Borrowing:
+* Function borrowing is borrowing a functionn from an object rather than redefining it.
 * Functions should have similar property names.
 ```js
 var person = {
@@ -468,7 +487,7 @@ document.write(person.getFullName.apply(person2));
 // Yamini Kandi
 // Vamsi Kandi
 ```
-#### Function Curring:
+### Function Curring:
 * Creating a copy of a function but with some preset parameters.
 * Very useful in mathematical situations.
 ```js
