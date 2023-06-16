@@ -134,7 +134,10 @@ function greet(whattosay) {
 }
 greet('Hi')('Yamini');
 // Hi Yamini
+```
+It doesn't matter when we invoke a function. We don't have to worry if its outer environments are still running. The JavaScript engine will always make sure that whatever function I'm running, that it will have access to the variables that it's supposed to have access to. That its scope is intact. 
 
+```js
 function greet(whattosay) {
     return function(name) {
         document.write(whattosay + ' ' + name);
@@ -144,7 +147,6 @@ var sayHi = greet('Hi');
 sayHi('Yamini');
 // Hi Yamini
 ```
-It doesn't matter when we invoke a function. We don't have to worry if its outer environments are still running. The JavaScript engine will always make sure that whatever function I'm running, that it will have access to the variables that it's supposed to have access to. That its scope is intact. 
 
 In the hood:
 * Global execution context will be created.
