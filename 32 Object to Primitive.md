@@ -41,6 +41,7 @@ alert(user + 500); // valueOf -> 1500
 ```
 
 #### Property getters, setters and Computed Names:
+
 ```js
 let obj = {
   get propName() {
