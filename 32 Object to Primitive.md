@@ -39,3 +39,30 @@ alert(user); // toString -> {name: "John"}
 alert(+user); // valueOf -> 1000
 alert(user + 500); // valueOf -> 1500
 ```
+
+#### Property getters, setters and Computed Names:
+```js
+let obj = {
+  get propName() {
+    // getter, the code executed on getting obj.propName
+  },
+
+  set propName(value) {
+    // setter, the code executed on setting obj.propName = value
+  },
+};
+```
+
+* the outside, an accessor property looks like a regular one. That’s the idea of accessor properties.
+* We don’t call obj.propName as a function, we read it normally: the getter runs behind the scenes.
+* If obj.propName setter is not present, If we attempt to assign obj.propName=, there will be an error
+
+```js
+let obj2 = {
+  ['say' + 'Hi']() {
+    alert("Hello");
+  }
+}
+```
+
+obj2.sayHi();
