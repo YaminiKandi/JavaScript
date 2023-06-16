@@ -7,6 +7,8 @@
 6. Self Invoking Functions
 7. 'this' Operator
 8. Function Hoisting
+9. Arguments
+10. rest parameters and spread operator
 
 ### 1. JavaScript Functions:
 * A JavaScript function is a block of code designed to perform a particular task and is executed when "something" invokes it (calls it).
@@ -394,3 +396,42 @@ Hoisting is different in case of let and const. In case of let and const, memory
 * If we do not assign a value to const while declaring or if we do duplicate declaration for let or const, we get SYNTAX ERROR.
 * If we reassign a different value to const, we get TYPE ERROR.
 
+### 9. Arguments:
+*  `arguments` is an array which can be used in any function. 
+*  It contains all arguments that are passed to that function as its elements.
+
+```js
+function greeting(firstname, lastname, language = 'es', ...others){
+    // setting default values
+    // '... others' is used for unnamed arguments that user passes that are still available by arguments[x]
+
+    console.log(arguments);
+    // 'arguments' is an array of all parameters passed to the function
+    if(arguments.length==0){
+        console.log('Missing parameters');
+        console.log('----------');
+        return;
+    }
+    console.log('Hello ' + firstname + ' ' + lastname, 'language: '+ language);
+    console.log('Hello ' + arguments[0] + ' ' + arguments[1], 'language: '+ arguments[2]);
+    console.log('----------');
+}
+
+greeting();
+greeting('vamsi');
+greeting('vamsi', 'krishna');
+// error wont show up even if you dont pass some parameters
+greeting('vamsi', 'krishna', 'en');
+greeting('vamsi', 'krishna', 'en', 'Noida', 'UP');
+```
+
+### 10. rest parameters and spread operator:
+* When we see "..." in the code, it is either rest parameters or the spread syntax.
+* There’s an easy way to distinguish between them:
+    - When ... is at the end of function parameters, it’s rest parameters and gathers the rest of the list of arguments into an array.
+    - When ... occurs in a function call or alike, it’s called a spread syntax and expands an array into a list.
+
+##### Use patterns:
+* Rest parameters are used to create functions that accept any number of arguments.
+* The spread syntax is used to pass an array to functions that normally require a list of many arguments.
+* Rest parameters are not counted in fn.length
