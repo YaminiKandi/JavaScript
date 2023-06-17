@@ -379,9 +379,10 @@ f1()
 ```
 
 ### Dynamically creating a DOM Element for Array Elements:
-You can create any HTML DOM Element by using the method 
+We can create any HTML DOM Element by using the method 
    * document.createElement()
-You can add any HTML Element into DOM by using the methods,
+   
+We can add any HTML Element into DOM by using the methods,
    * append()  [as Suffix]
    * prepend()  [as prefix]
    * appendChild() [as child Element of any parent]
@@ -536,6 +537,7 @@ function f1(){
 }
 f1()
 ```
+
 #### 2. reverse():
 * It reverses an array.
 ```js
@@ -545,4 +547,68 @@ function f1(){
     document.write(categories)
 }
 f1()
+```
+
+#### 3. at():
+* Takes an integer and returns the item at that index
+
+#### 4. concat():
+* Used to merge 2 or more arrays
+* Doesnot change the existing arrays, but creates a new array
+
+Parameters - valueN (Optional)
+* Arrays and/or values to concatenate into a nean array to another location in the same array and returns it without modifying its length.w*  array. 
+* If all valueN parameters are omitted, concat returns a shallow copy of the existing array on which it is called.
+
+```js
+const array1 = ['a', 'b', 'c'];
+const array2 = ['d', 'e', 'f'];
+const array3 = array1.concat(array2);
+console.log(array3);
+// ["a", "b", "c", "d", "e", "f"]
+```
+
+#### 5. copyWithin():
+* Shallow copies part of an array to another location in the same array and returns it without modifying its length.
+* It also modifies the original array
+
+Syntax:
+```js
+copyWithin(target, start)
+copyWithin(target, start, end)
+```
+
+Parameters:
+1. target: Zero-based index at which to copy the sequence to. If negative, target will be counted from the end. If target is at or greater than arr.length, nothing will be copied. If target is positioned after start, the copied sequence will be trimmed to fit arr.length.
+2. start: Zero-based index at which to start copying elements from. If negative, start will be counted from the end. If start is omitted, copyWithin will copy from index 0.
+3. end: Zero-based index at which to end copying elements from. copyWithin copies up to but not including end. If negative, end will be counted from the end. If end is omitted, copyWithin will copy until the last index (default to arr.length).
+
+Return: A modified array
+
+#### 6. entries():
+* The `entries()` method returns a new array iterator object that contains the key/value pairs for each index in the array.
+
+Return: A new iterable iterator object.
+
+```js
+const array1 = ['a', 'b', 'c'];
+const iterator1 = array1.entries();
+console.log(iterator1.next().value);    // Array [0, "a"]
+console.log(iterator1.next().value);    // Array [1, "b"]
+console.log(iterator1.next().value);    // Array [2, "c"]
+console.log(iterator1.next().value);    // undefined
+```
+
+#### 7. every():
+* The `every()` method tests whether all elements in the array pass the test implemented by the provided function.
+* It returns a Boolean value.
+
+Parameters:
+1. callbackFn: A function to test for each element, taking three arguments: element, index(optional), array(optional)
+2. thisArg(optional): Return: true if the callbackFn function returns a truthy value for every array element. Otherwise, false
+
+```js
+const isBelowThreshold = (currentValue) => currentValue < 40;
+const array1 = [1, 30, 39, 29, 10, 13];
+console.log(array1.every(isBelowThreshold));    // true
 ```
