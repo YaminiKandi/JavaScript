@@ -11,6 +11,9 @@ Object Oriented JavaScript and Prototypal Inheritance
 * Classical - verbose, protected, private, hard to understand
 
 ### Understanding the Prototype:
+* Every object in JavaScript has a built-in property, which is called its prototype. 
+* The prototype is itself an object, so the prototype will have its own prototype, making what's called a prototype chain. 
+* The chain ends when we reach a prototype that has null for its own prototype. 
 * If we have an object named 'obj', it contains
     1. property, prop1 - which can be called by obj.prop1
     2. proto{}, which again contains
@@ -18,7 +21,6 @@ Object Oriented JavaScript and Prototypal Inheritance
         - proto{}
             * property, prop3 - obj.prop3 ..... and so on
 * This is called prototype chain
-* Each object can have its own prototype.
 * Another object with name 'obj2' can point to the prototype which obj pointed to.
 * Objects can the share all the prototypes.
 * obj.prop2 and obj2.prop2 are similar
@@ -35,14 +37,15 @@ var jackie = {
     lastname: 'Kandi'
 }
 // Don't do this EVER! for demo purposes only..!!!!
+// Causes Performance issue
 jackie.__proto__ = person;
-document.write(jackie.getFullName() + '<br>');
-document.write(jackie.firstname + '<br>'); // First checks in the object and then goes to prototype
+console.log(jackie.getFullName());
+console.log(jackie.firstname); // First checks in the object and then goes to prototype
 var yam = {
     firstname:'Yam'
 }
 yam.__proto__ = person;
-document.write(yam.getFullName());
+console.log(yam.getFullName());
 // Jackie Kandi
 // Jackie
 // Yam Default
@@ -53,10 +56,10 @@ document.write(yam.getFullName());
 var a = {};
 var b = function() {};
 var c = [];
-document.write(a.__proto__ + '<br>')            // [object Object]
-document.write(b.__proto__ + '<br>')            // function() { [native code] }
-document.write(c.__proto__ + '<br>')            //  []
-document.write(c.__proto__.__proto__ + '<br>')  // [object Object]
+console.log(a.__proto__)            // [object Object]
+console.log(b.__proto__)            // function() { [native code] }
+console.log(c.__proto__)            //  []
+console.log(c.__proto__.__proto__)  // [object Object]
 ```
 
 ### Reflection and Extend:
@@ -77,7 +80,7 @@ jackie.__proto__ = person;
 
 for (var prop in jackie){
     if(jackie.hasOwnProperty(prop)){
-        document.write(prop + ': ' + jackie[prop] + '<br>')
+        console.log(prop + ': ' + jackie[prop])
     }
 }
 // firstname: Jackie
