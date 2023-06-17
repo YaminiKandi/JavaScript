@@ -53,14 +53,15 @@ Note: Constructor is responsible for creating an Array Object.
 ### Storing values into an Array:
 * Values are stored and accessed by using "property".
 * Array property is same as Index Number and it is a String type property that maps to Index Number.
+
 Example:
-Index Numbers - 0, 1, 2, 3,...
-Array Property - "0", "1", "2", "3",...
+- Index Numbers - 0, 1, 2, 3,...
+- Array Property - "0", "1", "2", "3",...
 
 ```js
 function f1(){
     var  values = [10,"Yamini",true];
-    document.write(values["1"]);
+    console.log(values["1"]);
 }
 f1()
 ```
@@ -68,7 +69,7 @@ f1()
 function f1(){
     var  values = [10,"Yamini",true];
     values["3"] = "Array"
-    document.write(values["3"]);
+    console.log(values["3"]);
 }
 f1()
 ```
