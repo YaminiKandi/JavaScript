@@ -199,7 +199,8 @@ document.write(a.isPositive()) // true
 var a = 3;
 var b = new Number(3);
 document.write(a == b) // true
-// The == operator looks at 'a' and sees a primitive, looks at 'b' and sees an object and tries to convert them to the same type
+// The == operator looks at 'a' and sees a primitive, looks at 'b' and sees an object 
+// and tries to convert them to the same type
 document.write(a===b) // false
 // As 'a'- primitive and 'b'- object created with function constructor
 ```
