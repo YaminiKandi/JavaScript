@@ -1,3 +1,17 @@
+### Contents
+1. Dynamic Typing
+2. Primitive Types
+3. Operators
+4. Operator precedence and Associativity
+5. Coercion
+6. Delete
+7. typeof
+8. Bitwise Operators
+9. void Operator
+10. Non leaking Arrow functions
+11. Relational Operators
+12. Basic Expressions
+
 ### Dynamic Typing:
 * You Don't tell the engine what type of datavariable holds, it figures it out while our code is running.
 * Variables can hold different types of values because it's all figured out during execution.  
@@ -186,6 +200,15 @@ var d = 1 + '2'; //12
 var a = 1, b = '2';
 console.log(a + b); // results 12
 ```
+
+#### Operator associativity and coercion:
+Ex: (1<2<3), (3<2<1)
+* 1<2<3: 1<2 is true, true is coerced as 1 to do true<3 operation. This results in true as it should be. Problem arises in other case
+* 3>2>1: 3>2 is true, so it will reduced to 1>1. This results in false as it shouldn't be. To avoid this we can use 3>2 && 2>1
+
+#### Types of coercion:
+1. Explicit coercion - When a developer expresses the intention to convert between types by writing the appropriate code, like Number(value).
+2. Implicit coercion - Values can be converted  between different types automatically.
 
 ### 3. Comparision Operators:
 |Operator | Description |
@@ -496,7 +519,7 @@ function f1(){
 f1()
 ```
 
-## Delete:
+### Delete:
 * It is used to delete any property of an Object.
 * You can delete only the properties of custom Object[user defined]
 * You can't delete the properties of built-in object,as they are marked as read-only.
@@ -530,7 +553,7 @@ function f1(){
 f1()
 ```
 
-## type of:
+### type of:
 * It returns the data type of property of an object.
 
 ```js
@@ -548,3 +571,6 @@ function f1(){
 }
 f1()
 ```
+
+### Bitwise Operators:
+
