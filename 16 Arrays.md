@@ -228,7 +228,7 @@ f1()
 function f1(){
     var product = ["JBL Speaker",4500.55,true,["hyderabad","vijayawada"]];
     var len = product.length;
-    document.write(`Length is ${len}`)
+    console.log(`Length is ${len}`)
 }
 f1()
 ```
@@ -251,7 +251,7 @@ function f1(){
     var categories = ["All","Electronics","Fashion","Footwear"];
     var len = categories.length;
     for(var i=0; i<len; i++){
-    document.write( categories[i] + "<br>")
+    console.log( categories[i])
     }
 }
 f1()
@@ -260,20 +260,18 @@ f1()
 #### 2. Iterators:
 * Iterators doesn't require Initialization, condition and Counter
 * It is a software design pattern used to read Elements from a collection in sequential order.
-    a. for..in 
-    b. for..of 
+    - for..in
+    - for..of 
 
 ##### a. for..in:
 * Reads all properties and values.
-* Recommended: In Arrays, better dont use `for...in` instead use the standard for loop
-* `for (var i=0; i<arr.length; i++){}`
-* As arrays are objects.
+* Recommended: In Arrays, better dont use `for...in` instead use the standard for loop `for (var i=0; i<arr.length; i++){}` as arrays are objects.
 
 ```js
 function f1(){
     var categories = ["All","Electronics","Fashion","Footwear"];
     for(var property in categories){
-    document.write(`[${property}] ${categories[property]} <br>`)
+    console.log(`[${property}] ${categories[property]}`)
     }
 }
 f1()
@@ -286,7 +284,7 @@ Output:
 ```js
 var arr = ['John', 'Jane', 'Jim'];
 for (var prop in arr){
-    document.write(prop + ': ' + arr[prop] + '<br>');
+    console.log(prop + ': ' + arr[prop]);
 }
 Output:
 0: John
@@ -300,7 +298,7 @@ Output:
 Array.prototype.myCustomFeature = 'cool!';
 var arr = ['John', 'Jane', 'Jim'];
 for (var prop in arr){
-    document.write(prop + ': ' + arr[prop] + '<br>');
+    console.log(prop + ': ' + arr[prop]);
 }
 Output:
 0: John
@@ -315,39 +313,67 @@ myCustomFeature: cool!
 function f1(){
     var categories = ["All","Electronics","Fashion","Footwear"];
     for(var item of categories){
-        document.write(item + "<br>")
+        console.log(item)
     }
 }
 f1()
 ```
+
 #### 3. map():
+* `map()` method allows you to create a new array by applying a function to each element of an existing array.
+* The provided function takes three arguments:
+    - currentValue: The current element being processed in the array.
+    - index (optional): The index of the current element being processed.
+    - array (optional): The original array that map() was called upon.
+   
 ```js
 function f1(){
     var categories = ["All","Electronics","Fashion","Footwear","MensWear"];
     categories.map(function(value){
-    document.write(value+"<br>")
+    console.log(value)
     })
 }
 f1()
 ```
 #### 4. toString():
+* `toString()` method is used to convert an array to a string representation. 
+* It returns a string where the array elements are converted to strings and joined together with commas as separators.
+
+```js
+const fruits = ['apple', 'banana', 'orange'];
+const fruitsString = fruits.toString();
+console.log(fruitsString); // Output: "apple,banana,orange"
+```
+
 ```js
 function f1(){
     var categories = ["All","Electronics","Fashion","Footwear","MensWear"];
     var str = categories.toString();
     var result = str.split(",")
     for(var res of result){
-    document.write(res+"<br>")
+    console.log(res)
     }
 }
 f1()
 ```
+
 #### 5. join():
+* `join()` method is used to join the elements of an array into a string. 
+* It concatenates the elements together using a specified separator and returns the resulting string.
+
+```js
+const fruits = ['apple', 'banana', 'orange'];
+const fruitsString1 = fruits.join();
+console.log(fruitsString1); // Output: "apple,banana,orange"
+const fruitsString2 = fruits.join(' | ');
+console.log(fruitsString2); // Output: "apple | banana | orange"
+```
+
 ```js
 function f1(){
     var categories = ["All","Electronics","Fashion","Footwear","MensWear"];
     var res = categories.join("-->");
-    document.write(res)
+    console.log(res)
 }
 f1()
 ```
