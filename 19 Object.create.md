@@ -47,6 +47,6 @@ Hi Default
 * This concept is a newer thing that modern browsers, that's javascript engines and more newer browsers are implementing.
 * But what if we are involved in a project that requires us to support users that are on older browsers, or maybe an older environment where the javascript engine doesn't support Object.create, it doesn't have it.
 * Well, We can use `Polyfill`.
-* For Polyfill refer [notes](./33 Polyfill.md)
+* For Polyfill refer [notes](./33%20Polyfill.md)
 
 -------
