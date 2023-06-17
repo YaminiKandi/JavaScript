@@ -98,16 +98,13 @@ document.getElementById("demo").innerHTML = myFunction(4, 3);
 ```
 
 * We can use Number(), String(), Date() etc functions and use their constructors but what we have to remember is..
-
-If we use
 ```js
+// If we use
 var a = Number(3);
-```
-It is still a number. But if we use
-```js
+// It is still a number. But if we use
 var a = new Number(3);
+// It is now an object.
 ```
-It is now an object.
 
 ### 5. Types of Functions:
 1. Function without parametres 
