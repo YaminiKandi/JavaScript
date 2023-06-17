@@ -426,7 +426,7 @@ for(var item of Categories){
 function f1(){
     var  categories = ["All","Electronics","Footwear","Fashion"];
     categories.push("Kidswear");
-    document.write(categories+"<br>")
+    console.log(categories)
 }
 f1()
 ```
@@ -436,18 +436,19 @@ f1()
 function f1(){
     var  categories = ["All","Electronics","Footwear","Fashion"];
     categories.unshift("Kidswear");
-    document.write(categories)
+    console.log(categories)
 }
 f1()
 ```
 #### 3. splice():
 * It adds the new Elements at specific location
+
 Syntax: `arrayName.splice(startIndex,deleteCount,"newElement1","newElement2");`.
 ```js
 function f1(){
     var  categories = ["All","Electronics","Footwear","Fashion"];
     categories.splice(3,0,"KidsWear");
-    document.write(categories)
+    console.log(categories)
 }
 f1()
 ```
@@ -463,7 +464,7 @@ f1()
 function f1(){
     var  categories = ["All","Electronics","Footwear","Fashion"];
     categories.pop();
-    document.write(categories)
+    console.log(categories)
 }
 f1()
 ```
@@ -473,7 +474,7 @@ f1()
 function f1(){
     var  categories = ["All","Electronics","Footwear","Fashion"];
     categories.shift();
-    document.write(categories)
+    console.log(categories)
 }
 f1()
 ```
@@ -483,7 +484,7 @@ f1()
 function f1(){
     var  categories = ["All","Electronics","Footwear","Fashion","Kidswear","Menswear"];
     categories.splice(2,3);
-    document.write(categories)
+    console.log(categories)
 }
 f1()
 ```
@@ -496,7 +497,7 @@ f1()
 function f1(){
     var  categories = ["Menswear","Footwear","Electronics","All","Fashion","Kidswear"];
     categories.sort();
-    document.write(categories)
+    console.log(categories)
 }
 f1()
 ```
