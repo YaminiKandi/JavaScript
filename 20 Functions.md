@@ -9,6 +9,7 @@
 8. Function Hoisting
 9. Arguments
 10. rest parameters and spread operator
+11. Function Overloading
 
 ### 1. JavaScript Functions:
 * A JavaScript function is a block of code designed to perform a particular task and is executed when "something" invokes it (calls it).
@@ -444,3 +445,41 @@ greeting('vamsi', 'krishna', 'en', 'Noida', 'UP');
 * Rest parameters are used to create functions that accept any number of arguments.
 * The spread syntax is used to pass an array to functions that normally require a list of many arguments.
 * Rest parameters are not counted in fn.length
+
+### 11. Function Overloading:
+Creating a function2 to use function1 where function2 takes care of some arguments for function1.
+
+```js
+function greet(firstname, lastname, language) {
+    if(language === 'en'){
+        console.log('Hello ' + firstname + ' ' + lastname)
+    }
+    if(language === 'es') {
+        console.log('Hola ' + firstname + ' ' + lastname)
+    }
+}
+greet('yamini','kandi','en')
+greet('yamini','kandi','es')
+// OR
+function greet(firstname, lastname, language) {
+    if(language === 'en'){
+        console.log('Hello ' + firstname + ' ' + lastname)
+    }
+    if(language === 'es') {
+        console.log('Hola ' + firstname + ' ' + lastname)
+    }
+}
+function greetEnglish(firstname, lastname) {
+    greet(firstname, lastname, 'en')
+}
+function greetSpanish(firstname, lastname) {
+    greet(firstname, lastname,'es')
+}
+greetEnglish('yamini', 'kandi')
+greetSpanish('yamini', 'kandi')
+```
+```
+Output:
+Hello yamini kandi
+Hola yamini kandi
+```
