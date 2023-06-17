@@ -7,7 +7,6 @@
     - Array Elements
     - ECMA 2015 [ES5] onwards it supports destructing array
     - Length property
-    - Function Overloading
     - Reading Array elements
     - Dynamically creating a DOM Element for Array Elements
     - Adding Elements into an Array
@@ -231,42 +230,6 @@ function f1(){
     document.write(`Length is ${len}`)
 }
 f1()
-```
-
-### Function Overloading:
-```js
-function greet(firstname, lastname, language) {
-    if(language === 'en'){
-        console.log('Hello ' + firstname + ' ' + lastname)
-    }
-    if(language === 'es') {
-        console.log('Hola ' + firstname + ' ' + lastname)
-    }
-}
-greet('yamini','kandi','en')
-greet('yamini','kandi','es')
-// OR
-function greet(firstname, lastname, language) {
-    if(language === 'en'){
-        console.log('Hello ' + firstname + ' ' + lastname)
-    }
-    if(language === 'es') {
-        console.log('Hola ' + firstname + ' ' + lastname)
-    }
-}
-function greetEnglish(firstname, lastname) {
-    greet(firstname, lastname, 'en')
-}
-function greetSpanish(firstname, lastname) {
-    greet(firstname, lastname,'es')
-}
-greetEnglish('yamini', 'kandi')
-greetSpanish('yamini', 'kandi')
-```
-```
-Output:
-Hello yamini kandi
-Hola yamini kandi
 ```
 
 ### Reading Array Elements:
