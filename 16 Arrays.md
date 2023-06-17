@@ -242,10 +242,10 @@ f1()
 
 #### 1. Loops:
 * Loops contains Initialization, condition and Counter.
-* we can create loops with 
-    a. for
-    b. while 
-    c. do while
+* we can create loops with
+    - for
+    - while 
+    - do while
 ```js
 function f1(){
     var categories = ["All","Electronics","Fashion","Footwear"];
