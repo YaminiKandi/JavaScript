@@ -340,8 +340,6 @@ function f1(){
 f1()
 ```
 
-
-
 ### Dynamically creating a DOM Element for Array Elements:
 We can create any HTML DOM Element by using the method 
    * document.createElement()
@@ -352,7 +350,7 @@ We can add any HTML Element into DOM by using the methods,
    * appendChild() [as child Element of any parent]
    * appendTo() [To any Specific Element] 
 
-#### 1. append() & prepend():
+#### 1. `append() & prepend()`:
 ```js
 function bodyLoad(){
     var u =   document.createElement("u");  // underline element
@@ -370,7 +368,7 @@ function bodyLoad(){
 </body>
 ```
 
-#### 2. appendChild():
+#### 2. `appendChild()`:
 ```js
 var Categories = ["All","Electronics","Footwear","Fashion"];
 function bodyLoad(){
@@ -412,37 +410,79 @@ for(var item of Categories){
 2. unshift() 
 3. splice()
 
-#### 1. push():
-* It adds the New Elements at the Bottom or end.
+### 1. `push()`:
+* Adds the specified elements to the end of an array
+
+**Parameters**:
+1. elementN: The element(s) to add to the end of the array.
+
+**Return**: The new length property of the object upon which the method was called.
+
 ```js
-function f1(){
-    var  categories = ["All","Electronics","Footwear","Fashion"];
-    categories.push("Kidswear");
-    console.log(categories)
-}
-f1()
+// Syntax
+push()
+push(elementN)
+
+// Example
+const animals = ['pigs', 'goats', 'sheep'];
+const count = animals.push('cows');
+console.log(count);			// 4
+console.log(animals);		// Array ["pigs", "goats", "sheep", "cows"]
+animals.push('cats', 'dogs');
+console.log(animals);		// Array ["pigs", "goats", "sheep", "cows", "cats", "dogs"]
 ```
-#### 2. unshift():
-* It adds the new Elements at the top or start.
+
+### 2. `unshift()`:
+* Adds the specified elements to the beginning of an array
+
+**Parameters**:
+1. elementN: The elements to add to the front of the arr.
+
+**Return**: The new length property of the object upon which the method was called
+
 ```js
-function f1(){
-    var  categories = ["All","Electronics","Footwear","Fashion"];
-    categories.unshift("Kidswear");
-    console.log(categories)
-}
-f1()
+// Syntax
+unshift()
+unshift(elementN)
+
+// Example
+const array1 = [1, 2, 3];
+console.log(array1.unshift(4, 5));	// 5
+console.log(array1);				// Array [4, 5, 1, 2, 3]
 ```
-#### 3. splice():
+
+### 3. `splice()`:
+* The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
+* To create a new array with a segment removed and/or replaced without mutating the original array, use `toSpliced()`.
+* To access part of an array without modifying it, use `slice()`.
 * It adds the new Elements at specific location
 
-Syntax: `arrayName.splice(startIndex,deleteCount,"newElement1","newElement2");`.
+**Parameters**:
+1. start: The index at which to start changing the array. If greater than the length of the array, start will be set to the length of the array. In this case, no element will be deleted but the method will behave as an adding function, adding as many elements as items provided. If negative, it will begin that many elements from the end of the array. If start is negative infinity, it will begin from index 0.
+2. deleteCount (Optional): An integer indicating the number of elements in the array to remove from start.
+    - If deleteCount is omitted, or if its value is equal to or larger than array.length - start, then all the elements from start to the end of the array will be deleted. However, it must not be omitted if there is any item1 parameter.
+    - If deleteCount is 0 or negative, no elements are removed. In this case, you should specify at least one new element.
+3. item1, item2, ... (Optional): The elements to add to the array, beginning from start.
+
+* If we don't specify any elements, splice() will only remove elements from the array.
+
+**Return**: An array containing the deleted elements. If only one element is removed, an array of one element is returned. If no elements are removed, an empty array is returned.
+
 ```js
-function f1(){
-    var  categories = ["All","Electronics","Footwear","Fashion"];
-    categories.splice(3,0,"KidsWear");
-    console.log(categories)
-}
-f1()
+// Syntax
+splice(start)
+splice(start, deleteCount)
+splice(start, deleteCount, "newElement1")
+splice(start, deleteCount, "newElement1", "newElement2");`
+
+// Example
+const months = ['Jan', 'March', 'April', 'June'];
+months.splice(1, 0, 'Feb');		// Inserts at index 1
+console.log(months);			// Array ["Jan", "Feb", "March", "April", "June"]
+months.splice(4, 1, 'May');		// Replaces 1 element at index 4
+console.log(months);			// Array ["Jan", "Feb", "March", "April", "May"]
+months.splice(2, 1);			// Removes 1 element from index 2
+console.log(months);			// Array ["Jan", "Feb", "April", "May"]
 ```
 
 ### Removing Elements from an Array:
@@ -450,69 +490,41 @@ f1()
 2. shift()
 3. splice()
 
-#### 1. pop():
-* It removes the last Element of an Array
+### 1. `pop()`:
+* Removes the last element from an array and returns that element. 
+* This method changes the length of the array.
+
+**Return**: The removed element from the array; undefined if the array is empty.
+
 ```js
-function f1(){
-    var  categories = ["All","Electronics","Footwear","Fashion"];
-    categories.pop();
-    console.log(categories)
-}
-f1()
+// Syntax
+pop()
+// Example
+const plants = ['broccoli', 'cauliflower', 'cabbage', 'kale', 'tomato'];
+console.log(plants.pop());		// "tomato"
+console.log(plants);			// Array ["broccoli", "cauliflower", "cabbage", "kale"]
+plants.pop();
+console.log(plants);			// Array ["broccoli", "cauliflower", "cabbage"]
 ```
-#### 2. shift():
+
+### 2. `shift()`:
 * It removes the first Element of an Array.
+* This method changes the length of the array.
+
+**Return**: The removed element from the array; undefined if the array is empty
+
 ```js
-function f1(){
-    var  categories = ["All","Electronics","Footwear","Fashion"];
-    categories.shift();
-    console.log(categories)
-}
-f1()
+// Syntax
+shift()
+
+// Example
+const array1 = [1, 2, 3];
+const firstElement = array1.shift();
+console.log(firstElement);		// 1
+console.log(array1);			// Array [2, 3]
 ```
-#### 3.splice():
-* It removes and returns collection of items between specific index.
-```js
-function f1(){
-    var  categories = ["All","Electronics","Footwear","Fashion","Kidswear","Menswear"];
-    categories.splice(2,3);
-    console.log(categories)
-}
-f1()
-```
+
 ### Other Properties of Array:
-
-#### 1. sort():
-* The sort() method sorts an array alphabetically
-* In sort(), numbers will not be sorted properly as it considers only first digit.
-```js
-function f1(){
-    var  categories = ["Menswear","Footwear","Electronics","All","Fashion","Kidswear"];
-    categories.sort();
-    console.log(categories)
-}
-f1()
-```
-```js
-function f1(){
-    var  categories = ["Menswear","Footwear","Electronics","All","Fashion","Kidswear",10,3,13,2,11,0,20];
-    categories.sort(); 
-    document.write(categories)
-}
-f1()
-```
-
-#### 2. reverse():
-* It reverses an array.
-```js
-function f1(){
-    var  categories = ["Menswear","Footwear","Electronics","All","Fashion","Kidswear"];
-    categories.reverse();
-    document.write(categories)
-}
-f1()
-```
-
 ### 1. `at()`:
 * Takes an integer and returns the item at that index
 
@@ -925,195 +937,165 @@ console.log(Array.of('foo', 2, true));	// Array ["foo", 2, true]
 console.log(Array.of());				// Array []
 ```
 
-## 20. `pop()`
-
-Removes last element
-
-**Return**: The removed element from the array; `undefined` if the array is empty.
-
-***
-
-## 21. `push()`
+### 23. `reduce()`:
+* Executes "reducer" callback function on each element in order, passing in the return value from the calculation on the preceding element.
+* The final result of running the reducer across all elements of the array is a single value.
+* The first time that the callback is run there is no "return value of the previous calculation". 
+* If supplied, an initial value may be used in its place. Otherwise the array element at index 0 is used as the initial value and iteration starts from the next element (index 1 instead of index 0).
 
 **Parameters**:
-
-- **elementN**: The element(s) to add to the end of the array.
-
-**Return**: The new length property of the object upon which the method was called.
-
-***
-
-## 22. `reduce()`
-
-**Parameters**:
-
-- **callbackFn**: A *reducer* function that takes four arguments:
-
-  - **previousValue**: the value resulting from the previous call to callbackFn.
-
-  - **currentValue**: the value of the current element.
-
-  - **currentIndex**: the index position of currentValue in the array.
-
-  - **array**: the array to traverse.
-
-- **initialValue** (Optional): A value to which previousValue is initialized the first time the callback is called.
+1. callbackFn: A *reducer* function that takes four arguments:
+    - previousValue: the value resulting from the previous call to callbackFn.
+    - currentValue: the value of the current element.
+    - currentIndex: the index position of currentValue in the array.
+    - array: the array to traverse.
+2. initialValue (Optional): A value to which previousValue is initialized the first time the callback is called.
 
 **Return**: The value that results from running the *reducer* callback function to completion over the entire array.
 
-***
+```js
+// Syntax
+reduce(callbackFn)
+reduce(callbackFn, initialValue)
 
-## 23. `reduceRight()`
+// Example
+const array1 = [1, 2, 3, 4];
+// 0 + 1 + 2 + 3 + 4
+const initialValue = 0;
+const sumWithInitial = array1.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue
+);
+console.log(sumWithInitial);	// 10
+```
 
-Same as `reduce()` but executed from right side.
+### 24. `reduceRight()`:
+* Same as `reduce()` but executed from right side.
 
-***
+```js
+// Syntax
+reduceRight(callbackFn)
+reduceRight(callbackFn, initialValue)
 
-## 24. `reverse()`
+// Example
+const array1 = [[0, 1], [2, 3], [4, 5]];
+const result = array1.reduceRight(
+  (accumulator, currentValue) => accumulator.concat(currentValue)
+);
+console.log(result);	// Array [4, 5, 2, 3, 0, 1]
+```
+
+### 25. `reverse()`:
+* The reverse() method reverses an array in place and returns the reference to the same array
+* To reverse the elements in an array without mutating the original array, use `toReversed()`.
 
 **Return**: The reversed array.
 
-***
+```js
+// Syntax
+reverse()
 
-## 25. `shift()`
+// Example
+const array1 = ['one', 'two', 'three'];
+console.log('array1:', array1);			// "array1:" Array ["one", "two", "three"]
+const reversed = array1.reverse();
+console.log('reversed:', reversed);		// "reversed:" Array ["three", "two", "one"]
+// Careful: reverse is destructive -- it changes the original array.
+console.log('array1:', array1);			// "array1:" Array ["three", "two", "one"]
+```
 
-Removes first element
-
-**Return**: The removed element from the array; `undefined` if the array is empty
-
-***
-
-## 26. `slice()`
-
+### 26. `slice()`:
+* The slice() method returns a shallow copy of a portion of an array into a new array object selected from start to end indexes (end not included).
+* The original array will not be modified.
+ 
 **Parameters**:
-
-- **start** (Optional): Zero-based index at which to start extraction.
-  A negative index can be used, indicating an offset from the end of the sequence.
-  If start is undefined, slice starts from the index 0.
-  If start is greater than the index range of the sequence, an empty array is returned.
-
-- **end** (Optional): Zero-based index before which to end extraction. slice extracts up to but not including end.
-  A negative index can be used, indicating an offset from the end of the sequence.
-  If end is omitted, slice extracts through the end of the sequence.
-  If end is greater than the length of the sequence, slice extracts through to the end of the sequence.
+1. start (Optional): Zero-based index at which to start extraction.
+    - A negative index can be used, indicating an offset from the end of the sequence.
+    - If start is undefined, slice starts from the index 0.
+    - If start is greater than the index range of the sequence, an empty array is returned.
+2. end (Optional): Zero-based index before which to end extraction. slice extracts up to but not including end.
+    - A negative index can be used, indicating an offset from the end of the sequence.
+    - If end is omitted, slice extracts through the end of the sequence.
+    - If end is greater than the length of the sequence, slice extracts through to the end of the sequence.
 
 **Return**: A new array containing the extracted elements.
 
-***
+```js
+// Syntax
+slice()
+slice(start)
+slice(start, end)
 
-## 27. `some()`
+// Example
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+console.log(animals.slice(2));			// Array ["camel", "duck", "elephant"]
+console.log(animals.slice(2, 4));		// Array ["camel", "duck"]
+console.log(animals.slice(-2));			// Array ["duck", "elephant"]
+console.log(animals.slice(2, -1));		// Array ["camel", "duck"]
+console.log(animals.slice());			// Array ["ant", "bison", "camel", "duck", "elephant"]
+```
+
+### 27. `some()`:
+* The some() method tests whether at least one element in the array passes the test implemented by the provided function.
 
 **Parameters**:
-
-- **callbackFn**
-Function that is called for every element of arr. Each time callbackFn executes, the returned value is added to newArray.
-The callbackFn function accepts the following arguments:
-
-  - **element**: The current element being processed in the array.
-
-  - **index** (Optional): The index of the current element being processed in the array.
-
-  - **array** (Optional): The array map was called upon.
-
-- **thisArg** (Optional): Value to use as this when executing callbackFn.
+1. callbackFn: A function to test for each element, taking three arguments: element, index(optional), array(optional)
+2. thisArg (Optional): Value to use as this when executing callbackFn.
 
 **Return**: `true` if the callback function returns a truthy value for at least one element in the array. Otherwise, `false`.
 
-***
+```js
+// Syntax
+some(callbackFn)
+some(callbackFn, thisArg)
 
-## 28. `sort()`
+// Example
+const array = [1, 2, 3, 4, 5];
+// Checks whether an element is even
+const even = (element) => element % 2 === 0;
+console.log(array.some(even));	    // true
+```
+
+### 28. `sort()`:
+* The sort() method sorts the elements of an array in place and returns the reference to the same array, now sorted.
+* To sort the elements in an array without mutating the original array, use `toSorted()`.
+* sorts an array alphabetically
+* numbers will not be sorted properly as it considers only first digit
 
 **Parameters**:
+1. compareFn(Optional): Specifies a function that defines the sort order. If omitted, the array elements are converted to strings, then sorted according to each character's Unicode code point value.
+    - firstEl: The first element for comparison.
+    - secondEl: The second element for comparison.
 
-- **compareFn** (Optional): Specifies a function that defines the sort order. If omitted, the array elements are converted to strings, then sorted according to each character's Unicode code point value.
-
-  - **firstEl**: The first element for comparison.
-
-  - **secondEl**: The second element for comparison.
-
-  If return value is greater than 0 then *secondEl* comes before *firstEL*.
-  If return value is less than 0 the *firstEl* comes before *secondEl*.
-  If return value is 0 then relative position wont change
+* If return value is greater than 0 then *secondEl* comes before *firstEL*.
+* If return value is less than 0 the *firstEl* comes before *secondEl*.
+* If return value is 0 then relative position wont change
 
 **Return**: The sorted array. Note that the array is sorted in place, and no copy is made.
 
-***
+```js
+// Syntax
+sort()
+sort(compareFn)
 
-## 29. `splice()`
+// Example
+const months = ['March', 'Jan', 'Feb', 'Dec'];
+months.sort();
+console.log(months);	// Array ["Dec", "Feb", "Jan", "March"]
 
-**Parameters**:
+const array1 = [1, 30, 4, 21, 100000];
+array1.sort();
+console.log(array1);	// Array [1, 100000, 21, 30, 4]
+```
 
-- **start**: The index at which to start changing the array.
-  If greater than the length of the array, start will be set to the length of the array. In this case, no element will be deleted but the method will behave as an adding function, adding as many elements as items provided.
-  If negative, it will begin that many elements from the end of the array.
-  If start is negative infinity, it will begin from index 0.
-
-- **deleteCount** (Optional): An integer indicating the number of elements in the array to remove from start.
-
-  If deleteCount is omitted, or if its value is equal to or larger than `array.length - start`, then all the elements from start to the end of the array will be deleted. However, it must not be omitted if there is any item1 parameter.
-
-  If deleteCount is 0 or negative, no elements are removed. In this case, you should specify at least one new element.
-
-- **item1, item2, ...** (Optional): The elements to add to the array, beginning from start.
-
-  If you do not specify any elements, splice() will only remove elements from the array.
-
-**Return**: An array containing the deleted elements.
-If only one element is removed, an array of one element is returned.
-If no elements are removed, an empty array is returned.
-
-***
-
-## 30. `toString()`
-
+### 29. `toString()`:
 **Return**: A string representing the elements of the array.
 
-***
+```js
+// Syntax
+toString()
 
-## 31. `unshift()`
-
-**Parameters**:
-
-- **elementN**: The elements to add to the front of the arr.
-
-**Return**: The new length property of the object upon which the method was called.
-
-***
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Example
+const array1 = [1, 2, 'a', '1a'];
+console.log(array1.toString());		// "1,2,a,1a"
+```
