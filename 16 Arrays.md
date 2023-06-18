@@ -549,10 +549,10 @@ function f1(){
 f1()
 ```
 
-#### 1. at():
+### 1. `at()`:
 * Takes an integer and returns the item at that index
 
-#### 2. concat():
+### 2. `concat()`:
 * Used to merge 2 or more arrays
 * Doesnot change the existing arrays, but creates a new array
 
@@ -568,15 +568,9 @@ console.log(array3);
 // ["a", "b", "c", "d", "e", "f"]
 ```
 
-#### 3. copyWithin():
+### 3. `copyWithin()`:
 * Shallow copies part of an array to another location in the same array and returns it without modifying its length.
 * It also modifies the original array
-
-Syntax:
-```js
-copyWithin(target, start)
-copyWithin(target, start, end)
-```
 
 **Parameters**:
 1. target: Zero-based index at which to copy the sequence to. If negative, target will be counted from the end. If target is at or greater than arr.length, nothing will be copied. If target is positioned after start, the copied sequence will be trimmed to fit arr.length.
@@ -585,8 +579,14 @@ copyWithin(target, start, end)
 
 **Return**: A modified array
 
-#### 4. entries():
-* The `entries()` method returns a new array iterator object that contains the key/value pairs for each index in the array.
+```js
+// Syntax
+copyWithin(target, start)
+copyWithin(target, start, end)
+```
+
+### 4. `entries()`:
+* The entries() method returns a new array iterator object that contains the key/value pairs for each index in the array.
 
 **Return**: A new iterable iterator object.
 
@@ -599,13 +599,17 @@ console.log(iterator1.next().value);    // Array [2, "c"]
 console.log(iterator1.next().value);    // undefined
 ```
 
-#### 5. every():
-* The `every()` method tests whether all elements in the array pass the test implemented by the provided function.
-* It returns a Boolean value.
+### 5. `every()`:
+* The every() method tests whether all elements in the array pass the test implemented by the provided function.
 
 **Parameters**:
-1. callbackFn: A function to test for each element, taking three arguments: element, index(optional), array(optional)
+1. callbackFn: Function that produces an element of the new Array, taking three arguments:
+    - currentValue: The current element being processed in the array.
+    - index (Optional): The index of the current element being processed in the array.
+    - array (Optional): The array map was called upon.
 2. thisArg(optional): Return: true if the callbackFn function returns a truthy value for every array element. Otherwise, false
+
+**Return**: Boolean value.
 
 ```js
 const isBelowThreshold = (currentValue) => currentValue < 40;
@@ -613,8 +617,15 @@ const array1 = [1, 30, 39, 29, 10, 13];
 console.log(array1.every(isBelowThreshold));    // true
 ```
 
-#### 6. fill():
-* The `fill()` method changes all elements in an array to a static value, from start index to end index.
+### 6. `fill()`:
+* The fill() method changes all elements in an array to a static value, from start index to end index.
+
+**Parameters**:
+1. value: Value to fill the array with
+2. start: Start index (inclusive), default 0
+3. end: End index (exclusive), default arr.length
+
+**Return**: The modified array, filled with value
 
 ```js
 // Syntax
@@ -629,15 +640,14 @@ console.log(array1.fill(5, 1));			// Array [1, 5, 5, 5]
 console.log(array1.fill(6));			// Array [6, 6, 6, 6]
 ```
 
+### 7. `filter()`:
+* The filter() method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.
+
 **Parameters**:
-1. value: Value to fill the array with
-2. start: Start index (inclusive), default 0
-3. end: End index (exclusive), default arr.length
+1. callbackFn: A function to test for each element, takes 3 arguments: element, index(optional), array(optional)
+2. thisArg(optional)
 
-Return: The modified array, filled with value
-
-#### 7. filter():
-* The `filter()` method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.
+**Return**: A new array with the elements that pass the test. If no elements pass the test, an empty array will be returned.
 
 ```js
 // Syntax
@@ -650,19 +660,19 @@ const result = words.filter(word => word.length > 6);
 console.log(result);		// Array ["exuberant", "destruction", "present"]
 ```
 
-**Parameters**:
-1. callbackFn: A function to test for each element, takes 3 arguments: element, index(optional), array(optional)
-2. thisArg(optional)
-
-Return: A new array with the elements that pass the test. If no elements pass the test, an empty array will be returned.
-
-#### 8. find():
-* The `find()` method returns the first element in the provided array that satisfies the provided testing function.
+### 8. `find()`:
+* The find() method returns the first element in the provided array that satisfies the provided testing function.
 
     - If we need the index of the found element in the array, use `findIndex()`.
     - If we need to find the index of a value, use `indexOf()`. (It's similar to `findIndex()`, but checks each element for equality with the value instead of using a testing function.)
     - If we need to find if a value exists in an array, use `includes()`. Again, it checks each element for equality with the value instead of using a testing function.
     - If we need to find if any element satisfies the provided testing function, use `some()`.
+
+**Parameters**:
+1. callbackFn: A function to test for each element, taking three arguments: element, index(optional), array(optional)
+2. thisArg(optional)
+
+**Return**: The first element in the array that satisfies the provided testing function. Otherwise, undefined is returned.
 
 ```js
 // Syntax
@@ -675,14 +685,14 @@ const found = array1.find(element => element > 10);
 console.log(found);		// 12
 ```
 
+### 9. `findIndex()`:
+* The findIndex() method returns the index of the first element in an array that satisfies the provided testing function.
+
 **Parameters**:
 1. callbackFn: A function to test for each element, taking three arguments: element, index(optional), array(optional)
 2. thisArg(optional)
 
-Return: The first element in the array that satisfies the provided testing function. Otherwise, undefined is returned.
-
-#### 9. findIndex():
-* The findIndex() method returns the index of the first element in an array that satisfies the provided testing function.
+**Return**: The index of the first element in the array that passes the test. Otherwise, -1
 
 ```js
 // Syntax
@@ -695,23 +705,21 @@ const isLargeNumber = (element) => element > 13;
 console.log(array1.findIndex(isLargeNumber));	// 3
 ```
 
-**Parameters**:
-1. callbackFn: A function to test for each element, taking three arguments: element, index(optional), array(optional)
-2. thisArg(optional)
-
-Return: The index of the first element in the array that passes the test. Otherwise, -1
-
-#### 10. findLast():
-* The `findLast()` method iterates the array in reverse order and returns the value of the first element that satisfies the provided testing function.
+### 10. `findLast()`:
+* The findLast() method iterates the array in reverse order and returns the value of the first element that satisfies the provided testing function.
 * If no elements satisfy the testing function, undefined is returned.
 
-#### 11. findLastIndex():
-* The `findLastIndex()` method iterates the array in reverse order and returns the index of the first element that satisfies the provided testing function.
+### 11. `findLastIndex()`:
+* The findLastIndex() method iterates the array in reverse order and returns the index of the first element that satisfies the provided testing function.
 * If no elements satisfy the testing function, -1 is returned.
 
-#### 12. flat():
-* The `flat()` method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
+### 12. `flat()`:
+* The flat() method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
 
+**Parameters**:
+1. depth (Optional): Specifying how deep a nested array structure should be flattened. Defaults to 1.
+
+**Return**: A new array with the sub-array elements concatenated into it.
 ```js
 // Syntax
 flat()
@@ -725,13 +733,15 @@ console.log(arr2.flat(2));		// Array [0, 1, 2, Array [3, 4]]
 console.log(arr2.flat(3));		// Array [0, 1, 2, 3, 4]
 ```
 
+### 13. `flatMap()`:
+* The flatMap() method returns a new array formed by applying a given callback function to each element of the array, and then flattening the result by one level. 
+* It is identical to a map() followed by a flat() of depth 1 (arr.map(...args).flat()), but slightly more efficient than calling those two methods separately.
+
 **Parameters**:
-1. depth (Optional): The depth level specifying how deep a nested array structure should be flattened. Defaults to 1.
+1. callbackFn: A function to test for each element, taking three arguments: element, index(optional), array(optional)
+2. thisArg (Optional): Value to use as this when executing callbackFn.
 
-Return: A new array with the sub-array elements concatenated into it.
-
-#### 13. flatMap():
-
+**Return**: A new array with each element being the result of the callback function and flattened to a depth of 1.
 
 ```js
 // Syntax
@@ -744,21 +754,134 @@ const result = arr1.flatMap((num) => (num === 2 ? [2, 2] : 1));
 console.log(result);		// Array [1, 2, 2, 1]
 ```
 
+### 14. `forEach()`:
+* The forEach() method executes a provided function once for each array element.
+
+**Parameters**:
+1. callbackFn: A function to test for each element, taking three arguments: element, index(optional), array(optional)
+2. thisArg (Optional): Value to use as this when executing callbackFn.
+
+**Return**: `undefined`
+
+```js
+// Syntax
+forEach(callbackFn)
+forEach(callbackFn, thisArg)
+
+// Example
+const array1 = ['a', 'b', 'c'];
+array1.forEach(element => console.log(element));
+// "a"
+// "b"
+// "c"
+```
+
+### 15. `from()`:
+* The Array.from() static method creates a new, shallow-copied Array instance from an iterable or array-like object.
+
+**Parameters**:
+1. arrayLike: An array-like or iterable object to convert to an array.
+2. mapFn (Optional): Map function to call on every element of the array.
+3. thisArg (Optional): Value to use as this when executing mapFn.
+
+**Return**: A new Array instance.
+
+```js
+// Syntax
+Array.from(arrayLike)
+Array.from(arrayLike, mapFn)
+Array.from(arrayLike, mapFn, thisArg)
+
+// Example
+console.log(Array.from('foo'));						// Array ["f", "o", "o"]
+console.log(Array.from([1, 2, 3], x => x + x));		// Array [2, 4, 6]
+```
+
+### 16. `includes()`:
+* The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+
+**Parameters**:
+1. searchElement: The value to search for.
+2. fromIndex (Optional): The position in this array at which to begin searching for searchElement.
+
+* The first element to be searched is found at fromIndex for positive values of fromIndex, or at arr.length + fromIndex for negative values of fromIndex
+* Defaults to 0.
+
+**Return**: A boolean value which is true if the value searchElement is found within the array (or the part of the array indicated by the index fromIndex, if specified).
+
+```js
+// Syntax
+includes(searchElement)
+includes(searchElement, fromIndex)
+
+// Example
+const array1 = [1, 2, 3];
+console.log(array1.includes(2));		// true
+
+const pets = ['cat', 'dog', 'bat'];
+console.log(pets.includes('cat'));		// true
+console.log(pets.includes('at'));		// false
+```
+
+## 17. `indexOf()`
+
 **Parameters**:
 
-- **callbackFn**
-Function that is called for every element of arr. Each time callbackFn executes, the returned value is added to newArray.
-The callbackFn function accepts the following arguments:
+- **searchElement**: Element to locate in the array.
 
-  - **element**: The current element being processed in the array.
+- **fromIndex** (Optional): The index to start the search at.
+  If the index is greater than or equal to the array's length, -1 is returned, which means the array will not be searched.
+  If the provided index value is a negative number, it is taken as the offset from the end of the array.
+  If the provided index is 0, then the whole array will be searched.
+  Default: 0.
 
-  - **index** (Optional): The index of the current element being processed in the array.
+**Return**: The first index of the element in the array; -1 if not found.
 
-  - **array** (Optional): The array map was called upon.
+***
 
-- **thisArg** (Optional): Value to use as this when executing callbackFn.
+## 15. `isArray()`
+
+**Parameters**:
+
+- **value**: The value to be checked.
+
+**Return**: `true` if the value is an Array; otherwise, `false`.
+
+***
+
+## 16. `join()`
+
+**Parameters**:
+
+- **separator** (Optional): Specifies a string to separate each pair of adjacent elements of the array.
+If omitted, the array elements are separated with a comma (`,`).
+If separator is an empty string, all elements are joined without any characters in between them.
+
+**Return**: A string with all array elements joined. If `arr.length` is 0, the empty string is returned.
+
+***
+
+## 17. `lastIndexOf()`
+
+Same as `indexOf()`, but from last.
+
+***
+
+## 18. `map()`
+
+**Parameters**:
+1. callbackFn
+    * Function that is called for every element of arr.
+    * Each time callbackFn executes, the returned value is added to newArray.
+    * The callbackFn function accepts the following arguments:
+        - element: The current element being processed in the array.
+        - index (Optional): The index of the current element being processed in the array
+        - array (Optional): The array map was called upon.
+        - thisArg (Optional): Value to use as this when executing callbackFn.
 
 **Return**: A new array with each element being the result of the callback function.
+
+
 
 ***
 
@@ -928,8 +1051,6 @@ If no elements are removed, an empty array is returned.
 **Return**: The new length property of the object upon which the method was called.
 
 ***
-
-
 
 
 
