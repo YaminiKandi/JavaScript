@@ -1070,6 +1070,8 @@ console.log(array1);	// Array [1, 100000, 21, 30, 4]
 ```
 
 ### 29. `toString()`:
+* The toString() method returns a string representing the specified array and its elements.
+
 **Return**: A string representing the elements of the array.
 
 ```js
