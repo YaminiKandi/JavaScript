@@ -556,7 +556,7 @@ f1()
 * Used to merge 2 or more arrays
 * Doesnot change the existing arrays, but creates a new array
 
-Parameters - valueN (Optional)
+**Parameters** - valueN (Optional)
 * Arrays and/or values to concatenate into a nean array to another location in the same array and returns it without modifying its length.w*  array. 
 * If all valueN parameters are omitted, concat returns a shallow copy of the existing array on which it is called.
 
@@ -578,17 +578,17 @@ copyWithin(target, start)
 copyWithin(target, start, end)
 ```
 
-Parameters:
+**Parameters**:
 1. target: Zero-based index at which to copy the sequence to. If negative, target will be counted from the end. If target is at or greater than arr.length, nothing will be copied. If target is positioned after start, the copied sequence will be trimmed to fit arr.length.
 2. start: Zero-based index at which to start copying elements from. If negative, start will be counted from the end. If start is omitted, copyWithin will copy from index 0.
 3. end: Zero-based index at which to end copying elements from. copyWithin copies up to but not including end. If negative, end will be counted from the end. If end is omitted, copyWithin will copy until the last index (default to arr.length).
 
-Return: A modified array
+**Return**: A modified array
 
 #### 4. entries():
 * The `entries()` method returns a new array iterator object that contains the key/value pairs for each index in the array.
 
-Return: A new iterable iterator object.
+**Return**: A new iterable iterator object.
 
 ```js
 const array1 = ['a', 'b', 'c'];
@@ -603,7 +603,7 @@ console.log(iterator1.next().value);    // undefined
 * The `every()` method tests whether all elements in the array pass the test implemented by the provided function.
 * It returns a Boolean value.
 
-Parameters:
+**Parameters**:
 1. callbackFn: A function to test for each element, taking three arguments: element, index(optional), array(optional)
 2. thisArg(optional): Return: true if the callbackFn function returns a truthy value for every array element. Otherwise, false
 
@@ -629,7 +629,7 @@ console.log(array1.fill(5, 1));			// Array [1, 5, 5, 5]
 console.log(array1.fill(6));			// Array [6, 6, 6, 6]
 ```
 
-Parameters:
+**Parameters**:
 1. value: Value to fill the array with
 2. start: Start index (inclusive), default 0
 3. end: End index (exclusive), default arr.length
@@ -650,7 +650,7 @@ const result = words.filter(word => word.length > 6);
 console.log(result);		// Array ["exuberant", "destruction", "present"]
 ```
 
-Parameters:
+**Parameters**:
 1. callbackFn: A function to test for each element, takes 3 arguments: element, index(optional), array(optional)
 2. thisArg(optional)
 
@@ -675,7 +675,7 @@ const found = array1.find(element => element > 10);
 console.log(found);		// 12
 ```
 
-Parameters:
+**Parameters**:
 1. callbackFn: A function to test for each element, taking three arguments: element, index(optional), array(optional)
 2. thisArg(optional)
 
@@ -695,7 +695,7 @@ const isLargeNumber = (element) => element > 13;
 console.log(array1.findIndex(isLargeNumber));	// 3
 ```
 
-Parameters:
+**Parameters**:
 1. callbackFn: A function to test for each element, taking three arguments: element, index(optional), array(optional)
 2. thisArg(optional)
 
@@ -709,8 +709,262 @@ Return: The index of the first element in the array that passes the test. Otherw
 * The `findLastIndex()` method iterates the array in reverse order and returns the index of the first element that satisfies the provided testing function.
 * If no elements satisfy the testing function, -1 is returned.
 
-9. flat()
-Parameters:
+#### 12. flat():
+* The `flat()` method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
 
-depth (Optional): The depth level specifying how deep a nested array structure should be flattened. Defaults to 1.
+```js
+// Syntax
+flat()
+flat(depth)
+
+// Example
+const arr1 = [0, 1, 2, [3, 4]];
+console.log(arr1.flat());		// Array [0, 1, 2, 3, 4]
+const arr2 = [0, 1, 2, [[[3, 4]]]];
+console.log(arr2.flat(2));		// Array [0, 1, 2, Array [3, 4]]
+console.log(arr2.flat(3));		// Array [0, 1, 2, 3, 4]
+```
+
+**Parameters**:
+1. depth (Optional): The depth level specifying how deep a nested array structure should be flattened. Defaults to 1.
+
 Return: A new array with the sub-array elements concatenated into it.
+
+#### 13. flatMap():
+
+
+```js
+// Syntax
+flatMap(callbackFn)
+flatMap(callbackFn, thisArg)
+
+// Example
+const arr1 = [1, 2, 1];
+const result = arr1.flatMap((num) => (num === 2 ? [2, 2] : 1));
+console.log(result);		// Array [1, 2, 2, 1]
+```
+
+**Parameters**:
+
+- **callbackFn**
+Function that is called for every element of arr. Each time callbackFn executes, the returned value is added to newArray.
+The callbackFn function accepts the following arguments:
+
+  - **element**: The current element being processed in the array.
+
+  - **index** (Optional): The index of the current element being processed in the array.
+
+  - **array** (Optional): The array map was called upon.
+
+- **thisArg** (Optional): Value to use as this when executing callbackFn.
+
+**Return**: A new array with each element being the result of the callback function.
+
+***
+
+## 19. `of()`
+
+`Array.of()` is similar to `Array()`
+
+**Parameters**:
+
+- **elementN**: Elements used to create the array.
+
+**Return**: A new Array instance
+
+***
+
+## 20. `pop()`
+
+Removes last element
+
+**Return**: The removed element from the array; `undefined` if the array is empty.
+
+***
+
+## 21. `push()`
+
+**Parameters**:
+
+- **elementN**: The element(s) to add to the end of the array.
+
+**Return**: The new length property of the object upon which the method was called.
+
+***
+
+## 22. `reduce()`
+
+**Parameters**:
+
+- **callbackFn**: A *reducer* function that takes four arguments:
+
+  - **previousValue**: the value resulting from the previous call to callbackFn.
+
+  - **currentValue**: the value of the current element.
+
+  - **currentIndex**: the index position of currentValue in the array.
+
+  - **array**: the array to traverse.
+
+- **initialValue** (Optional): A value to which previousValue is initialized the first time the callback is called.
+
+**Return**: The value that results from running the *reducer* callback function to completion over the entire array.
+
+***
+
+## 23. `reduceRight()`
+
+Same as `reduce()` but executed from right side.
+
+***
+
+## 24. `reverse()`
+
+**Return**: The reversed array.
+
+***
+
+## 25. `shift()`
+
+Removes first element
+
+**Return**: The removed element from the array; `undefined` if the array is empty
+
+***
+
+## 26. `slice()`
+
+**Parameters**:
+
+- **start** (Optional): Zero-based index at which to start extraction.
+  A negative index can be used, indicating an offset from the end of the sequence.
+  If start is undefined, slice starts from the index 0.
+  If start is greater than the index range of the sequence, an empty array is returned.
+
+- **end** (Optional): Zero-based index before which to end extraction. slice extracts up to but not including end.
+  A negative index can be used, indicating an offset from the end of the sequence.
+  If end is omitted, slice extracts through the end of the sequence.
+  If end is greater than the length of the sequence, slice extracts through to the end of the sequence.
+
+**Return**: A new array containing the extracted elements.
+
+***
+
+## 27. `some()`
+
+**Parameters**:
+
+- **callbackFn**
+Function that is called for every element of arr. Each time callbackFn executes, the returned value is added to newArray.
+The callbackFn function accepts the following arguments:
+
+  - **element**: The current element being processed in the array.
+
+  - **index** (Optional): The index of the current element being processed in the array.
+
+  - **array** (Optional): The array map was called upon.
+
+- **thisArg** (Optional): Value to use as this when executing callbackFn.
+
+**Return**: `true` if the callback function returns a truthy value for at least one element in the array. Otherwise, `false`.
+
+***
+
+## 28. `sort()`
+
+**Parameters**:
+
+- **compareFn** (Optional): Specifies a function that defines the sort order. If omitted, the array elements are converted to strings, then sorted according to each character's Unicode code point value.
+
+  - **firstEl**: The first element for comparison.
+
+  - **secondEl**: The second element for comparison.
+
+  If return value is greater than 0 then *secondEl* comes before *firstEL*.
+  If return value is less than 0 the *firstEl* comes before *secondEl*.
+  If return value is 0 then relative position wont change
+
+**Return**: The sorted array. Note that the array is sorted in place, and no copy is made.
+
+***
+
+## 29. `splice()`
+
+**Parameters**:
+
+- **start**: The index at which to start changing the array.
+  If greater than the length of the array, start will be set to the length of the array. In this case, no element will be deleted but the method will behave as an adding function, adding as many elements as items provided.
+  If negative, it will begin that many elements from the end of the array.
+  If start is negative infinity, it will begin from index 0.
+
+- **deleteCount** (Optional): An integer indicating the number of elements in the array to remove from start.
+
+  If deleteCount is omitted, or if its value is equal to or larger than `array.length - start`, then all the elements from start to the end of the array will be deleted. However, it must not be omitted if there is any item1 parameter.
+
+  If deleteCount is 0 or negative, no elements are removed. In this case, you should specify at least one new element.
+
+- **item1, item2, ...** (Optional): The elements to add to the array, beginning from start.
+
+  If you do not specify any elements, splice() will only remove elements from the array.
+
+**Return**: An array containing the deleted elements.
+If only one element is removed, an array of one element is returned.
+If no elements are removed, an empty array is returned.
+
+***
+
+## 30. `toString()`
+
+**Return**: A string representing the elements of the array.
+
+***
+
+## 31. `unshift()`
+
+**Parameters**:
+
+- **elementN**: The elements to add to the front of the arr.
+
+**Return**: The new length property of the object upon which the method was called.
+
+***
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
