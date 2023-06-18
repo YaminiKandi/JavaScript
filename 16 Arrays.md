@@ -318,23 +318,6 @@ function f1(){
 }
 f1()
 ```
-
-#### 3. map():
-* `map()` method allows you to create a new array by applying a function to each element of an existing array.
-* The provided function takes three arguments:
-    - currentValue: The current element being processed in the array.
-    - index (optional): The index of the current element being processed.
-    - array (optional): The original array that map() was called upon.
-   
-```js
-function f1(){
-    var categories = ["All","Electronics","Fashion","Footwear","MensWear"];
-    categories.map(function(value){
-    console.log(value)
-    })
-}
-f1()
-```
 #### 4. toString():
 * `toString()` method is used to convert an array to a string representation. 
 * It returns a string where the array elements are converted to strings and joined together with commas as separators.
@@ -357,26 +340,7 @@ function f1(){
 f1()
 ```
 
-#### 5. join():
-* `join()` method is used to join the elements of an array into a string. 
-* It concatenates the elements together using a specified separator and returns the resulting string.
 
-```js
-const fruits = ['apple', 'banana', 'orange'];
-const fruitsString1 = fruits.join();
-console.log(fruitsString1); // Output: "apple,banana,orange"
-const fruitsString2 = fruits.join(' | ');
-console.log(fruitsString2); // Output: "apple | banana | orange"
-```
-
-```js
-function f1(){
-    var categories = ["All","Electronics","Fashion","Footwear","MensWear"];
-    var res = categories.join("-->");
-    console.log(res)
-}
-f1()
-```
 
 ### Dynamically creating a DOM Element for Array Elements:
 We can create any HTML DOM Element by using the method 
@@ -823,51 +787,92 @@ console.log(pets.includes('cat'));		// true
 console.log(pets.includes('at'));		// false
 ```
 
-## 17. `indexOf()`
+### 17. `indexOf()`:
+* The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
 
 **Parameters**:
-
-- **searchElement**: Element to locate in the array.
-
-- **fromIndex** (Optional): The index to start the search at.
-  If the index is greater than or equal to the array's length, -1 is returned, which means the array will not be searched.
-  If the provided index value is a negative number, it is taken as the offset from the end of the array.
-  If the provided index is 0, then the whole array will be searched.
-  Default: 0.
+1. searchElement: Element to locate in the array.
+2. fromIndex (Optional): The index to start the search at.
+    - If the index is greater than or equal to the array's length, -1 is returned, which means the array will not be searched.
+    - If the provided index value is a negative number, it is taken as the offset from the end of the array.
+    - If the provided index is 0, then the whole array will be searched.
+    - Default: 0.
 
 **Return**: The first index of the element in the array; -1 if not found.
 
-***
+```js
+//Syntax
+indexOf(searchElement)
+indexOf(searchElement, fromIndex)
 
-## 15. `isArray()`
+// Example
+const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+console.log(beasts.indexOf('bison'));			// 1
+// Start from index 2
+console.log(beasts.indexOf('bison', 2));		// 4
+console.log(beasts.indexOf('giraffe'));			// -1
+```
+
+### 18. `isArray()`:
+* The Array.isArray() static method determines whether the passed value is an Array.
 
 **Parameters**:
-
-- **value**: The value to be checked.
+1. value: The value to be checked.
 
 **Return**: `true` if the value is an Array; otherwise, `false`.
 
-***
+```js
+// Syntax
+Array.isArray(value)
 
-## 16. `join()`
+// Example
+console.log(Array.isArray([1, 3, 5]));					// true
+console.log(Array.isArray('[]'));						// false
+console.log(Array.isArray(new Array(5)));				// true
+console.log(Array.isArray(new Int16Array([15, 33])));	// false
+```
+
+### 19. `join()`:
+* The join() method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string.
+* If the array has only one item, then that item will be returned without using the separator.
 
 **Parameters**:
+1. separator (Optional): Specifies a string to separate each pair of adjacent elements of the array.
 
-- **separator** (Optional): Specifies a string to separate each pair of adjacent elements of the array.
-If omitted, the array elements are separated with a comma (`,`).
-If separator is an empty string, all elements are joined without any characters in between them.
+* If omitted, the array elements are separated with a comma (`,`).
+* If separator is an empty string, all elements are joined without any characters in between them.
 
 **Return**: A string with all array elements joined. If `arr.length` is 0, the empty string is returned.
 
+```js
+// Syntax
+join()
+join(separator)
+
+// Example
+const fruits = ['apple', 'banana', 'orange'];
+console.log(fruits.join());          // Output: "apple,banana,orange"
+console.log(fruits.join(' | '));     // Output: "apple | banana | orange"
+```
 ***
 
-## 17. `lastIndexOf()`
+### 20. `lastIndexOf()`:
+* Same as `indexOf()`, but from last.
+* The lastIndexOf() method returns the last index at which a given element can be found in the array, or -1 if it is not present. The array is searched backwards, starting at fromIndex.
 
-Same as `indexOf()`, but from last.
+```js
+// Syntax
+lastIndexOf(searchElement)
+lastIndexOf(searchElement, fromIndex)
 
-***
+// Example
+const animals = ['Dodo', 'Tiger', 'Penguin', 'Dodo'];
+console.log(animals.lastIndexOf('Dodo'));		// 3
+console.log(animals.lastIndexOf('Tiger'));		// 1
+```
 
-## 18. `map()`
+### 21. `map()`:
+* map() method allows you to create a new array by applying a function to each element of an existing array.
 
 **Parameters**:
 1. callbackFn
@@ -877,25 +882,48 @@ Same as `indexOf()`, but from last.
         - element: The current element being processed in the array.
         - index (Optional): The index of the current element being processed in the array
         - array (Optional): The array map was called upon.
-        - thisArg (Optional): Value to use as this when executing callbackFn.
+2. thisArg (Optional): Value to use as this when executing callbackFn.
 
 **Return**: A new array with each element being the result of the callback function.
 
+```js
+// Syntax
+map(callbackFn)
+map(callbackFn, thisArg)
 
+// Example
+function f1(){
+    var categories = ["All","Electronics","Fashion"];
+    categories.map(function(value){
+    console.log(value)
+    })
+}
+f1()
+//  "All"
+// "Electronics"
+// "Fashion"
+```
 
-***
-
-## 19. `of()`
-
-`Array.of()` is similar to `Array()`
+### 22. `of()`:
+* `Array.of()` is similar to `Array()`
+* Creates a new Array instance from a variable number of arguments, regardless of number or type of the arguments.
 
 **Parameters**:
-
-- **elementN**: Elements used to create the array.
+1. elementN: Elements used to create the array.
 
 **Return**: A new Array instance
 
-***
+```js
+// Syntax
+Array.of()
+Array.of(element0)
+Array.of(element0, element1)
+Array.of(element0, element1, /* … ,*/ elementN)
+
+// Example
+console.log(Array.of('foo', 2, true));	// Array ["foo", 2, true]
+console.log(Array.of());				// Array []
+```
 
 ## 20. `pop()`
 
