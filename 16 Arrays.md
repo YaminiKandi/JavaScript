@@ -549,10 +549,10 @@ function f1(){
 f1()
 ```
 
-#### 3. at():
+#### 1. at():
 * Takes an integer and returns the item at that index
 
-#### 4. concat():
+#### 2. concat():
 * Used to merge 2 or more arrays
 * Doesnot change the existing arrays, but creates a new array
 
@@ -568,7 +568,7 @@ console.log(array3);
 // ["a", "b", "c", "d", "e", "f"]
 ```
 
-#### 5. copyWithin():
+#### 3. copyWithin():
 * Shallow copies part of an array to another location in the same array and returns it without modifying its length.
 * It also modifies the original array
 
@@ -585,7 +585,7 @@ Parameters:
 
 Return: A modified array
 
-#### 6. entries():
+#### 4. entries():
 * The `entries()` method returns a new array iterator object that contains the key/value pairs for each index in the array.
 
 Return: A new iterable iterator object.
@@ -599,7 +599,7 @@ console.log(iterator1.next().value);    // Array [2, "c"]
 console.log(iterator1.next().value);    // undefined
 ```
 
-#### 7. every():
+#### 5. every():
 * The `every()` method tests whether all elements in the array pass the test implemented by the provided function.
 * It returns a Boolean value.
 
@@ -612,3 +612,105 @@ const isBelowThreshold = (currentValue) => currentValue < 40;
 const array1 = [1, 30, 39, 29, 10, 13];
 console.log(array1.every(isBelowThreshold));    // true
 ```
+
+#### 6. fill():
+* The `fill()` method changes all elements in an array to a static value, from start index to end index.
+
+```js
+// Syntax
+fill(value)
+fill(value, start)
+fill(value, start, end)
+
+// Example
+const array1 = [1, 2, 3, 4]
+console.log(array1.fill(0, 2, 4));		// Array [1, 2, 0, 0]
+console.log(array1.fill(5, 1));			// Array [1, 5, 5, 5]
+console.log(array1.fill(6));			// Array [6, 6, 6, 6]
+```
+
+Parameters:
+1. value: Value to fill the array with
+2. start: Start index (inclusive), default 0
+3. end: End index (exclusive), default arr.length
+
+Return: The modified array, filled with value
+
+#### 7. filter():
+* The `filter()` method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.
+
+```js
+// Syntax
+filter(callbackFn)
+filter(callbackFn, thisArg)
+
+// Example
+const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+const result = words.filter(word => word.length > 6);
+console.log(result);		// Array ["exuberant", "destruction", "present"]
+```
+
+Parameters:
+1. callbackFn: A function to test for each element, takes 3 arguments: element, index(optional), array(optional)
+2. thisArg(optional)
+
+Return: A new array with the elements that pass the test. If no elements pass the test, an empty array will be returned.
+
+#### 8. find():
+* The `find()` method returns the first element in the provided array that satisfies the provided testing function.
+
+    - If we need the index of the found element in the array, use `findIndex()`.
+    - If we need to find the index of a value, use `indexOf()`. (It's similar to `findIndex()`, but checks each element for equality with the value instead of using a testing function.)
+    - If we need to find if a value exists in an array, use `includes()`. Again, it checks each element for equality with the value instead of using a testing function.
+    - If we need to find if any element satisfies the provided testing function, use `some()`.
+
+```js
+// Syntax
+find(callbackFn)
+find(callbackFn, thisArg)
+
+// Example
+const array1 = [5, 12, 8, 130, 44];
+const found = array1.find(element => element > 10);
+console.log(found);		// 12
+```
+
+Parameters:
+1. callbackFn: A function to test for each element, taking three arguments: element, index(optional), array(optional)
+2. thisArg(optional)
+
+Return: The first element in the array that satisfies the provided testing function. Otherwise, undefined is returned.
+
+#### 9. findIndex():
+* The findIndex() method returns the index of the first element in an array that satisfies the provided testing function.
+
+```js
+// Syntax
+findIndex(callbackFn)
+findIndex(callbackFn, thisArg)
+
+// Example
+const array1 = [5, 12, 8, 130, 44];
+const isLargeNumber = (element) => element > 13;
+console.log(array1.findIndex(isLargeNumber));	// 3
+```
+
+Parameters:
+1. callbackFn: A function to test for each element, taking three arguments: element, index(optional), array(optional)
+2. thisArg(optional)
+
+Return: The index of the first element in the array that passes the test. Otherwise, -1
+
+#### 10. findLast():
+* The `findLast()` method iterates the array in reverse order and returns the value of the first element that satisfies the provided testing function.
+* If no elements satisfy the testing function, undefined is returned.
+
+#### 11. findLastIndex():
+* The `findLastIndex()` method iterates the array in reverse order and returns the index of the first element that satisfies the provided testing function.
+* If no elements satisfy the testing function, -1 is returned.
+
+9. flat()
+Parameters:
+
+depth (Optional): The depth level specifying how deep a nested array structure should be flattened. Defaults to 1.
+Return: A new array with the sub-array elements concatenated into it.
