@@ -11,7 +11,7 @@
     - Dynamically creating a DOM Element for Array Elements
     - Adding Elements into an Array
     - Removing Elements from an Array
-    - Other properties of an Array (sort, reverse)
+    - Other properties of an Array
 
 ## Primitive Data Types:
 * The predefined data types provided by JavaScript language are known as primitive data types. 
@@ -240,6 +240,8 @@ f1()
 4. toString()
 5. join()
 
+* For map(), toString(), join() refer other methods below
+
 #### 1. Loops:
 * Loops contains Initialization, condition and Counter.
 * we can create loops with
@@ -314,27 +316,6 @@ function f1(){
     var categories = ["All","Electronics","Fashion","Footwear"];
     for(var item of categories){
         console.log(item)
-    }
-}
-f1()
-```
-#### 4. toString():
-* `toString()` method is used to convert an array to a string representation. 
-* It returns a string where the array elements are converted to strings and joined together with commas as separators.
-
-```js
-const fruits = ['apple', 'banana', 'orange'];
-const fruitsString = fruits.toString();
-console.log(fruitsString); // Output: "apple,banana,orange"
-```
-
-```js
-function f1(){
-    var categories = ["All","Electronics","Fashion","Footwear","MensWear"];
-    var str = categories.toString();
-    var result = str.split(",")
-    for(var res of result){
-    console.log(res)
     }
 }
 f1()
