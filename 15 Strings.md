@@ -64,7 +64,7 @@ const passwordChecker = (password) => {
         // document.write(`Your Password is ${password}`.fontcolor("green").bold())
     } else {
         console.log('%cYour Password is weak','color: red; font-style: italic;')
-        // document.write(`Password you enteres contains ${len} characters please enter password with min 8 characters`.fontcolor("red").italics())
+        // document.write(`Password should contain min 8 characters`.fontcolor("red").italics())
     }
 }
 passwordChecker('Yamini')
@@ -85,7 +85,7 @@ passwordChecker('Yamini Kandi')
             }
             .invalid-style{
                 color:red;
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu;
             }
         </style>
         <script>
@@ -98,7 +98,7 @@ passwordChecker('Yamini Kandi')
                 msg.innerHTML=`You Entered Password is ${password}`;
                 msg.className = "valid-style";
             }else{
-               msg.innerHTML = `You enetered password contains ${len} chars plzz enter password with min 8 chars`;
+               msg.innerHTML = `Your password should contain min 8 chars`;
                msg.className = "invalid-style";
             }
            }
@@ -174,6 +174,7 @@ Valid Mobile Number -->
 ```
 
 ### 2. charCodeAt():
+
 **Parameters**
 1. index (optional): An integer between 0 and str.length-1 (default value = 0).
 
@@ -194,7 +195,6 @@ console.log(`CharCodeAt index ${index} is ${char}`)
 // "CharCodeAt index 2 is 108"
 ```
 
- 
 ```html
 <!-- Example2
 Checking for a valid name 
@@ -229,31 +229,24 @@ Checking for a valid name
 ```
 
 ### 3. concat():
-<h4>Parameters</h4>
 
-* One or more strings to concatenate
+**Parameters**
+1. stringN: One or more strings to concatenate
 
-<h4>Return</h4>
-
+**Return**
 *  A new string containing the combined text of the strings provided
 
 ```js
-function f1(){
-    var str1 = "Hello ";
-    var str2 = "World!";
-    document.write(str1.concat(str2))
-}
-f1()
+// Syntax
+concat(str1)
+
+// Example
+const str1 = 'Hello';
+const str2 = 'World';
+console.log(str1.concat(' ', str2));	// "Hello World"
+console.log(str2.concat(', ', str1));	// "World, Hello"
 ```
-```js
-function f1() {
-    var str1 = "Welcome";
-    var str2 = "to";
-    var str3 = "MyWorld";
-    document.write(str1.concat(" ",str2," ",str3))
-}
-f1()
-```
+
 ### 4. startsWith():
 <h4>Parameters</h4>
 
