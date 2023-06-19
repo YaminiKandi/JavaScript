@@ -9,6 +9,17 @@
 #### Length:
 It returns the total number of chars in a string.
 ```js
+const passwordChecker = (password) => {
+    var len = password.length;
+    if (len > 8){
+        console.log('Your password is strong')
+    } else {
+        console.log('Your password is weak')
+    }
+}
+passwordChecker('Yamini')           // Your password is weak
+passwordChecker('Yamini Kandi')     // Your password is strong
+
 function demo(){
     var  str = "Hello World";  
     var len = str.length;
@@ -43,31 +54,23 @@ demo();
     </body>
 </html>
 ```
-```js
-function submitClick(){
-    var password =   document.getElementById("txtPassword").value;
-    var len = password.length;
-    //simple Decision
-    if(len>=8){
-        document.write(`Your Password is ${password}`)
-    }else{
-        document.write(`Password you entered contains ${len} characters please enter password with min 8 characters`)
-    }
-}
-```
+
 ##### String formatting
 ```js
-function submitClick(){
-    var password =   document.getElementById("txtPassword").value;
+const passwordChecker = (password) => {
     var len = password.length;
-    //simple Decision
-    if(len>=8){
-        document.write(`Your Password is ${password}`.fontcolor("green").bold())
-    }else{
-        document.write(`Password you enteres contains ${len} characters please enter password with min 8 characters`.fontcolor("red").italics())
+    if (len > 8){
+        console.log('%cYour Password is strong','color: green; font-style: italic;')
+        // document.write(`Your Password is ${password}`.fontcolor("green").bold())
+    } else {
+        console.log('%cYour Password is weak','color: red; font-style: italic;')
+        // document.write(`Password you enteres contains ${len} characters please enter password with min 8 characters`.fontcolor("red").italics())
     }
 }
+passwordChecker('Yamini')
+passwordChecker('Yamini Kandi')
 ```
+
 ##### Formatting string with style attributes and classes:
 ```html
 <!DOCTYPE html>
@@ -113,24 +116,25 @@ function submitClick(){
 ```
 
 ## string manipulating methods:
-### 1. charAt():
-<h4>Parameters</h4>
+### 1. `charAt()`:
 
-* index: An integer between 0 and str.length-1. If the index cannot be converted to the integer or no index is provided, the default is 0, so the first character of string is returned.
+**Parameters**
+1. index: An integer between 0 and str.length-1. If the index cannot be converted to the integer or no index is provided, the default is 0, so the first character of string is returned.
 
-<h4>Return</h4>
-
+**Return**
 * A string representing the character (exactly one UTF-16 code unit) at the specified index. If index is out of range (invalid), charAt() returns an empty string.
 ```js
-function f1(){
-var str = "Hello World";
-var char = str.charAt(8);
-document.write(char);
-}
-f1()
+// Syntax
+charAt(index)
+
+// Example1
+const str = "Hello World";
+const char = str.charAt(8);
+console.log(char);      // r
 ```
-###### Checking for a valid Mobile number
 ```html
+<!-- Example2
+Valid Mobile Number -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -170,25 +174,31 @@ f1()
 ```
 
 ### 2. charCodeAt():
-<h4>Parameters</h4>
+**Parameters**
+1. index (optional): An integer between 0 and str.length-1 (default value = 0).
 
-* <b>index</b>: The index of a character i.e., an integer between o and str.length-1. This index value is optional ( default value = 0 )
-
-<h4>Return</h4>
-
+**Return**:
 * The unicode (ASCII) of the charcter at the specified index. If index is invalid, charCodeAt() returns NaN
 * Uppercase alphabets ASCII values starts from 65 to 90.
 * Lowercase alphabets ASCII values starts from 97 to 122.
+
 ```js
-function f1(){
-    var str = "HELLO WORLD";
-    var char = str.charCodeAt(2);  
-    document.write(`ASCII Value is ${char}`)
-}
-f1()
+// Syntax
+charCodeAt(index)
+
+// Example1
+const string = 'Hello World';
+const index = 2;
+const char = string.charCodeAt(index)
+console.log(`CharCodeAt index ${index} is ${char}`)
+// "CharCodeAt index 2 is 108"
 ```
-###### Checking for a valid name (starting with Uppercase letter)
+
+ 
 ```html
+<!-- Example2
+Checking for a valid name 
+(starting with Uppercase letter) -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -217,6 +227,7 @@ f1()
     </body>
 </html>
 ```
+
 ### 3. concat():
 <h4>Parameters</h4>
 
