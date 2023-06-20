@@ -256,10 +256,20 @@ console.log(str2.concat(', ', str1));	// "World, Hello"
 **Return**:
 * true if the given characters are found at the beginning of the string; Otherwise, false
 
-```html
+```js
+// Syntax
+startsWith(searchString)
+startsWith(searchString, position)
 
-Example2
-Checking for type of card using starting values
+// Example1
+const str1 = 'Saturday night plans';
+console.log(str1.startsWith('Sat'));		// true
+console.log(str1.startsWith('Sat', 3));		// false
+```
+
+```html
+<!-- Example2
+Checking for type of card using starting values -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -349,72 +359,124 @@ console.log(str2.endsWith('question'));		// false
     </body>
 </html>
 ```
+### 6. `includes()`:
 
-### 6. indexOf():
-<h4>Parameters</h4>
+**Parameters**:
+1. searchString: A string to be searched for withing given string
+2. position(optional): The position within the given string at which to begin searching for searchString
 
-* search String: Substring to search for. If this is not passed, it will be coerced to 'undefined'.
-* positional (optional): If position > length of given string, method wont search. If position < 0, then position = 0
+**Return**:
+* true if the search string is found anywhere within the given string; otherwise, false if not
 
-<h4>Return</h4>
+```js
+// Syntax
+includes(searchString)
+includes(searchString, position)
 
+// Example
+const sentence = 'The quick brown fox jumps over the lazy dog.';
+const includesChecker = (word) => {
+	console.log(`The word "${word}" ${sentence.includes(word) ? 'is' : 'is not'} in the sentence`);
+}
+includesChecker('fox');		// 'The word "fox" is in the sentence'
+includesChecker('jack');    // 'The word "jack" is not in the sentence'
+```
+
+### 7. `indexOf()`:
+* searches this string and returns the index of the first occurrence of the specified substring.
+
+**Parameters**:
+1. search String: Substring to search for. If this is not passed, it will be coerced to 'undefined'.
+2. positional (optional): If position > length of given string, method wont search. If position < 0, then position = 0
+
+**Return**:
 * The index of the first occurence of searchString found, or -1 if not found
 
 ```js
-function f1(){
-    var str = "Welcome to Myworld";
-    var pos = str.indexOf("t");
-    document.write(pos);
+// Syntax
+indexOf(searchString)
+indexOf(searchString, position)
+
+// Example
+const paragraph = 'The quick brown fox jumps over the lazy dog and the dog barked.';
+const searchIndexOf = (searchTerm) => {
+	const indexOfFirst = paragraph.indexOf(searchTerm);
+	console.log(`The index of the 1st "${searchTerm}" from the beginning is ${indexOfFirst}`);
+	console.log(`The index of the 2nd "${searchTerm}" is ${paragraph.indexOf(searchTerm, (indexOfFirst + 1))}`);
 }
-f1()
+searchIndexOf('dog');
+// "The index of the 1st "dog" from the beginning is 40"
+// "The index of the 2nd "dog" is 52"
 ```
+**Return value when using an empty string search**:
+*  Searching for an empty search string produces strange results.
+*  With no second argument, or with a second argument whose value is less than the calling string's length, the return value is the same as the value of the second argument
+*  With a second argument whose value is greater than or equal to the string's length, the return value is the string's length
+
 ```js
-function f1(){
-    var str = "Welcome to Myworld";
-    var pos = str.indexOf("e");
-    document.write(pos);
+"hello world".indexOf(""); // returns 0
+"hello world".indexOf("", 0); // returns 0
+"hello world".indexOf("", 8); // returns 8
+"hello world".indexOf("", 11); // returns 11
+"hello world".indexOf("", 22); // returns 11
+
+// return -1
+"Blue Whale".indexOf("Blue"); // returns  0
+"Blue Whale".indexOf("Blute"); // returns -1
+"Blue Whale".indexOf("Whale", 0); // returns  5
+"Blue Whale".indexOf("Whale", 5); // returns  5
+"Blue Whale".indexOf("Whale", 7); // returns -1
+
+// Checking Occurences
+const blueWhale = (text, searchItem) => {
+  if (text.indexOf(searchItem) !== -1) {
+    return "true; found 'Blue' in 'Blue Whale'"
+  } else {
+    return "false; no 'Blue' in 'Blue Whale'"
+  }
 }
-f1()
-```
-return -1:
-```js
-function f1(){
-    var str = "Welcome to Myworld";
-    var pos = str.indexOf("x");
-    document.write(pos);
-}
-f1()
+console.log(blueWhale('Blue Whale', 'Blue'));
+// "true; found 'Blue' in 'Blue Whale'"
 ```
 
-### 7. lastIndexOf():
-<h4>Parameters</h4>
+### 8. `lastIndexOf()`:
+* searches this string and returns the index of the last occurrence of the specified substring
 
-* search String: Substring to search for. If this is not passed, it will be coerced to 'undefined'.
-* positional (optional): If position < 0, then position = 0
+**Parameters**
+1. search String: Substring to search for. If this is not passed, it will be coerced to 'undefined'.
+2. positional (optional): If position < 0, then position = 0
 
-<h4>Return</h4>
-
+**Return**:
 * The index of the last occurence of searchString found, or -1 if not found
 
 ```js
-function f1(){
-    var str = "Welcome to Myworld";
-    var pos = str.lastIndexOf("l");
-    document.write(pos);
+// Syntax
+lastIndexOf(searchString)
+lastIndexOf(searchString, position)
+
+// Example
+const paragraph = 'The quick brown fox jumps over the lazy dog and the dog barked.';
+const searchIndexOf = (searchTerm) => {
+	const indexOfFirst = paragraph.lastIndexOf(searchTerm);
+	console.log(`The index of the 1st "${searchTerm}" from the end is ${indexOfFirst}`);
 }
-f1()
-```
-return -1:
-```js
-function f1(){
-    var str = "Welcome to Myworld";
-    var pos = str.lastIndexOf("x");
-    document.write(pos);
-}
-f1()
+searchIndexOf('dog');
+// 'The index of the 1st "dog" from the end is 52'
+
+"canal".lastIndexOf("a"); // returns 3
+"canal".lastIndexOf("a", 2); // returns 1
+"canal".lastIndexOf("a", 0); // returns -1
+"canal".lastIndexOf("x"); // returns -1
+"canal".lastIndexOf("c", -5); // returns 0
+"canal".lastIndexOf("c", 0); // returns 0
+"canal".lastIndexOf(""); // returns 5
+"canal".lastIndexOf("", 2); // returns 2
+
+// Case sensitivity
+"Blue Whale, Killer Whale".lastIndexOf("blue"); // returns -1
 ```
 
-### 8. match():
+### 9. `match()`:
 <h4>Parameters</h4>
 
 * match: The search value. A regular expression (or a string that will be converted to a regular expression). 
