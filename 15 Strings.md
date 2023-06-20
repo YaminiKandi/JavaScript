@@ -248,6 +248,7 @@ console.log(str2.concat(', ', str1));	// "World, Hello"
 ```
 
 ### 4. `startsWith()`:
+* Determines whether a string begins with the characters of a specified string, returning true or false as appropriate
 
 **Parameters**:
 1. search String: The characters to be searched for at the start of this string
@@ -308,6 +309,7 @@ Checking for type of card using starting values -->
 ```
 
 ### 5. 'endsWith()`:
+* Determines whether a string ends with the characters of a specified string, returning true or false as appropriate.
 
 **Parameters**:
 1. searchString: The characters to be searched for at the end of str.
@@ -319,7 +321,7 @@ Checking for type of card using starting values -->
 ```js
 // Syntax
 endsWith(searchString)
-endsWith(searchString, endPosition)
+endsWith(searchString, length)
 
 // Example
 const str1 = 'Cats are the best!';
@@ -359,7 +361,9 @@ console.log(str2.endsWith('question'));		// false
     </body>
 </html>
 ```
+
 ### 6. `includes()`:
+* Determine whether one string may be found within another string, returning true or false as appropriate.
 
 **Parameters**:
 1. searchString: A string to be searched for withing given string
@@ -477,294 +481,342 @@ searchIndexOf('dog');
 ```
 
 ### 9. `match()`:
-<h4>Parameters</h4>
+* Retrieves the result of matching a string against a regular expression.
 
-* match: The search value. A regular expression (or a string that will be converted to a regular expression). 
+**Parameters**
+1. match: The search value. A regular expression (or a string that will be converted to a regular expression). 
 
-<h4>Return</h4>
-
+**Return**
 * An array containing the matches. null if no match is found.
 * It returns true if matching with regular expression else it return false
 
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>match()</title>
-        <script>
-            function submitClick(){
-               var name = document.getElementById("txtName").value;
-               var msg = document.getElementById("msg");
-               var Regexp = /^[A-Za-z]+$/;
+```js
+// Syntax
+match(regexp)
+// Example 1
+const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
+const regex = /[A-Z]/g;
+const found = paragraph.match(regex);
+console.log(found);
+// Array ["T", "I"]
 
-               if(name==""){
-                  msg.innerHTML = "Plzz Enter Your Name";
-               }
-               else{
-                   if(name.match(Regexp)){
-                       msg.innerHTML = name;
-                   }
-                   else{
-                       msg.innerHTML = "Plzz Enter a Valid Name";
-                   }
-               }
-            }
-        </script>
-    </head>
-    <body>
-        <fieldset>
-            <legend>Enter Your Name</legend>
-            <input type="text" id="txtName"/><br><br>
-            <button type="submit" onclick="submitClick()">Submit</button>
-        </fieldset>
-        <h1 id="msg"></h1>
-    </body>
-</html>
+// Example 2
+const str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+const regexp = /[A-E]/gi;
+const matches = str.match(regexp);
+console.log(matches);
+// ['A', 'B', 'C', 'D', 'E', 'a', 'b', 'c', 'd', 'e']
 ```
 
-### 9. repeat():
-<h4>Parameters</h4>
+### 10. `repeat()`:
+* specified number of copies of the string, concatenated together
 
-* count: A non negative integer representing the specified number of copies of the given string.
+**Parameters**
+1. count: A non negative integer representing the specified number of copies of the given string.
 
-<h4>Return</h4>
-
+**Return**
 * A new string containing the specified number of copies of the given string
 
 ```js
+// Syntax
+repeat(count)
+// Example
 function f1() {
     var text = "Hello World";
     var result = text.repeat(2);
-    document.write(result)
+    console.log(result)
 }
 f1()
+// "I feel Happy! Happy! Happy! "
+const mood = 'Happy! ';
+console.log(`I feel ${mood.repeat(3)}`);
+// Expected output: "I feel Happy! Happy! Happy! "
 ```
 
-### 10. replace():
-<h4>Parameters</h4>
+### 11. `replace()`:
 
-* search String: The value, or regular expression, to search for.
-* new Value: The new value to replace with.
+**Parameters**:
+1. search String: The value, or regular expression, to search for.
+2. new Value: The new value to replace with.
 
-<h4>Return</h4>
-
+**Return**:
 * A new string where specified value has been replaced.
 
 ```js
+// Syntax
+replace(searchString, newValue)
+// Example 1
+const p = 'The quick brown fox jumps over the lazy dog and the dog reacted';
+console.log(p.replace('dog', 'monkey'));
+// "The quick brown fox jumps over the lazy monkey and the dog reacted"
+const regex = /Dog/i;
+console.log(p.replace(regex, 'ferret'));
+// "The quick brown fox jumps over the lazy ferret and the dog reacted"
+
+// Example 2
 function f1(){
     var str = "Mr Blue has a blue house and a blue car";
     var res = str.replace("blue","red");
-    document.write(res)         // Mr Blue has a red house and a blue car
+    console.log(res)         // Mr Blue has a red house and a blue car
 }
 f1()
+
+// Global replacement
+var res = str.replace(/blue/g,"red");
+document.write(res)        // Mr Blue has a red house and a red car
+
+ // case-insensitive
+var res = str.replace(/blue/i,"red");
+document.write(res)       // Mr red has a blue house and a blue car
+
+// Global case-insensitive:
+var res = str.replace(/blue/gi,"red");
+document.write(res)     // Mr red has a red house and a red car
 ```
-###### Global replacement
+
+### 12. `replaceAll()`:
+
+**Parameters**:
+1. search String: The value, or regular expression, to search for.
+2. new Value: The new value to replace with.
+
+**Return**:
+* A new string, with all matches of a pattern replaced by a replacement.
+
 ```js
-function f1(){
-    var str = "Mr Blue has a blue house and a blue car";
-    var res = str.replace(/blue/g,"red");
-    document.write(res)        // Mr Blue has a red house and a red car
-}
-f1()
-```
-###### case-insensitive:
-```js
-function f1(){
-    var str = "Mr Blue has a blue house and a blue car";
-    var res = str.replace(/blue/i,"red");
-    document.write(res)       // Mr red has a blue house and a blue car
-}
-f1()
-```
-###### Global case-insensitive:
-```js
-function f1(){
-    var str = "Mr Blue has a blue house and a blue car";
-    var res = str.replace(/blue/gi,"red");
-    document.write(res)     // Mr red has a red house and a red car
-}
-f1()
+// Syntax
+replace(searchString, newValue)
+// Example
+const p = 'The quick brown fox jumps over the lazy dog and the dog barked';
+console.log(p.replaceAll('dog', 'monkey'));
+// "The quick brown fox jumps over the lazy monkey and the monkey barked"
+
+// Global flag required when calling replaceAll with regex
+const regex = /Dog/ig;
+console.log(p.replaceAll(regex, 'ferret'));
+// "The quick brown fox jumps over the lazy ferret and the ferret barked"
 ```
 
-### 11. search():
-<h4>Parameters</h4>
+### 13. `search()`:
+* executes a search for a match between a regular expression and this String object.
 
-* search Value: The search value or search character or regular expression (or a string that will be converted to a regular expression), to search for.
+**Parameters**:
+1. search Value: The search value or search character or regular expression (or a string that will be converted to a regular expression), to search for.
 
-<h4>Return</h4>
-
+**Return**:
 * The position of the 1st match. -1, if no match.
 
 ```js
-function f1(){
-    var str = "Hello World";
-    var res = str.search("l");
-    document.write(res)     // 2
+// Syntax
+search(regexp)
+
+// Example
+const paragraph = 'The quick brown fox jumps over the lazy dog, the dog barked?';
+// Any character that is not a word character or whitespace
+const regex = /[^\w\s]/g;
+console.log(paragraph.search(regex));			// 43
+console.log(paragraph[paragraph.search(regex)]);	// ","
+
+// Example
+var string = "Hello World";
+const searchString = (input) => {
+  var res = string.search(input)
+  console.log(res)
 }
-f1()
-```
-###### no match
-```js
-function f1(){
-    var str = "Hello World";
-    var res = str.search("z");
-    document.write(res)    // -1
-}
-f1()
+searchString('l')	// 2
+searchString('z')	// -1
 ```
 
-### 12. split():
-<h4>Parameters</h4>
+### 14. `slice()`:
+* extracts a section of a string and returns it as a new string, without modifying the original string.
 
-* separator (optional): 
-    1. If separator contains multiple characters, that entire character sequence must be found in order to split.
-    2. If separator is omitted or doesnot occur in string, the returned array contains one element consisting of the entire string.
-    3. If separator appears at the beginning (or end) of the string, it still has the effect of splitting. The result is an empty (i.e., zero length) string, which appears at the first (or last) position of the returned array.
-    4. If separator is an empty string(""), string is converted to an array of each of its UTF-16 characters.
+**Parameters**:
+1. index start: The index of the first character to include in the returned string. The start position.
+2. index end (optional): The end position (upto, but not including). Default is string length
 
-* limit (optional): 
-    1. A non-negative integer specifying a limit on the number of substrings to be included in the array. 
-    2. If provided, splits the string at each occurence of the specified separator., but stops when limit entries have been placed in the array. 
-    3. Any leftover text is not included in the array at all. 
-    4. The array may contain fewer entries than limit if the end of the string is reached before the limit is reached, If limit is 0, [ ] is returned.
-
-<h4>Return</h4>
-
-* Divides a string into an ordered list of substrings, put these substrings into an array, and returns the array.
-
-### 13. slice():
-<h4>Parameters</h4>
-
-* index start: The index of the first character to include in the returned string. The start position.
-* index end (optional): The end position (upto, but not including). Default is string length
-
-<h4>Return</h4>
-
+**Return**:
 * A new string containing extracted part of the string.
 
-###### It can read the values towards Ending
 ```js
-function f1(){
-    var str = "Hello World";
-    var res = str.slice(6,11);
-    document.write(res)     // World
+// Syntax
+slice(indexStart)
+slice(indexStart, indexEnd)
+
+// Example
+var string = 'Hello World';
+const stringSlice = (indexStart, indexEnd) => {
+  const res = string.slice(indexStart, indexEnd)
+  console.log(res)
 }
-f1()
+stringSlice(6)			// "World"
+// read the values towards Ending
+stringSlice(6, 11)		// "World"
+// Not Valid towards beginning
+stringSlice(6, 0)		// ""
 ```
 
-###### Not Valid towards beginning
+### 15. `split()`:
+* takes a pattern and divides a String into an ordered list of substrings by searching for the pattern.
+* puts these substrings into an array, and returns the array.
+
+**Parameters**
+
+1. separator (optional): 
+    - If separator contains multiple characters, that entire character sequence must be found in order to split.
+    - If separator is omitted or doesnot occur in string, the returned array contains one element consisting of the entire string.
+    - If separator appears at the beginning (or end) of the string, it still has the effect of splitting. The result is an empty (i.e., zero length) string, which appears at the first (or last) position of the returned array.
+    - If separator is an empty string(""), string is converted to an array of each of its UTF-16 characters.
+
+2. limit (optional): 
+    - A non-negative integer specifying a limit on the number of substrings to be included in the array.
+    - If provided, splits the string at each occurence of the specified separator., but stops when limit entries have been placed in the array.
+    - Any leftover text is not included in the array at all.
+    - The array may contain fewer entries than limit if the end of the string is reached before the limit is reached, If limit is 0, [ ] is returned.
+
+**Return**:
+* Divides a string into an ordered list of substrings, put these substrings into an array, and returns the array.
+
 ```js
-function f1(){
-    var str = "Hello World";
-    var res = str.slice(6,0);
-    document.write(res)
-}
-f1()
+// Syntax
+split(separator)
+split(separator, limit)
+
+// Example
+const str = 'The quick brown fox jumps over the lazy dog.';
+const words = str.split(' ');
+console.log(words[3]);		// "fox"
+const chars = str.split('');
+console.log(chars[8]);		// "k"
+const strCopy = str.split();
+console.log(strCopy);		// Array ["The quick brown fox jumps over the lazy dog."]
 ```
 
-### 14. substring():
-<h4>Parameters</h4>
+### 16. `substring()`:
+* returns the part of the string from the start index upto and excluding the end index, or to the end of the string if no end index is supplied.
 
-* index start: The index of the first character to include in the returned substring.
-* index end (optional): The index of the first character to exclude from the returned string
+**Parameters**:
+1. index start: The index of the first character to include in the returned substring.
+2. index end (optional): The index of the first character to exclude from the returned string
 
-<h4>Return</h4>
-
+**Return**:
 * A new string containing specified part of the given string.
 
-###### Towards ending
 ```js
-function f1(){
-    var str = "Hello World";
-    var res = str.substring(6,11);
-    document.write(res)
+// Syntax
+substring(indexStart)
+substring(indexStart, indexEnd)
+
+// Example
+var string = 'Hello World';
+const stringProp = (indexStart, indexEnd) => {
+  const stringSlice = string.slice(indexStart, indexEnd)
+  const stringSubstring = string.substring(indexStart, indexEnd)
+  console.log(`String slice value: ${stringSlice}`)
+  console.log(`String substring value: ${stringSubstring}`)
 }
-f1()
+// Towards ending
+stringProp(6,11);
+// "String slice value: World"
+// "String substring value: World"
+
+// Towards beginning
+stringProp(6,0);
+// "String slice value: "
+// "String substring value: Hello "
 ```
 
-###### Towards beginning
-```js
-function f1(){
-    var str = "Hello World";
-    var res = str.substring(6,0);
-    document.write(res)
-}
-f1()
-```
-
-### 15. substr(): 
-(deprecated)
-<h4>Parameters</h4>
-
-* index start: The index of the first character to include in the returned substring.
-* length (optional): Number of characters to be included in the returned string
-
-<h4>Return</h4>
-
-* A new string containing specified part of the given string.
-
-```js
-function f1(){
-    var str = "Hello World";
-    var res = str.substr(6,2);
-    document.write(res)
-}
-f1()
-```
-###### Read 6 characters from end
-```js
-function f1(){
-    var str = "Hello World";
-    var res = str.substr(-6);
-    document.write(res)
-}
-f1()
-```
 -----------
 
 #### Difference between substring() and slice():
-
 1. If second parameter is lessthan first parameter, substring() will swap both and return resulting substring. But slice() will just return empty substring.
-2. If parameters are zero. substring() will treat them as zero, slice() will count backwards from end of the string ti find the right indices.
+```js
+var string = 'Hello World';
+const stringProp = (indexStart, indexEnd) => {
+  const stringSlice = string.slice(indexStart, indexEnd)
+  const stringSubstring = string.substring(indexStart, indexEnd)
+  console.log(`String slice value: ${stringSlice}`)
+  console.log(`String substring value: ${stringSubstring}`)
+}
+stringProp(6,0)
+// "String slice value: "
+// "String substring value: Hello "
+```
+
+2. If either or both of the arguments are negative or NaN, the substring() method treats them as if they were 0.
+3. slice() also treats NaN arguments as 0, but when it is given negative values it counts backwards from the end of the string to find the indexes.
+
+```js
+stringProp(-5, 2)
+stringProp(-5, -2)
+
+// "String slice value: "
+// "String substring value: He"
+// "String slice value: Wor"
+// "String substring value: "
+```
 
 -----------
 
 
-### 16. toLowerCase():
-<h4>Return</h4>
+### 17. `toLowerCase()`:
 
+**Return**:
 * A new string representing the calling string converted to lowercase.
 
 ```js
-function f1(){
-    var str = "HELLO WORLD";
-    var res = str.toLowerCase();
-    document.write(res)
-}
-f1()
+// Syntax
+toLowerCase()
+
+// Example
+const sentence = 'HELLO WORLD';
+console.log(sentence.toLowerCase());
+// "hello world"
 ```
 
-### 17. toUpperCase():
+### 18. `toUpperCase()`:
 
-<h4>Return</h4>
-
+**Return**:
 * A new string representing the calling string converted to uppercase.
 
 ```js
-function f1(){
-    var str = "Hello World";
-    var res = str.toUpperCase();
-    document.write(res)
-}
-f1()
+// Syntax
+toUpperCase()
+
+// Example
+const sentence = 'hello world';
+console.log(sentence.toUpperCase());
+// "HELLO WORLD"
 ```
 
-### 18. trim():
+### 19. `toString()`:
 
-<h4>Return</h4>
+**Return value**:
+* A string representing the specified string value.
 
+```js
+// Syntax
+toString()
+
+// Example
+const stringObj = new String('foo');
+console.log(stringObj);			// String { "foo" }
+console.log(stringObj.toString());	// "foo"
+```
+
+### 20. `trim()`:
+
+**Return**:
 * A new string representing the given stripped of whitespace from both its beginning and end
 
+```js
+// Syntax
+trim()
+
+// Example
+const greeting = '   Hello world!   ';
+console.log(greeting);		// "   Hello world!   ";
+console.log(greeting.trim());	// "Hello world!";
+```
 
 ```html
 <!DOCTYPE html>
@@ -796,8 +848,16 @@ f1()
 </html>
 ```
 
-### 19. valueOf():
+### 21. `valueOf()`:
 
-<h4>Return</h4>
+**Return**:
+* A string representing the primitive value of a given string object
 
-* A string representing the primitive value of given string object
+```js
+// Syntax
+valueOf()
+
+// Example
+const x = new String("Hello world");
+console.log(x.valueOf()); // 'Hello world'
+```
