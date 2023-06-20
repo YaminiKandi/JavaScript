@@ -173,7 +173,7 @@ Valid Mobile Number -->
 </html>
 ```
 
-### 2. charCodeAt():
+### 2. `charCodeAt()`:
 
 **Parameters**
 1. index (optional): An integer between 0 and str.length-1 (default value = 0).
@@ -228,7 +228,7 @@ Checking for a valid name
 </html>
 ```
 
-### 3. concat():
+### 3. `concat()`:
 
 **Parameters**
 1. stringN: One or more strings to concatenate
@@ -247,17 +247,19 @@ console.log(str1.concat(' ', str2));	// "Hello World"
 console.log(str2.concat(', ', str1));	// "World, Hello"
 ```
 
-### 4. startsWith():
-<h4>Parameters</h4>
+### 4. `startsWith()`:
 
-* search String: The characters to be searched for at the start of this string
-* position (optional): The position in this string at which to begin searching for searchString. Defaults to 0.
+**Parameters**:
+1. search String: The characters to be searched for at the start of this string
+2. position (optional): The position in this string at which to begin searching for searchString. Defaults to 0.
 
-<h4>Return</h4>
-
+**Return**:
 * true if the given characters are found at the beginning of the string; Otherwise, false
-###### Checking for type of card using starting values
+
 ```html
+
+Example2
+Checking for type of card using starting values
 <!DOCTYPE html>
 <html>
     <head>
@@ -295,15 +297,27 @@ console.log(str2.concat(', ', str1));	// "World, Hello"
 </html>
 ```
 
-### 5. endsWith():
-<h4>Parameters</h4>
+### 5. 'endsWith()`:
 
-* search String: The characters to be searched for at the end of the string
-* length (optional): If provided, it is used as the length of the string. Defaults to str.length.
+**Parameters**:
+1. searchString: The characters to be searched for at the end of str.
+2. length(optional): If provided, it is used as the length of str. Defaults to str.length
+   
+**Return**:
+* true if the given characters are found at the end of the string; otherwise, false
 
-<h4>Return</h4>
+```js
+// Syntax
+endsWith(searchString)
+endsWith(searchString, endPosition)
 
-* true if the given characters are found at the end of the string; Otherwise, false
+// Example
+const str1 = 'Cats are the best!';
+console.log(str1.endsWith('best!'));		// true
+console.log(str1.endsWith('best', 17));		// true
+const str2 = 'Is this a question?';
+console.log(str2.endsWith('question'));		// false
+```
 
 ```html
 <!DOCTYPE html>
