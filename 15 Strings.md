@@ -755,9 +755,6 @@ stringProp(-5, -2)
 // "String substring value: "
 ```
 
------------
-
-
 ### 17. `toLowerCase()`:
 
 **Return**:
